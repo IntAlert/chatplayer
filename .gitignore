@@ -1,0 +1,17 @@
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
+.chrome
+.lgtm
+yarn.lock
+.vscode
+.editorconfig
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+
+
