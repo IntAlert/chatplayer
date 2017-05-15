@@ -76,7 +76,6 @@ function addPromptMessages(state, stage_id) {
 
   var prompts = state.getIn(['script', 'stages', stage_id, 'prompts'])
 
-  console.log(stage_id, prompts)
 
   const nextState = state.update('feed', arr => {
     

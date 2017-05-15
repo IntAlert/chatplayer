@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { respond } from './actions';
-// import { SCRIPT } from 'global/constants';
 
 import UserChoice from 'components/UserChoice';
 
@@ -59,8 +58,6 @@ const mapStateToProps  = (state) => {
   // const feed = state.getIn(['userChoices', 'feed']);
   const current_stage_id = state.getIn(['home', 'current_stage_id']);
   const choices = state.getIn(['home', 'script', 'stages', current_stage_id, 'choices']).toJS()
-  console.log(choices);
-
 
   return {
     current_stage_id,

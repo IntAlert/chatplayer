@@ -13,7 +13,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import Conversation from 'components/Conversation';
-import {SCRIPT} from 'global/constants';
 import {SCRIPT_FETCH_REQUESTED} from './constants'
 import {loadScript} from './actions'
 
@@ -31,8 +30,6 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
         <div>
           <Conversation
             feed={this.props.feed}
-            script={SCRIPT}
-            current_stage_id={this.props.current_stage_id} 
           />
 
           <a onClick={ this.props.onLoad }>
@@ -73,9 +70,8 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = (state) => {
 
   return {
-    script_loaded: state.getIn(['home', 'script_loaded'], false),
-    feed: state.getIn(['home', 'feed'], []),
-    current_stage_id: state.getIn('home', 'current_stage_id')
+    script_loaded: state.getIn( ['home', 'script_loaded'] ),
+    feed: state.getIn( ['home', 'feed'] )
   }
 }
 
