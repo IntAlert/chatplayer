@@ -24,10 +24,6 @@ function UserChoice(props) {
   );
 }
 
-{/*<div onClick={props.onClick}>
-      {props.choice.text}
-    </div>*/}
-
 UserChoice.propTypes = {
 
 };

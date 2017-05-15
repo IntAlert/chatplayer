@@ -26,13 +26,11 @@ import {
  *
  * @return {object}    An action object with a type of RESPOND
  */
-export function respond(script_id, option_id) {
-  console.log('respond')
+export function respond(stage_id, choice_id) {
+  
   return {
     type: RESPOND,
-    script_id,
-    option_id,
+    stage_id,
+    choice_id,
   };
 }
-
-

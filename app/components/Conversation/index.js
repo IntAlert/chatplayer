@@ -30,6 +30,7 @@ const chatMessages = [{
 function Conversation(props) {
 
     const messages = props.feed.map(item => {
+        console.log(item);
         return {
         type: item.type,
         image: "dog.jpg",
@@ -41,7 +42,7 @@ function Conversation(props) {
     return (
         <ConversationWrapper>
             <ChatFeed script = {props.script} messages = {messages} />
-            <UserChoices script = {props.script} current_script_id = {props.current_script_id} />
+            <UserChoices script = {props.script} current_stage_id = {props.current_stage_id} />
         </ConversationWrapper>
     );
 }

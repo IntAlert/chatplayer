@@ -10,33 +10,4 @@
  */
 
 export const RESPOND = 'borderbot/Home/RESPOND';
-export const INCREMENT = 'borderbot/Home/INCREMENT';
-
-export const SCRIPT = {
-    "1": {
-        text: "hello",
-        options: {
-            "1": {
-                text: "hi",
-                next_script_id: "2"
-            },
-            "2": {
-                text: "ho",
-                next_script_id: "2"
-            }
-        }
-    },
-    "2": {
-        text: "bye",
-        options: {
-            "1": {
-                text: "see ya",
-                next_script_id: "1"
-            },
-            "2": {
-                text: "byeee",
-                next_script_id: "1"
-            }
-        }
-    }
-};
+export const SCRIPT_FETCH_REQUESTED = 'borderbot/Home/SCRIPT_FETCH_REQUESTED';

@@ -15,9 +15,7 @@
  *    }
  */
 
-import {
-  RESPOND, INCREMENT
-} from './constants';
+import { SCRIPT_FETCH_REQUESTED } from './constants';
 
 /**
  * Changes the input field of the form
@@ -26,18 +24,9 @@ import {
  *
  * @return {object}    An action object with a type of RESPOND
  */
-export function respond(script_id, option_id) {
+export function loadScript() {
+  console.log('loadScript')
   return {
-    type: RESPOND,
-    script_id,
-    option_id,
+    type: SCRIPT_FETCH_REQUESTED
   };
 }
-
-export function testIncrement() {
-  console.log('called actions');
-  return {
-    type: INCREMENT
-  };
-}
-

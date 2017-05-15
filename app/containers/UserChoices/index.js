@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { respond } from './actions';
-import { SCRIPT } from './constants';
+// import { SCRIPT } from 'global/constants';
 
 import UserChoice from 'components/UserChoice';
 
@@ -26,7 +26,7 @@ export class UserChoices extends React.PureComponent { // eslint-disable-line re
         (
           <UserChoice
             key={choice_id}
-            onClick={() => this.props.onLinkClick(this.props.current_script_id, choice_id)}
+            onClick={() => this.props.onLinkClick(this.props.current_stage_id, choice_id)}
             choice={choice}
           />
         )
@@ -36,7 +36,6 @@ export class UserChoices extends React.PureComponent { // eslint-disable-line re
     return (
       <div>
         {choiceList}
-        {/*<a onClick={this.props.onLinkClick} script_id={"1"} option_id={"1"}>click</a>*/}
       </div>
     );
   }
@@ -49,23 +48,22 @@ UserChoices.propTypes = {
 export function mapDispatchToProps(dispatch, ownProps) {
   return {
     dispatch,
-    onLinkClick: (script_id, option_id) => {
-      return dispatch(respond(script_id, option_id))
+    onLinkClick: (stage_id, choice_id) => {
+      return dispatch(respond(stage_id, choice_id))
     }
   };
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps  = (state) => {
 
-  const feed = state.getIn(['userChoices', 'feed']);
-  const current_script_id = state.getIn(['userChoices', 'current_script_id']);
-  const choices = SCRIPT["1"].options;
-  console.log(SCRIPT["1"])
+  // const feed = state.getIn(['userChoices', 'feed']);
+  const current_stage_id = state.getIn(['home', 'current_stage_id']);
+  const choices = state.getIn(['home', 'script', 'stages', current_stage_id, 'choices']).toJS()
+  console.log(choices);
+
 
   return {
-    // feed: state.getIn(['userChoices', 'feed']),
-    // current_script_id: state.getIn('userChoices', 'current_script_id')
-    current_script_id,
+    current_stage_id,
     choices
   }
 }
