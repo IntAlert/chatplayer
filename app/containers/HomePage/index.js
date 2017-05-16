@@ -16,17 +16,15 @@ import Conversation from 'components/Conversation';
 import {SCRIPT_FETCH_REQUESTED} from './constants'
 import {loadScript, startTimer} from './actions'
 
-class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   componentDidMount() {
     this.props.onLoad();
     this.props.onStartTimer();
-    return 
   }
 
   render() {
-
-
+console.log('homepage', this.props);
     if (this.props.script_loaded) {
       var homePageContent = (
         <div>
@@ -73,7 +71,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = (state) => {
-
+  
   return {
     script_loaded: state.getIn( ['home', 'script_loaded'] ),
     feed: state.getIn( ['home', 'feed'] )

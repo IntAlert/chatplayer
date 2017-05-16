@@ -64,9 +64,7 @@ function homeReducer(state = initialState, action) {
 				})) 
 				// add bot's prompts 1+ messages 
 
-
-
-      nextState = addPromptMessages(nextState, next_stage_id)
+        nextState = addPromptMessages(nextState, next_stage_id)
 
 
       return nextState
@@ -79,24 +77,27 @@ function homeReducer(state = initialState, action) {
         return ( message.type == 1 ) && message.status == BOT_MESSAGE_INVISIBLE
       })
       if (invisibleMessageIndex > -1 ) {
-        let message = state.getIn(['feed', invisibleMessageIndex])
-        message.status = BOT_MESSAGE_WRITING
-        console.log('Show Bot Writing: ' + message.content.text);
-        return state.setIn(['feed', String(invisibleMessageIndex)], message)
+        return state.updateIn(['feed', invisibleMessageIndex], message => {
+          let newMessage = Object.assign({}, message)
+          newMessage.status = BOT_MESSAGE_WRITING
+          return newMessage
+        })
       }
 
       // if none, find first element in feed with status=BOT_MESSAGE_WRITING, set to BOT_MESSAGE_VISIBLE
       const writingMessageIndex = state.get('feed').findIndex(message => {
         return ( message.type == 1 ) && message.status == BOT_MESSAGE_WRITING
       })
+
       if (writingMessageIndex > -1 ) {
-        let message = state.getIn(['feed', writingMessageIndex])
-        message.status = BOT_MESSAGE_VISIBLE
-        console.log('Show Bot Message: ' + message.content.text);
-        return state.setIn(['feed', String(writingMessageIndex)], message)
+        return state.updateIn(['feed', writingMessageIndex], message => {
+          let newMessage = Object.assign({}, message)
+          newMessage.status = BOT_MESSAGE_VISIBLE
+          return newMessage
+        })
       }
 
-      // if none, show user choices if hidden and there are choices available
+      // // if none, show user choices if hidden and there are choices available
       if ( state.get('show_user_choices') == false && state.get('current_stage_id') !== false ) {
         console.log('Show User Choices');
         return state.set('show_user_choices', true)
