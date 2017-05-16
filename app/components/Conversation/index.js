@@ -20,9 +20,10 @@ const ConversationWrapper = styled.div`
 function Conversation(props) {
 
     const messages = props.feed.map(item => {
-        console.log(item);
+        // console.log(item);
         return {
             type: item.type,
+            status: item.status,
             image: "dog.jpg",
             text: item.content.text
         }

@@ -9,17 +9,17 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { respond } from './actions';
+import { Flex, Item } from 'react-flex';
+
 
 import UserChoice from 'components/UserChoice';
 
 export class UserChoices extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
 
-
     const choiceList = []
 
     for(let choice_id in this.props.choices) {
-      // console.log('ex')
       let choice = this.props.choices[choice_id]
       choiceList.push(
         (
@@ -27,15 +27,17 @@ export class UserChoices extends React.PureComponent { // eslint-disable-line re
             key={choice_id}
             onClick={() => this.props.onLinkClick(this.props.current_stage_id, choice_id)}
             choice={choice}
-          />
+          /> 
         )
       )
     }
 
     return (
-      <div>
+    
+      <Flex row alignItems="center">
         {choiceList}
-      </div>
+      </Flex>
+    
     );
   }
 }

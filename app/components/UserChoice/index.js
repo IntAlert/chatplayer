@@ -9,17 +9,19 @@ import React from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import { Flex, Item } from 'react-flex';
+
 
 function UserChoice(props) {
-  console.log(props)
+  
   return (
-    <div>
+    <Flex>
       <a 
         onClick={props.onClick}
       >
         {props.choice.text}
       </a>
-    </div>
+    </Flex>
     
   );
 }

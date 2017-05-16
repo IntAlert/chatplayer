@@ -1,6 +1,8 @@
-import { take, call, put, select, fork} from 'redux-saga/effects';
+import { delay } from 'redux-saga'
+import { take, all, takeEvery, call, put, select, fork} from 'redux-saga/effects';
 import request from 'utils/request';
-import {SCRIPT_FETCH_REQUESTED, SCRIPT_FETCH_SUCCEEDED, SCRIPT_FETCH_FAILED} from './constants'
+import {TIMER_START, TIMER_TICK, SCRIPT_FETCH_REQUESTED, SCRIPT_FETCH_SUCCEEDED, SCRIPT_FETCH_FAILED} from './constants'
+import {tick} from './actions'
 
 export function* fetchScript(action) {
    try {
@@ -12,13 +14,22 @@ export function* fetchScript(action) {
    }
 }
 
+
+function* delayTick() {
+  while(true) {
+    yield delay(1000);
+    yield put(tick())
+  }
+  
+}
+
 // Individual exports for testing
 export function* defaultSaga() {
-
-  while (true) {
-    const action = yield take(SCRIPT_FETCH_REQUESTED) // correct
-    yield fetchScript(action)
-  }
+  
+  yield [
+    takeEvery(SCRIPT_FETCH_REQUESTED, fetchScript),
+    takeEvery(TIMER_START, delayTick)
+  ]
 
 }
 

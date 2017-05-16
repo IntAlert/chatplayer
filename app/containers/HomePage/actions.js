@@ -15,7 +15,7 @@
  *    }
  */
 
-import { SCRIPT_FETCH_REQUESTED } from './constants';
+import { SCRIPT_FETCH_REQUESTED, TIMER_START, TIMER_TICK } from './constants';
 
 /**
  * Changes the input field of the form
@@ -28,5 +28,19 @@ export function loadScript() {
   console.log('loadScript')
   return {
     type: SCRIPT_FETCH_REQUESTED
+  };
+}
+
+export function startTimer() {
+  console.log('start')
+  return {
+    type: TIMER_START
+  };
+}
+
+export function tick() {
+  console.log('tick')
+  return {
+    type: TIMER_TICK
   };
 }

@@ -14,12 +14,14 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import Conversation from 'components/Conversation';
 import {SCRIPT_FETCH_REQUESTED} from './constants'
-import {loadScript} from './actions'
+import {loadScript, startTimer} from './actions'
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   componentDidMount() {
-    return this.props.onLoad();
+    this.props.onLoad();
+    this.props.onStartTimer();
+    return 
   }
 
   render() {
@@ -63,6 +65,9 @@ export function mapDispatchToProps(dispatch) {
     dispatch,
     onLoad: () => {
       return dispatch(loadScript())
+    },
+    onStartTimer: () => {
+      return dispatch(startTimer())
     },
   };
 }

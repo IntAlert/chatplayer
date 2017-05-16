@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles.css';
+import ReactAnimatedEllipsis from 'react-animated-ellipsis';
 
 class ChatFeed extends Component {
 
@@ -21,7 +22,14 @@ class ChatFeed extends Component {
       return (
               <div className={`bubble-container ${bubbleDirection}`} key={index}>
                 <img className={`img-circle`} src={message.image} />
-                <div className={`bubble ${bubbleClass}`}>{message.text}</div>
+                
+                <div className={`bubble ${bubbleClass}`}>
+                  <ReactAnimatedEllipsis />
+                  <div className={`message-text`}>
+                    {message.text}
+                    ({message.status})
+                  </div>
+                </div>
               </div>
           );
     });
