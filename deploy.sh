@@ -110,6 +110,7 @@ fi
 selectNodeVersion
 
 # 2.1 Build 
+echo React Build Step
 cd "$DEPLOYMENT_TARGET"
 eval $NPM_CMD build
 
