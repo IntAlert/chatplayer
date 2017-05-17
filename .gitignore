@@ -8,6 +8,7 @@ stats.json
 yarn.lock
 .vscode
 .editorconfig
+creds/
 
 # Cruft
 .DS_Store

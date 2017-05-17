@@ -81,16 +81,6 @@ router.get('/script', function(req, res, next) {
                         ],
                         "next_stage_id": "1"
                     },
-                    "3": {
-                        "text": "Togo",
-                        "responses": [
-                            {
-                                "type":"text",
-                                "content": "Wrong!"
-                            }
-                        ],
-                        "next_stage_id": "1"
-                    },
                     "4": {
                         "text": "Iceland",
                         "responses": [

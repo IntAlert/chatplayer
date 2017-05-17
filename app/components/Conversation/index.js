@@ -14,7 +14,7 @@ import ChatFeed from 'components/ChatFeed';
 import UserChoices from 'containers/UserChoices';
 
 const ConversationWrapper = styled.div`
-  margin-top:200px;
+  margin-top:180px;
 `
 
 function Conversation(props) {
