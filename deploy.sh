@@ -112,7 +112,7 @@ selectNodeVersion
 # 2.1 Build 
 echo React Build Step
 cd "$DEPLOYMENT_TARGET"
-eval $NPM_CMD build
+eval $NPM_CMD run build
 
 # 3. Install npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
