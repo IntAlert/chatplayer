@@ -65,8 +65,12 @@ function homeReducer(state = initialState, action) {
 					type:0,
 					content: {text: userResponse.get('text')}
 				})) 
-				// add bot's prompts 1+ messages 
 
+
+        // add bot's immediate response (0+ messages)
+        nextState = addImmediateChoiceResponses(nextState, userResponse)
+
+				// add bot's prompts (1+ messages )
         nextState = addPromptMessages(nextState, next_stage_id)
 
 
@@ -117,6 +121,38 @@ function homeReducer(state = initialState, action) {
 
 
 
+// this adds immediate responses to a given choice
+function addImmediateChoiceResponses(state, userResponse) {
+
+  var immediateResponses = userResponse.getIn(['responses'])
+
+  if ( immediateResponses == undefined) {
+    // no immediate responses
+    console.log('// no immediate responses')
+    return state
+  }
+
+  const nextState = state.update('feed', arr => {
+    
+    var newArr = arr;
+    immediateResponses.toArray().forEach(response => {
+      const feedMessage = {
+        type:1, // bot response code, TODO factor out as CONST
+        status: BOT_MESSAGE_INVISIBLE,
+        // TODO: do something with prompt.type, contentType?
+        content: {text: response.get('content')}
+      }
+
+      newArr = newArr.push(feedMessage);
+    })
+
+    return newArr
+  })
+
+  return nextState
+}
+
+// this adds prompt messages for a given stage
 function addPromptMessages(state, stage_id) {
 
   var prompts = state.getIn(['script', 'stages', stage_id, 'prompts'])
