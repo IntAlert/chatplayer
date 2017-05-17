@@ -119,10 +119,10 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 fi
 
 # 3.1 Build 
-echo React Build Step
-cd "$DEPLOYMENT_TARGET"
-eval "webpack"
-eval $NPM_CMD run build
+#echo React Build Step
+#cd "$DEPLOYMENT_TARGET"
+#eval "webpack"
+#eval $NPM_CMD run build
 
 
 ##################################################################################################################################
