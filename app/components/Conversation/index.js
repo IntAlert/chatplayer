@@ -18,7 +18,7 @@ const ConversationWrapper = styled.div`
 `
 
 function Conversation(props) {
-console.log(props);
+
     const messages = props.feed.map(item => {
         // console.log(item);
         return {

@@ -17,7 +17,7 @@ export function* fetchScript(action) {
 
 function* delayTick() {
   while(true) {
-    yield delay(1000);
+    yield delay(2000);
     yield put(tick())
   }
   

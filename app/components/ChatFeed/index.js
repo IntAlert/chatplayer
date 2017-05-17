@@ -19,19 +19,42 @@ class ChatFeed extends Component {
         bubbleClass = 'you';
         bubbleDirection = "bubble-direction-reverse";
       }
-      return (
-              <div className={`bubble-container ${bubbleDirection}`} key={index}>
-                <img className={`img-circle`} src={message.image} />
-                
-                <div className={`bubble ${bubbleClass}`}>
-                  <ReactAnimatedEllipsis />
-                  <div className={`message-text`}>
-                    {message.text}
-                    ({message.status})
-                  </div>
-                </div>
+
+      // determine appearance of message depending on status
+      if(message.type === 0 || message.status == 'app/Home/BOT_MESSAGE_VISIBLE') {
+
+        // show whole message for all user messags
+        // or shown bot messages
+        var messageDiv = (
+          <div className={`bubble-container ${bubbleDirection}`} key={index}>
+            <img className={`img-circle`} src={message.image} />
+            <div className={`bubble ${bubbleClass}`}>
+              <div className={`message-text`}>
+                {message.text}
               </div>
-          );
+            </div>
+          </div>
+        )
+      } else if (message.status == 'app/Home/BOT_MESSAGE_WRITING') {
+
+        // show ellipsis
+        var messageDiv = (
+          <div className={`bubble-container ${bubbleDirection}`} key={index}>
+            <img className={`img-circle`} src={message.image} />
+            <div className={`bubble ${bubbleClass}`}>
+              <ReactAnimatedEllipsis />
+            </div>
+          </div>
+        )
+      } else {
+        // assume app/Home/BOT_MESSAGE_INVISIBLE
+        // do not add to DOM yet
+        var messageDiv = null
+      }
+
+
+      return (messageDiv);
+
     });
     return listItems;
   }

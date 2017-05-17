@@ -72,17 +72,6 @@ function homeReducer(state = initialState, action) {
 
     case TIMER_TICK:
 
-      // find first element in feed with status=BOT_MESSAGE_INVISIBLE, set to BOT_MESSAGE_WRITING
-      const invisibleMessageIndex = state.get('feed').findIndex(message => {
-        return ( message.type == 1 ) && message.status == BOT_MESSAGE_INVISIBLE
-      })
-      if (invisibleMessageIndex > -1 ) {
-        return state.updateIn(['feed', invisibleMessageIndex], message => {
-          let newMessage = Object.assign({}, message)
-          newMessage.status = BOT_MESSAGE_WRITING
-          return newMessage
-        })
-      }
 
       // if none, find first element in feed with status=BOT_MESSAGE_WRITING, set to BOT_MESSAGE_VISIBLE
       const writingMessageIndex = state.get('feed').findIndex(message => {
@@ -96,6 +85,19 @@ function homeReducer(state = initialState, action) {
           return newMessage
         })
       }
+
+      // find first element in feed with status=BOT_MESSAGE_INVISIBLE, set to BOT_MESSAGE_WRITING
+      const invisibleMessageIndex = state.get('feed').findIndex(message => {
+        return ( message.type == 1 ) && message.status == BOT_MESSAGE_INVISIBLE
+      })
+      if (invisibleMessageIndex > -1 ) {
+        return state.updateIn(['feed', invisibleMessageIndex], message => {
+          let newMessage = Object.assign({}, message)
+          newMessage.status = BOT_MESSAGE_WRITING
+          return newMessage
+        })
+      }
+
 
       // // if none, show user choices if hidden and there are choices available
       if ( state.get('show_user_choices') == false && state.get('current_stage_id') !== false ) {
