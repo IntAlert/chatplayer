@@ -11,8 +11,9 @@ import styled from 'styled-components';
 import messages from './messages';
 
 const HeaderWrapper = styled.div`
-  background:blue;
   position:fixed;
+  background:blue;
+  z-index:999;
   top:0;
   left:0;
   width:100%;
@@ -28,7 +29,7 @@ class Header extends React.PureComponent { // eslint-disable-line react/prefer-s
   render() {
     return (
       <HeaderWrapper>
-        <H1>Peace Quiz</H1>
+        <H1>What is Peace?</H1>
       </HeaderWrapper>
     );
   }

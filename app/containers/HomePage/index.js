@@ -24,7 +24,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
   }
 
   render() {
-console.log('homepage', this.props);
+// console.log('homepage', this.props);
     if (this.props.script_loaded) {
       var homePageContent = (
         <div>
@@ -32,9 +32,9 @@ console.log('homepage', this.props);
             feed={this.props.feed}
           />
 
-          <a onClick={ this.props.onLoad }>
+          {/*<a onClick={ this.props.onLoad }>
             Reload Script
-          </a>
+          </a>*/}
         </div>
       )
     } else {

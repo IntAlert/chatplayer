@@ -56,7 +56,7 @@ router.get('/script', function(req, res, next) {
     }
 
 
-    const delay = 1000;
+    const delay = 3000;
     setTimeout(() => res.json(script), delay);
 });
 

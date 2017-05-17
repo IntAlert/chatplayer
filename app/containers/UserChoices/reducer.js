@@ -10,7 +10,6 @@
  *   return state.set('yourStateVariable', true);
  */
 import { fromJS } from 'immutable';
-import {SCRIPT} from 'global/constants';
 import {RESPOND} from './constants';
 
 // The initial state of the App

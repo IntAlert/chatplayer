@@ -1,8 +1,18 @@
+import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
+import {animateScroll} from 'react-scroll';
 import './styles.css';
-import ReactAnimatedEllipsis from 'react-animated-ellipsis';
+
+import alertAvatar from './avatar-alert.png';
+import userAvatar from './avatar-user.png';
 
 class ChatFeed extends Component {
+
+
+
+  componentDidUpdate() {
+      animateScroll.scrollToBottom()
+  }
 
   getConversations(messages){
 
@@ -16,9 +26,17 @@ class ChatFeed extends Component {
       let bubbleDirection = '';
 
       if(message.type === 0){
+        // user
+        
         bubbleClass = 'you';
         bubbleDirection = "bubble-direction-reverse";
+
+        var avatar = (<img className={`img-circle`} src={userAvatar} />)
+      } else {
+        // bot
+        var avatar = (<img className={`img-circle`} src={alertAvatar} />)
       }
+
 
       // determine appearance of message depending on status
       if(message.type === 0 || message.status == 'app/Home/BOT_MESSAGE_VISIBLE') {
@@ -27,7 +45,7 @@ class ChatFeed extends Component {
         // or shown bot messages
         var messageDiv = (
           <div className={`bubble-container ${bubbleDirection}`} key={index}>
-            <img className={`img-circle`} src={message.image} />
+            {avatar}
             <div className={`bubble ${bubbleClass}`}>
               <div className={`message-text`}>
                 {message.text}
@@ -40,9 +58,9 @@ class ChatFeed extends Component {
         // show ellipsis
         var messageDiv = (
           <div className={`bubble-container ${bubbleDirection}`} key={index}>
-            <img className={`img-circle`} src={message.image} />
+            {avatar}
             <div className={`bubble ${bubbleClass}`}>
-              <ReactAnimatedEllipsis />
+              <div className="loading"></div>
             </div>
           </div>
         )
@@ -65,6 +83,11 @@ class ChatFeed extends Component {
     return (
       <div className="chats">
         {chatList}
+        <div 
+          style={ {float:"left", clear: "both"} }
+          ref={(el) => { this.messagesEnd = el; }}
+        ></div>
+
       </div>
     );
   }

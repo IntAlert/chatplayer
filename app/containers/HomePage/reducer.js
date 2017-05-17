@@ -57,6 +57,9 @@ function homeReducer(state = initialState, action) {
         // update current place in script
 				.set('current_stage_id', next_stage_id)
 
+        // hide user choices
+        .set('show_user_choices', false)
+
 				// add user's response
 				.update('feed', arr => arr.push({
 					type:0,
@@ -101,7 +104,6 @@ function homeReducer(state = initialState, action) {
 
       // // if none, show user choices if hidden and there are choices available
       if ( state.get('show_user_choices') == false && state.get('current_stage_id') !== false ) {
-        console.log('Show User Choices');
         return state.set('show_user_choices', true)
       }
       

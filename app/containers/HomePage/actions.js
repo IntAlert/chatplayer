@@ -25,21 +25,21 @@ import { SCRIPT_FETCH_REQUESTED, TIMER_START, TIMER_TICK } from './constants';
  * @return {object}    An action object with a type of RESPOND
  */
 export function loadScript() {
-  console.log('loadScript')
+  // console.log('loadScript')
   return {
     type: SCRIPT_FETCH_REQUESTED
   };
 }
 
 export function startTimer() {
-  console.log('start')
+  // console.log('start')
   return {
     type: TIMER_START
   };
 }
 
 export function tick() {
-  console.log('tick')
+  // console.log('tick')
   return {
     type: TIMER_TICK
   };

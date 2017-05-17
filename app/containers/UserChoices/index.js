@@ -9,34 +9,61 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { respond } from './actions';
-import { Flex, Item } from 'react-flex';
 
 
 import UserChoice from 'components/UserChoice';
 
+
+var style = {
+    backgroundColor: "#F8F8F8",
+    borderTop: "1px solid #E7E7E7",
+    textAlign: "center",
+    // padding: "20px",
+    position: "fixed",
+    left: "0",
+    bottom: "0",
+    height: "100px",
+    width: "100%",
+};
+
+var phantom = {
+  display: 'block',
+  padding: '20px',
+  height: '100px',
+  width: '100%',
+}
+
+
+
 export class UserChoices extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
   render() {
 
     const choiceList = []
 
-    for(let choice_id in this.props.choices) {
-      let choice = this.props.choices[choice_id]
-      choiceList.push(
-        (
-          <UserChoice
-            key={choice_id}
-            onClick={() => this.props.onLinkClick(this.props.current_stage_id, choice_id)}
-            choice={choice}
-          /> 
+    if (this.props.show_user_choices) {
+      for(let choice_id in this.props.choices) {
+        let choice = this.props.choices[choice_id]
+        choiceList.push(
+          (
+            <UserChoice
+              key={choice_id}
+              onClick={() => this.props.onLinkClick(this.props.current_stage_id, choice_id)}
+              choice={choice}
+            /> 
+          )
         )
-      )
+      }
     }
-
-    return (
     
-      <Flex row alignItems="center">
-        {choiceList}
-      </Flex>
+    return (
+
+      <div>
+        <div style={phantom} />
+        <div style={style}>
+          {choiceList}
+        </div>
+      </div>
     
     );
   }
@@ -57,11 +84,12 @@ export function mapDispatchToProps(dispatch, ownProps) {
 
 const mapStateToProps  = (state) => {
 
-  // const feed = state.getIn(['userChoices', 'feed']);
+  const show_user_choices = state.getIn(['home', 'show_user_choices']);
   const current_stage_id = state.getIn(['home', 'current_stage_id']);
   const choices = state.getIn(['home', 'script', 'stages', current_stage_id, 'choices']).toJS()
 
   return {
+    show_user_choices,
     current_stage_id,
     choices
   }

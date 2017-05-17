@@ -36,15 +36,15 @@ export default class App extends React.PureComponent { // eslint-disable-line re
     return (
       <AppWrapper>
         <Helmet
-          titleTemplate="Border Bot"
-          defaultTitle="Unnamed page"
+          titleTemplate="PeaceQuiz"
+          defaultTitle="PeaceQuiz"
           meta={[
-            { name: 'description', content: 'A React.js Boilerplate application' },
+            { name: 'description', content: 'PeaceQuiz' },
           ]}
         />
         <Header />
         {React.Children.toArray(this.props.children)}
-        <Footer />
+        {/*<Footer />*/}
       </AppWrapper>
     );
   }
