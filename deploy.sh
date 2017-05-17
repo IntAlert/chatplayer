@@ -109,10 +109,6 @@ fi
 # 2. Select node version
 selectNodeVersion
 
-# 2.1 Build 
-echo React Build Step
-cd "$DEPLOYMENT_TARGET"
-eval $NPM_CMD run build
 
 # 3. Install npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
@@ -121,6 +117,12 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi
+
+# 3.1 Build 
+echo React Build Step
+cd "$DEPLOYMENT_TARGET"
+eval $NPM_CMD run build
+
 
 ##################################################################################################################################
 echo "Finished successfully."
