@@ -18,12 +18,14 @@ const ChoiceContainer = styled.div`
 // TODO: make FLEX
 const ChoiceLink = styled.a`
   display:block;
-  background:#eee;
+  background:#ffc400;
+  font-weight:bold;
+  border-radius:5px;
   margin:1em;
   padding:1em;
   &:hover {
     cursor:pointer;
-    background:#ddd;
+    background:#ccc;
   }
 `;
 

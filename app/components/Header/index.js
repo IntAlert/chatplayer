@@ -29,7 +29,7 @@ class Header extends React.PureComponent { // eslint-disable-line react/prefer-s
   render() {
     return (
       <HeaderWrapper>
-        <H1>What is Peace?</H1>
+        <H1>Crossing the DRC/Rwanda border</H1>
       </HeaderWrapper>
     );
   }
