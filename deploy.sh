@@ -120,9 +120,9 @@ fi
 
 # 3.1 Build 
 #echo React Build Step
-#cd "$DEPLOYMENT_TARGET"
+cd "$DEPLOYMENT_TARGET"
 #eval "webpack"
-#eval $NPM_CMD run build
+eval $NPM_CMD run build
 
 
 ##################################################################################################################################
