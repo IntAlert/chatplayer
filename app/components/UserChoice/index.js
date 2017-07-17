@@ -11,7 +11,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 const ChoiceContainer = styled.div`
-  width:33%;
+  width:50%;
   float:left;
 `;
 
