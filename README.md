@@ -8,7 +8,8 @@ Built on react-boilerplate
 
 # Deployment
 1. `az login`
-2. `git push azure master`
+2. `npm run build`
+3. `git push azure master`
 
 # Deployment from scratch
 cf. https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs
