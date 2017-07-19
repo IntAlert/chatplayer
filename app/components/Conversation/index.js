@@ -14,7 +14,7 @@ import ChatFeed from 'components/ChatFeed';
 import UserChoices from 'containers/UserChoices';
 
 const ConversationWrapper = styled.div`
-  margin-top:180px;
+    margin-top:180px;
 `
 
 function Conversation(props) {
@@ -32,7 +32,7 @@ function Conversation(props) {
 
     return (
         <ConversationWrapper>
-            <ChatFeed messages = {messages} />
+            <ChatFeed messages={messages} />
             <UserChoices />
         </ConversationWrapper>
     );

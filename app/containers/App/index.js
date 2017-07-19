@@ -22,8 +22,16 @@ import Footer from 'components/Footer';
 const AppWrapper = styled.div`
   margin: 0 auto;
   display: flex;
-  min-height: 100%;
+  // min-height: 100%;
   flex-direction: column;
+  transform: rotate(90deg);
+  transform-origin:bottom left;
+  
+  position:absolute;
+  top:-100vw;
+  
+  height:100vw;
+  width:100vh;
 `;
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

@@ -1,6 +1,12 @@
 # ChatPlayer
 
 
+# Still to do
+- Add context on the left
+- Styling
+- Contact designer
+
+
 Built on react-boilerplate
 
 # Development
