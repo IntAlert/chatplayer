@@ -70,7 +70,7 @@ function homeReducer(state = initialState, action) {
         // add bot's immediate response (0+ messages)
         nextState = addImmediateChoiceResponses(nextState, userResponse)
 
-				// add bot's prompts (1+ messages )
+				// add bot's prompts (0+ messages )
         nextState = addPromptMessages(nextState, next_stage_id)
 
 
@@ -82,7 +82,7 @@ function homeReducer(state = initialState, action) {
 
       // if none, find first element in feed with status=BOT_MESSAGE_WRITING, set to BOT_MESSAGE_VISIBLE
       const writingMessageIndex = state.get('feed').findIndex(message => {
-        return ( message.type == 1 ) && message.status == BOT_MESSAGE_WRITING
+        return ( message.type == -1 || message.type == 1 ) && message.status == BOT_MESSAGE_WRITING
       })
 
       if (writingMessageIndex > -1 ) {
@@ -95,7 +95,7 @@ function homeReducer(state = initialState, action) {
 
       // find first element in feed with status=BOT_MESSAGE_INVISIBLE, set to BOT_MESSAGE_WRITING
       const invisibleMessageIndex = state.get('feed').findIndex(message => {
-        return ( message.type == 1 ) && message.status == BOT_MESSAGE_INVISIBLE
+        return ( message.type == -1 || message.type == 1 ) && message.status == BOT_MESSAGE_INVISIBLE
       })
       if (invisibleMessageIndex > -1 ) {
         return state.updateIn(['feed', invisibleMessageIndex], message => {
@@ -163,7 +163,7 @@ function addPromptMessages(state, stage_id) {
     var newArr = arr;
     prompts.toArray().forEach(prompt => {
       const feedMessage = {
-        type:1, // bot response code, TODO factor out as CONST
+        type:-1, // narrator response code, TODO factor out as CONST
         status: BOT_MESSAGE_INVISIBLE,
         // TODO: do something with prompt.type, contentType?
         content: {text: prompt.get('content')}

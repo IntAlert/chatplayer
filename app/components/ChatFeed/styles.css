@@ -1,6 +1,6 @@
 .chats {
   margin:1em;
-  max-width:500px;
+  max-width:550px;
 }
 
 .bubble-container{
@@ -9,11 +9,12 @@
   display:flex;
   font-family: sans-serif;
   font-size: 14px;
-  align-items: center;
+  align-items: top center;
+  flex-direction: row-reverse;
 }
 
 .bubble-direction-reverse {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .bubble{
@@ -44,26 +45,42 @@
 
 .me {
     background-color: #8f5db7;
-    margin-left: 18px;
-    margin-right:60px;
-}
-
-.me::before {
-    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
-    left: -9px;
-    background-color: #8f5db7;
-}
-
-.you {
-    background-color: #087FFE;
     margin-left: 60px;
     margin-right:18px;
 }
 
-.you::before {
+.me::before {
+    
     box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
     right: -9px;
+    background-color: #8f5db7;
+}
+
+.you {
+    
     background-color: #087FFE;
+    margin-left: 18px;
+    margin-right:60px;
+}
+
+.you::before {
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -9px;
+    background-color: #087FFE;
+}
+
+
+.narrator {
+    background-color: #FDC300;
+    margin-left: 60px;
+    margin-right:18px;
+    color:#000;
+}
+
+.narrator::before {
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -9px;
+    background-color: #FDC300;
 }
 
 .img-circle {

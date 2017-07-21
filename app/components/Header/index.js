@@ -12,12 +12,12 @@ import messages from './messages';
 
 const HeaderWrapper = styled.div`
   position:fixed;
-  background:blue;
+  background:#eee;
   z-index:999;
   top:0;
   left:0;
   width:100%;
-  color:#fff;
+  color:#333;
 `;
 
 const H1 = styled.h1`

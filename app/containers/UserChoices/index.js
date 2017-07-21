@@ -24,6 +24,7 @@ var style = {
     bottom: "0",
     height: "100px",
     width: "100%",
+    display: "flex"
 };
 
 var phantom = {

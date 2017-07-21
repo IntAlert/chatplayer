@@ -7,6 +7,13 @@
 - Contact designer
 
 
+Running on Android for festival
+- SetOrientation
+- Full Screen Browser
+- Google Home for ChromeCast
+
+
+
 Built on react-boilerplate
 
 # Development
@@ -14,8 +21,10 @@ Built on react-boilerplate
 
 # Deployment
 1. `az login`
-2. `npm run build`
-3. `git push azure master`
+2. `git add .`
+3. `git commit -m ...`
+4. `npm run build`
+5. `git push azure master`
 
 # Deployment from scratch
 cf. https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs

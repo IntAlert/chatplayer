@@ -11,21 +11,21 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 const ChoiceContainer = styled.div`
-  width:50%;
-  float:left;
+  flex:1;
 `;
 
 // TODO: make FLEX
 const ChoiceLink = styled.a`
   display:block;
-  background:#ffc400;
-  font-weight:bold;
+  background:#087FFE;
+  color:#fff;
+  // font-weight:bold;
   border-radius:5px;
   margin:1em;
   padding:1em;
   &:hover {
     cursor:pointer;
-    background:#ccc;
+    background:#085FFF;
   }
 `;
 

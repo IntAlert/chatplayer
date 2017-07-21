@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import {animateScroll} from 'react-scroll';
 import './styles.css';
 
-import alertAvatar from './avatar-alert.png';
+import narratorAvatar from './avatar-narrator.png';
+import botAvatar from './avatar-bot.png';
 import userAvatar from './avatar-user.png';
 
+
+
 class ChatFeed extends Component {
-
-
 
   componentDidUpdate() {
       animateScroll.scrollToBottom()
@@ -22,20 +23,26 @@ class ChatFeed extends Component {
     }
 
     const listItems = messages.map((message, index) => {
-      let bubbleClass = 'me';
-      let bubbleDirection = '';
+      var bubbleClass, bubbleDirection
 
-      if(message.type === 0){
+      if(message.type === -1){
+        // narrator
+        bubbleClass = 'narrator';
+        bubbleDirection = "";
+
+        var avatar = (<img className={`img-circle`} src={narratorAvatar} />)
+      } else if(message.type === 0){
         // user
-        
         bubbleClass = 'you';
         bubbleDirection = "bubble-direction-reverse";
 
         var avatar = (<img className={`img-circle`} src={userAvatar} />)
       } else {
         // bot
-        var avatar = (<img className={`img-circle`} src={alertAvatar} />)
-      }
+        bubbleClass = 'me';
+        bubbleDirection = "";
+        var avatar = (<img className={`img-circle`} src={botAvatar} />)
+      } 
 
 
       // determine appearance of message depending on status
@@ -83,6 +90,7 @@ class ChatFeed extends Component {
     return (
       <div className="chats">
         {chatList}
+        
         <div 
           style={ {float:"left", clear: "both"} }
           ref={(el) => { this.messagesEnd = el; }}
