@@ -37,12 +37,12 @@ function Conversation(props) {
 
     const messages = props.feed.map(item => {
         return {
+            speaker: item.speaker,
+            status: item.status, //TODO: where used?
             type: item.type,
-            status: item.status,
-            text: item.content.text
+            content: item.content
         }
     }).toArray()
-
 
     return (
         <ConversationWrapper>

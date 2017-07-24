@@ -25,13 +25,16 @@ class ChatFeed extends Component {
     const listItems = messages.map((message, index) => {
       var bubbleClass, bubbleDirection
 
-      if(message.type === -1){
+
+
+      // determine bubble behaviour depending on who is speaking
+      if(message.speaker === -1){
         // narrator
         bubbleClass = 'narrator';
         bubbleDirection = "";
 
         var avatar = (<img className={`img-circle`} src={narratorAvatar} />)
-      } else if(message.type === 0){
+      } else if(message.speaker === 0){
         // user
         bubbleClass = 'you';
         bubbleDirection = "bubble-direction-reverse";
@@ -45,8 +48,25 @@ class ChatFeed extends Component {
       } 
 
 
+      // determine content of bubble depending on content type
+      let messageContent
+      if(message.type == 'text') {
+        messageContent = (
+          <div className={`message-text`}>
+            {message.content}
+          </div>
+        )
+      } else if(message.type == 'image') {
+        messageContent = (
+          <div className={`message-image`}>
+            <img src={message.content} />
+          </div>
+        )
+      } 
+
+
       // determine appearance of message depending on status
-      if(message.type === 0 || message.status == 'app/Home/BOT_MESSAGE_VISIBLE') {
+      if(message.speaker === 0 || message.status == 'app/Home/BOT_MESSAGE_VISIBLE') {
 
         // show whole message for all user messags
         // or shown bot messages
@@ -54,9 +74,7 @@ class ChatFeed extends Component {
           <div className={`bubble-container ${bubbleDirection}`} key={index}>
             {avatar}
             <div className={`bubble ${bubbleClass}`}>
-              <div className={`message-text`}>
-                {message.text}
-              </div>
+              {messageContent}
             </div>
           </div>
         )

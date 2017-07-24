@@ -21,6 +21,10 @@ router.get('/script', function (req, res, next) {
                         "type": "text",
                         "content": "Ready?"
                     },
+                    {
+                        "type": "image",
+                        "content": "/images/ready.gif"
+                    },
                 ],
                 "choices": {
                     "1": {
@@ -62,12 +66,7 @@ router.get('/script', function (req, res, next) {
                 }
             },
             "1.1": {
-                "prompts": [
-                    // {
-                    //     "type": "text",
-                    //     "content": "No prompt"
-                    // }
-                ],
+                "prompts": [],
                 "choices": {
                     "1": {
                         "text": "Oh dear what should I have done?",
@@ -143,12 +142,7 @@ router.get('/script', function (req, res, next) {
                 }
             },
             "2.1": {
-                "prompts": [
-                    // {
-                    //     "type": "text",
-                    //     "content": "No prompt"
-                    // }
-                ],
+                "prompts": [],
                 "choices": {
                     "1": {
                         "text": "Tell me more",
@@ -254,12 +248,7 @@ router.get('/script', function (req, res, next) {
                 }
             },
             "3.1": {
-                "prompts": [
-                    // {
-                    //     "type": "text",
-                    //     "content": "No PROMPT"
-                    // }
-                ],
+                "prompts": [],
                 "choices": {
                     "1": {
                         "text": "This happened to me too, want to know more ",
@@ -290,14 +279,7 @@ router.get('/script', function (req, res, next) {
                             {
                                 "type": "text",
                                 "content": "I’d love for them to add an electronic registration system, so that those who accidentally misplace theirs can still pass through as long as they have an ID. "
-                            }, 
-                            // {
-                            //     "type": "text",
-                            //     "content": "Without this support, I know if I don’t get home to my family before darkness fell, I could risk being attacked by thieves on the way."
-                            // }, {
-                            //     "type": "text",
-                            //     "content": "Going forward it would be great to see an electronic registration system in place one day, of all the daily passes so that those who accidentally misplace theirs can still pass through as long as they have an ID. "
-                            // }
+                            }
                         ],
                         "next_stage_id": "4"
                     }
@@ -342,12 +324,7 @@ router.get('/script', function (req, res, next) {
                 }
             },
             "4.1": {
-                "prompts": [
-                    // {
-                    //     "type": "text",
-                    //     "content": "NO PROMPT"
-                    // }
-                ],
+                "prompts": [],
                 "choices": {
                     "1": {
                         "text": "How can I tell though? Or know who to trust?",
@@ -419,7 +396,7 @@ router.get('/script', function (req, res, next) {
     }
 
 
-    const delay = 1500;
+    // const delay = 1500;
     // setTimeout(() => res.json(script), delay);
     res.json(script)
 });
