@@ -22,31 +22,7 @@ import Footer from 'components/Footer';
 const AppWrapper = styled.div`
   margin: 0 auto;
   display: flex;
-  // min-height: 100%;
   flex-direction: column;
-
-  // transform: rotate(-90deg);
-  // transform-origin:bottom right;
-  // position:relative;
-  // /* right: -webkit-calc(-100vw); */
-  // top:-100vh;
-  // height:100vw;
-  // width:100vh;
-
-  // transform: rotate(-90deg);
-  // transform-origin:bottom right;
-
-  // position:absolute;
-  // top:-100vw;
-
-  // height:100vw;
-  // width:100vh;
-
-  // background-color:#000;
-  // color:#fff;
-
-  // overflow:auto;
-
 `;
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -65,7 +41,7 @@ export default class App extends React.PureComponent { // eslint-disable-line re
             { name: 'description', content: 'BorderBot' },
           ]}
         />
-        <Header />
+        {/* <Header /> */}
         {React.Children.toArray(this.props.children)}
         {/*<Footer />*/}
       </AppWrapper>

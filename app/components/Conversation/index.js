@@ -11,20 +11,34 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 import ChatFeed from 'components/ChatFeed';
+import ConversationContext from 'components/ConversationContext';
+
 import UserChoices from 'containers/UserChoices';
 
+
 const ConversationWrapper = styled.div`
-    margin-top:180px;
+    position:relative;
+`
+
+const ConversationContextWrapper = styled.div`
+    position:fixed;
+    width:25%;
+    
+    
+`
+
+const ChatWrapper = styled.div`
+    float:left;
+    margin-left:25%;
+    width:50%;
 `
 
 function Conversation(props) {
 
     const messages = props.feed.map(item => {
-        // console.log(item);
         return {
             type: item.type,
             status: item.status,
-            image: "dog.jpg",
             text: item.content.text
         }
     }).toArray()
@@ -32,8 +46,16 @@ function Conversation(props) {
 
     return (
         <ConversationWrapper>
-            <ChatFeed messages={messages} />
-            <UserChoices />
+            
+            <ConversationContextWrapper>
+                <ConversationContext messages={messages} />
+            </ConversationContextWrapper>
+
+            <ChatWrapper>
+                <ChatFeed messages={messages} />
+                <UserChoices /> 
+            </ChatWrapper>
+
         </ConversationWrapper>
     );
 }
