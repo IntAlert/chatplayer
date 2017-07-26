@@ -52,6 +52,7 @@ function homeReducer(state = initialState, action) {
       // get current and next place in script
 			const userResponse = state.getIn(['script', 'stages', action.stage_id, 'choices', action.choice_id]);
       const next_stage_id = userResponse.getIn(['next_stage_id']);
+      // const currentContext = state.getIn(['script', 'stages', action.stage_id, 'context']);
 
 			var nextState = state
         // update current place in script
@@ -65,7 +66,10 @@ function homeReducer(state = initialState, action) {
 					speaker:0,
             type: "text",
             content: userResponse.get('text')
-				})) 
+        }))
+          
+        // set current context
+        // .set('current_context', currentContext)
 
 
         // add bot's immediate response (0+ messages)

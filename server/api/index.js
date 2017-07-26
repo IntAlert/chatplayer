@@ -8,6 +8,16 @@ router.get('/script', function (req, res, next) {
         "initial_stage_id": "0",
         "stages": {
             "0": {
+                "context": [
+                    {
+                        "type":"image",
+                        "content": "/images/queue.jpg"
+                    },
+                    {
+                        "type": "text",
+                        "content": "Ready?"
+                    }
+                ],
                 "prompts": [
                     {
                         "type": "text",

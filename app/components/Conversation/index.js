@@ -44,11 +44,13 @@ function Conversation(props) {
         }
     }).toArray()
 
+    const context = props.context
+
     return (
         <ConversationWrapper>
             
             <ConversationContextWrapper>
-                <ConversationContext messages={messages} />
+                <ConversationContext context={context} />
             </ConversationContextWrapper>
 
             <ChatWrapper>
