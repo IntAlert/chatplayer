@@ -14,9 +14,9 @@ http://chatplayer.azurewebsites.net
 
 # Deployment
 1. `az login`
-2. `git add .`
-3. `git commit -m ...`
-4. `npm run build`
+2. `npm run build`
+3. `git add .`
+4. `git commit -m ...`
 5. `git push azure master`
 
 # Setting up the Azure Environment
