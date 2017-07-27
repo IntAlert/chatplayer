@@ -1,23 +1,16 @@
 # ChatPlayer
-
-
-# Still to do
-- Add context on the left
-- Styling
-- Contact designer
-
-
-Running on Android for festival
-- SetOrientation
-- Full Screen Browser
-- Google Home for ChromeCast
-
-
+This app plays out a scene of a Congolese female trader crossing the Rwandan border in order to trade tomatoes. It explains the work done my International Alert in this region.
 
 Built on react-boilerplate
 
+## Demo
+http://chatplayer.azurewebsites.net
+
 # Development
-1. `npm start`
+0. Clone this repo
+1. `npm install`
+2. `npm run build`
+3. `npm start`
 
 # Deployment
 1. `az login`
@@ -26,7 +19,7 @@ Built on react-boilerplate
 4. `npm run build`
 5. `git push azure master`
 
-# Deployment from scratch
+# Setting up the Azure Environment
 cf. https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs
 1. `az login`
 2. Configure a deployment user: `az appservice web deployment user set --user-name ***`
