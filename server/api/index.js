@@ -24,10 +24,6 @@ router.get('/script', function (req, res, next) {
                         "content": "Welcome!"
                     },
                     {
-                        "type":"image",
-                        "content": "/images/404.png"
-                    },
-                    {
                         "type": "text",
                         "content": "We will walk you through a typical scenario on the Rwandan/Congolese border."
                     },
