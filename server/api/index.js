@@ -15,13 +15,17 @@ router.get('/script', function (req, res, next) {
                     },
                     {
                         "type": "text",
-                        "content": "Ready?"
+                        "content": "Are you Ready?"
                     }
                 ],
                 "prompts": [
                     {
                         "type": "text",
-                        "content": "Hello!"
+                        "content": "Welcome!"
+                    },
+                    {
+                        "type":"image",
+                        "content": "/images/404.png"
                     },
                     {
                         "type": "text",
