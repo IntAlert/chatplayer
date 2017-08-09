@@ -1,26 +1,27 @@
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import './styles.css';
-
 
 
 class ConversationContext extends Component {
 
   render() {
-    const {context} = this.props;
-    var elements
+    const { context } = this.props;
+    let elements;
     if (context) {
       elements = context.map((def, key) => {
-        let element
-        if (def.type == 'image') {
-          element = (<img key={key} src={def.content} />)
+        let element;
+        if (def.type === 'image') {
+          element = (<img key={key} alt="content" src={def.content} />);
         } else {
-          element = (<p key={key}>{def.content}</p>)
+          let html = {
+            __html: def.content,
+          };
+          element = (<p key={key} dangerouslySetInnerHTML={html}></p>);
         }
-        return element
-      })
+        return element;
+      });
     }
-    
 
     return (
       <div className="conversation-context">
@@ -32,7 +33,7 @@ class ConversationContext extends Component {
 }
 
 ConversationContext.propTypes = {
-  messages: React.PropTypes.array
+  context: React.PropTypes.array,
 };
 
 export default ConversationContext;
