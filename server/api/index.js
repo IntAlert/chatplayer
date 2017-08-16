@@ -99,7 +99,7 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You make it across the border and reach the market place in Rwanda. The price of tomatoes is high but you can’t go back empty handed’. Do you:"
+					"content": "You make it across the border and reach the market place in Rwanda. The price of tomatoes is high but you can’t go back empty handed. Do you:"
 				}
 			],
 			"choices": {
@@ -164,7 +164,7 @@ const script = {
 						},
 						// {
 						//     "type": "text",
-						//     "content": "When I once lost my jeton at the market, a Rwandan trader came to my rescue. I met her at a dialogue group held by International Alert, and because of the relationship we built there, she came to the border and put me in touch with a senior official who agreed to help me. Her trust and support meant I was allowed to go through the crossing without paying for a new jeton."
+						//     "content": "When I once lost my border pass at the market, a Rwandan trader came to my rescue. I met her at a dialogue group held by International Alert, and because of the relationship we built there, she came to the border and put me in touch with a senior official who agreed to help me. Her trust and support meant I was allowed to go through the crossing without paying for a new border pass."
 						// },
 						// {
 						//     "type": "text",
@@ -183,7 +183,7 @@ const script = {
 
 						{
 							"type": "text",
-							"content": "Rwandan border guards will not accept bribes. Those who can’t produce a jeton must buy a new one, which is expensive."
+							"content": "Oh no, that could land you in jail!"
 						},
 						{
 							"type": "image",
@@ -191,7 +191,7 @@ const script = {
 						},
 						// {
 						//     "type": "text",
-						//     "content": "Rwandese border guards are renowned for their strictness. So those who can’t produce a jeton can’t bribe their way out. They must buy a new jeton, adding more expense to an already expensive journey. Some traders I know have had to spend a night in a cell for failing to produce a valid pass, and they can’t buy a new one because they don’t have any money left."
+						//     "content": "Rwandese border guards are renowned for their strictness. So those who can’t produce a border pass can’t bribe their way out. They must buy a new border pass, adding more expense to an already expensive journey. Some traders I know have had to spend a night in a cell for failing to produce a valid pass, and they can’t buy a new one because they don’t have any money left."
 						// },
 						// {
 						//     "type": "text",
@@ -220,7 +220,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a jeton must buy a new one, which is expensive, or risk spending the night in jail.</div>"
+					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
 				},
 				{
 					"type": "text",
@@ -380,7 +380,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a jeton must buy a new one, which is expensive, or risk spending the night in jail.</div>"
+					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
 				},
 				{
 					"type": "text",
