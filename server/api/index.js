@@ -5,30 +5,15 @@ const script = {
 	"initial_stage_id": "0",
 	"stages": {
 		"0": {
-			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
-				}
-			],
 			"prompts": [
 				{
 					"type": "text",
-					"content": "We'll take you through a typical day for Maman Chantal, step into her shoes and end the day providing for your family"
-				},
-				{
-					"type": "text",
-					"content": "Ready?"
+					"content": "Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes"
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Let's go!",
-					"responses": [],
+					"text": "Let's go",
 					"next_stage_id": "1"
 				}
 			}
@@ -41,41 +26,40 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
+					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
 				}
 			],
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You need to get your children ready and prepare breakfast for the whole family, before you can leave the house."
-				},
-				{
-					"type": "text",
-					"content": "Because of this, You've arrived at the border crossing late. What do you do?"
+					"content": "You need to get your children ready and prepare breakfast for the whole family, before you can leave the house. Because of this, you’ve arrive at the border crossing late"
 				},
 				{
 					"type": "image",
 					"content": "/images/guard.jpg"
+				},
+				{
+					"type": "text",
+					"content": "What do you do?"
 				}
-
 			],
 			"choices": {
 				"1": {
 					"context": [
 						{
 							"type": "text",
-							"content": "<hr><table><tr><td width='80px'><img src='/images/chantal.jpg'></td><td>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</td></tr></table><hr>"
+							"content": "<hr><table><tr><td width='80px'><img src='/images/chantal.jpg'></td><td>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</td></tr></table><hr>"
 						},
 						{
 							"type": "text",
-							"content": "One of the things International Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, YOU will get to the border early and won’t have to pay any unnecessary fees."
+							"content": "One of the things that Alert is doing is setting up spouse clubs, which encourage husbands to share domestic chores at home. That way women traders can get to the border early and avoid unnecessary delays."
 						}
 					],
-					"text": "Join the queue for a border pass (jeton)",
+					"text": "Join the queue for a border pass",
 					"responses": [
 						{
 							"type": "text",
-							"content": "It’s a shame you couldn’t arrive earlier, the queue is very long now. Hopefully there will be tomatoes left once you get across."
+							"content": "Hi I’m Maman Bahati, another Congolese trader. It’s a shame you couldn’t arrive earlier. The queue is very long now. Hopefully there will be tomatoes once you get across."
 						},
 						{
 							"type": "image",
@@ -105,7 +89,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
+					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
 				},
 				{
 					"type": "text",
@@ -115,26 +99,12 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You make it across the border and reach the market in Rwanda, but the Rwandan traders raise the price of tomatoes because they know you have travelled from DRC and can’t go back empty handed. Do you:"
+					"content": "You make it across the border and reach the market place in Rwanda. The price of tomatoes is high but you can’t go back empty handed’. Do you:"
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Call a friend",
-					"responses": [
-						{
-							"type": "text",
-							"content": "That’s exactly what I would do!"
-						},
-						{
-							"type": "image",
-							"content": "/images/market.jpg"
-						}
-					],
-					"next_stage_id": "3"
-				},
-				"2": {
-					"text": "Walk away",
+					"text": "Keep trying other stalls",
 					"responses": [
 						{
 							"type": "text",
@@ -146,7 +116,21 @@ const script = {
 						}
 					],
 					"next_stage_id": "3"
-				}
+				},
+				"2": {
+					"text": "Call a friend to help negotiate",
+					"responses": [
+						{
+							"type": "text",
+							"content": "That’s exactly what I would do!"
+						},
+						{
+							"type": "image",
+							"content": "/images/market.jpg"
+						}
+					],
+					"next_stage_id": "3"
+				}				
 			}
 		},
 		"3": {
@@ -157,22 +141,18 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
+					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here they forge strong relationships and negotiate over the price of produce so that it is fair and profitable for everyone.</div>"
+					"content": "<div class='panel'>Alert helps to set up market committees, which bring togethAlert helps to set up cross border cooperatives. Together, Congolese and Rwandan traders have stronger bargaining power and can negotiate a better price.</div>"
 				}
 			],
 			"prompts": [
 				{
 					"type": "text",
-					"content": "After purchasing your tomatoes, The DRC border is about to close."
-				},
-				{
-					"type": "text",
-					"content": "Unfortunately, you realise you have lost your jeton. What do you do? "
-				},
+					"content": "The DRC border is about to close. After purchasing your tomatoes you realise you have lost your border pass. What do you do?"
+				}
 			],
 			"choices": {
 				"1": {
@@ -180,7 +160,7 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "This happened to me last week. A Rwandan trader I met through Alert introduced me to a senior official who could help me get back to DRC. "
+							"content": "This happened to me last week. A Rwandan trader I met through Alert introduced me to a senior official who had participated in Alert’s dialogue training and helped me to get back to DRC."
 						},
 						// {
 						//     "type": "text",
@@ -203,7 +183,7 @@ const script = {
 
 						{
 							"type": "text",
-							"content": "Oh no, that could land you jail! Rwandan border guards will not accept bribes. Those who can’t produce a jeton must buy a new one, which is expensive."
+							"content": "Rwandan border guards will not accept bribes. Those who can’t produce a jeton must buy a new one, which is expensive."
 						},
 						{
 							"type": "image",
@@ -236,25 +216,25 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
+					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a jeton must buy a new one, which is expensive, or risk spending the night in a makeshift open-air jail.</div>"
+					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a jeton must buy a new one, which is expensive, or risk spending the night in jail.</div>"
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>However, by building a stronger relationship with Rwandan traders through the committees means you can ask them to put you in touch with a Rwandan senior official, who can help you cross the border without charging you extra. </div>"
+					"content": "<div class='panel'>By building networks of cross border relationships, cooperative members can call on each other for help.</div>"
 				}				
 			],
 			"prompts": [
 				{
 					"type": "text",
-					"content": "The border crossing is very chaotic, as you’re making your way back to DRC you see a fellow trader being harassed by someone unofficial and not in uniform demanding money."
+					"content": "The border is very chaotic. As you make your way back you see someone demanding money from a fellow trader."
 				},
 				{
 					"type": "text",
-					"content": "If that wasn’t enough a truck accidently reverses into the crowd and as a result of this chaos, you end up losing half your tomatoes"
+					"content": "A truck starts to reverse into the crowd and you lose half of your tomatoes."
 				},
 				{
 					"type": "image",
@@ -264,7 +244,7 @@ const script = {
 			"choices": {
 				"1": {
 					"text": "Continue your journey",
-					"next_stage_id": "5"
+					"next_stage_id": "6"
 				}
 			}
 		},
@@ -276,13 +256,13 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
+					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
 				}
 			],
 			"prompts": [
 				{
 					"type": "text",
-					"content": "It’s now very dark, dangerous to travel and the market in the DRC is about close."
+					"content": "It’s now dark and the market in DRC is closed. You will have to sell your tomatoes tomorrow."
 				},
 				{
 					"type": "text",
@@ -320,21 +300,17 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
-				},
-				{
-					"type": "text",
-					"content": "<div class='panel'>It is sometimes hard for trader to know who is an official border agent and who isn’t as there are so many checkpoints along the crossing. Therefore, International Alert works with the official border agents to stop these thieves pretending to be official from harassing trader and taking money off them.</div>"
+					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
 				}
 			],
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You’re finally home but the children haven’t eaten. What now?"
+					"content": "It’s now dark and the market in DRC is closed. You will have to sell your tomatoes tomorrow."
 				},
 				{
 					"type": "text",
-					"content": "Do you:"
+					"content": "You return home but the children haven’t eaten. What now?"
 				}
 			],
 			"choices": {
@@ -343,7 +319,7 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "It’s already been a long day, now you’ll be on your feet for another few hours."
+							"content": "My husband is part of the spouse club and now shares the domestic chores. Now when I get home after the market, I can rest and put my feet up."
 						},
 					],
 					"next_stage_id": "90"
@@ -368,7 +344,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
+					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
 				},
 				{
 					"type": "text",
@@ -387,7 +363,7 @@ const script = {
 			],
 			"choices": {
 				"1": {
-					"text": "Print your jeton to collect your free ice cream",
+					"text": "Print your border pass to collect your free ice cream",
 					"next_stage_id": "0"
 				}
 			}
@@ -400,44 +376,26 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the difficult journey she takes each week to cross the border into Rwanda to buy tomatoes she can sell.</div><hr>"
+					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a jeton must buy a new one, which is expensive, or risk spending the night in a makeshift open-air jail.</div>"
+					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a jeton must buy a new one, which is expensive, or risk spending the night in jail.</div>"
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>However, by building a stronger relationship with Rwandan traders through the committees means you can ask them to put you in touch with a Rwandan senior official, who can help you cross the border without charging you extra. </div>"
+					"content": "<div class='panel'>By building networks of cross border relationships, cooperative members can call on each other for help.</div>"
 				}		
 			],
 			"prompts": [
 				{
 					"type": "text",
-					"content": "Jail is not a great place to be. Would you like to reconsider?"
+					"content": "Jail is not a great place to be."
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "No, try to bribe the official again.",
-					"responses": [
-						{
-							"type": "text",
-							"content": "Oh dear - you've been thrown in jail for the night"
-						},
-						{
-							"type": "text",
-							"content": "That's game over I'm afraid. Thanks for playing"
-						},
-						{
-							"type": "image",
-							"content": "/images/gameover.jpg"
-						}
-					],
-					"next_stage_id": "0"
-				},
-				"2": {
-					"text": "Yes, I'll try that again",
+					"text": "Try that again",
 					"responses": [
 						{
 							"type": "text",
