@@ -73,10 +73,10 @@ function homeReducer(state = initialState, action) {
 
 
         // add bot's immediate response (0+ messages)
-        nextState = addImmediateChoiceResponses(nextState, userResponse)
+        nextState = addImmediateChoiceResponses(nextState, userResponse);
 
 				// add bot's prompts (0+ messages )
-        nextState = addPromptMessages(nextState, next_stage_id)
+        nextState = addPromptMessages(nextState, next_stage_id);
 
 
       return nextState

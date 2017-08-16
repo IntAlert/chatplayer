@@ -53,17 +53,16 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = (state) => {
   
   const current_stage_id = state.getIn(['home', 'current_stage_id']);
-  const script_loaded = state.getIn( ['home', 'script_loaded'] );
-  const feed = state.getIn( ['home', 'feed'] );
+  const script_loaded = state.getIn(['home', 'script_loaded']);
+  const feed = state.getIn(['home', 'feed']);
 
   // context is empty if script not loaded yet OR if context isn't set in SCRIPT
-  let context = state.getIn(['home', 'script', 'stages', current_stage_id, 'context'])
+  let context = state.getIn(['home', 'script', 'stages', current_stage_id, 'context']);
 
-  
-  if (context) context = context.toJS()
+  if (context) context = context.toJS();
 
-  return { script_loaded, feed, context }
-}
+  return { script_loaded, feed, context };
+};
 
 
 // Wrap the component to inject dispatch and state into it
