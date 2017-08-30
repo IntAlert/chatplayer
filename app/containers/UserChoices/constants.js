@@ -10,4 +10,5 @@
  */
 
 export const RESPOND = 'borderbot/Home/RESPOND';
+export const PRINT = 'borderbot/Home/PRINT';
 export const SCRIPT_FETCH_REQUESTED = 'borderbot/Home/SCRIPT_FETCH_REQUESTED';

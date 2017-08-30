@@ -73,12 +73,12 @@ UserChoices.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-export function mapDispatchToProps(dispatch, ownProps) {
+export function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     onLinkClick: (stage_id, choice_id) => {
-      return dispatch(respond(stage_id, choice_id))
-    }
+      return dispatch(respond(stage_id, choice_id));
+    },
   };
 }
 

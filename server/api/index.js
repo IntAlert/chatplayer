@@ -21,7 +21,8 @@ const script = {
 			"choices": {
 				"1": {
 					"text": "Let's go",
-					"next_stage_id": "1"
+					"targetType": "feed",
+					"target": "1"
 				}
 			}
 		},
@@ -80,7 +81,8 @@ const script = {
 						}
 						
 					],
-					"next_stage_id": "2"
+					"targetType": "feed",
+					"target": "2"
 				},
 				"2": {
 					"text": "Pay an official for a quick pass",
@@ -96,7 +98,8 @@ const script = {
 							}
 						}
 					],
-					"next_stage_id": "2"
+					"targetType": "feed",
+					"target": "2"
 				}
 			},
 		},
@@ -134,7 +137,8 @@ const script = {
 							"content": "/images/market.jpg"
 						}
 					],
-					"next_stage_id": "3"
+					"targetType": "feed",
+					"target": "3"
 				},
 				"2": {
 					"text": "Call a friend to help negotiate",
@@ -162,7 +166,8 @@ const script = {
 							}
 						}
 					],
-					"next_stage_id": "3"
+					"targetType": "feed",
+					"target": "3"
 				}				
 			}
 		},
@@ -208,7 +213,8 @@ const script = {
 						//     "content": "Going forward it would be great to see an electronic registration system in place one day, of all the daily passes so that those who accidentally misplace theirs can still pass through as long as they have an ID. "
 						// }
 					],
-					"next_stage_id": "4"
+					"targetType": "feed",
+					"target": "4"
 				},
 				"2": {
 					"text": "Offer the Rwandan border official a bribe",
@@ -244,7 +250,8 @@ const script = {
 						//     "content": "Going forward it would be great to see an electronic registration system in place one day, of all the daily passes so that those who accidentally misplace theirs can still pass through as long as they have an ID. "
 						// }
 					],
-					"next_stage_id": "99"
+					"targetType": "feed",
+					"target": "99"
 				}
 			}
 		},
@@ -292,7 +299,8 @@ const script = {
 			"choices": {
 				"1": {
 					"text": "Continue your journey",
-					"next_stage_id": "6"
+					"targetType": "feed",
+					"target": "6"
 				}
 			}
 		},
@@ -326,7 +334,8 @@ const script = {
 							"content": "The is the safer option, but I know women who risk it because they need the money and sell their perishable items"
 						},
 					],
-					"next_stage_id": "6"
+					"targetType": "feed",
+					"target": "6"
 				},
 				"2": {
 					"text": "Set up your own street stall ",
@@ -336,7 +345,8 @@ const script = {
 							"content": "That is very risky. If thieves pretending to be border officials see your street stall, they will destroy it, take your money and your tomatoes."
 						}
 					],
-					"next_stage_id": "6"
+					"targetType": "feed",
+					"target": "6"
 				}
 			}
 		},
@@ -370,7 +380,8 @@ const script = {
 							"content": "My husband is part of the spouse club and now shares the domestic chores. Now when I get home after the market, I can rest and put my feet up."
 						},
 					],
-					"next_stage_id": "90"
+					"targetType": "feed",
+					"target": "90"
 				},
 				"2": {
 					"text": "Confront your husband",
@@ -380,7 +391,8 @@ const script = {
 							"content": "My husband is part of the spouse club and now shares the domestic chores. Now when I get home after the market, I can rest and put my feet up."
 						}
 					],
-					"next_stage_id": "90"
+					"targetType": "feed",
+					"target": "90"
 				}
 			}
 		},		
@@ -412,7 +424,8 @@ const script = {
 			"choices": {
 				"1": {
 					"text": "Print your border pass to collect your free ice cream",
-					"next_stage_id": "0"
+					"targetType": "route",
+					"target": "/print"
 				}
 			}
 		},
@@ -450,7 +463,8 @@ const script = {
 							"content": "Wise choice... "
 						},
 					],
-					"next_stage_id": "3"
+					"targetType": "feed",
+					"target": "3"
 				}
 			}
 		}

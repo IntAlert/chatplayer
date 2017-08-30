@@ -12,6 +12,7 @@ export const RESPOND = 'borderbot/Home/RESPOND';
 
 export const TIMER_START = 'app/Home/TIMER_START';
 export const TIMER_TICK = 'app/Home/TIMER_TICK';
+export const PRINT = 'app/Home/PRINT';
 
 export const BOT_MESSAGE_INVISIBLE = 'app/Home/BOT_MESSAGE_INVISIBLE';
 export const BOT_MESSAGE_WRITING = 'app/Home/BOT_MESSAGE_WRITING';

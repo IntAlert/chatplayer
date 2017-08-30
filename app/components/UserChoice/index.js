@@ -14,7 +14,6 @@ const ChoiceContainer = styled.div`
   flex:1;
 `;
 
-// TODO: make FLEX
 const ChoiceLink = styled.a`
   display:block;
   background:#087FFE;
@@ -30,6 +29,7 @@ const ChoiceLink = styled.a`
 `;
 
 function UserChoice(props) {
+
   
   return (
     <ChoiceContainer>

@@ -16,7 +16,7 @@
  */
 
 import {
-  RESPOND
+  RESPOND, PRINT,
 } from './constants';
 
 /**
@@ -27,10 +27,15 @@ import {
  * @return {object}    An action object with a type of RESPOND
  */
 export function respond(stage_id, choice_id) {
-  
   return {
     type: RESPOND,
     stage_id,
     choice_id,
+  };
+}
+
+export function print() {
+  return {
+    type: PRINT,
   };
 }

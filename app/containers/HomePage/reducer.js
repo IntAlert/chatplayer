@@ -12,7 +12,8 @@ import {
   BOT_MESSAGE_INVISIBLE,
   BOT_MESSAGE_WRITING,
   BOT_MESSAGE_VISIBLE,
-  TIMER_TICK
+  TIMER_TICK,
+  PRINT,
 } from './constants';
 
 const initialState = fromJS({
@@ -52,8 +53,18 @@ function homeReducer(state = initialState, action) {
     case RESPOND:
 
       // get current and next place in script
-			const userResponse = state.getIn(['script', 'stages', action.stage_id, 'choices', action.choice_id]);
-      const next_stage_id = userResponse.getIn(['next_stage_id']);
+      const userResponse = state.getIn(['script', 'stages', action.stage_id, 'choices', action.choice_id]);
+      
+      if (userResponse.getIn(['targetType']) === 'route') {
+        // just abort everything and change the location
+        window.location.href = userResponse.getIn(['target']);
+        return state;
+      }
+      // otherwise, assume that this was a response that requires a
+      // modification to the feed
+
+      // assume targetType === 'feed'
+      const next_stage_id = userResponse.getIn(['target']);
 
 			var nextState = state
         // update current place in script
@@ -138,6 +149,11 @@ function homeReducer(state = initialState, action) {
 
         
       return state
+
+    case PRINT:
+      window.print();
+    break;
+    
     default:
       return state;
   }
