@@ -21,6 +21,7 @@ const initialState = fromJS({
   show_user_choices: false,
   script: {},
 	feed: [],
+	scores: {},
 });
 
 function homeReducer(state = initialState, action) {
@@ -30,21 +31,22 @@ function homeReducer(state = initialState, action) {
   switch (action.type) {
     case SCRIPT_FETCH_SUCCEEDED:
     
-      var nextState = state
+      let nextState = state
         .merge({
           script_loaded: true,
-          script:action.script,
-          current_stage_id:action.script.initial_stage_id
-        })
+          script: action.script,
+          current_stage_id: action.script.setup.initial_stage_id,
+          scores: action.script.setup.initial_scores,
+				});
 
-      nextState = addPromptMessages(nextState, action.script.initial_stage_id)
+      nextState = addPromptMessages(nextState, action.script.setup.initial_stage_id);
 
       return nextState;
 
 
     case SCRIPT_FETCH_FAILED:
     
-      console.log('script fetch failed')
+      console.log('script fetch failed');
       return state;
 
     case RESPOND:
@@ -52,7 +54,6 @@ function homeReducer(state = initialState, action) {
       // get current and next place in script
 			const userResponse = state.getIn(['script', 'stages', action.stage_id, 'choices', action.choice_id]);
       const next_stage_id = userResponse.getIn(['next_stage_id']);
-      // const currentContext = state.getIn(['script', 'stages', action.stage_id, 'context']);
 
 			var nextState = state
         // update current place in script
@@ -63,9 +64,9 @@ function homeReducer(state = initialState, action) {
 
 				// add user's response
 				.update('feed', arr => arr.push({
-					speaker:0,
-            type: "text",
-            content: userResponse.get('text')
+					speaker: 0,
+					type: "text",
+					content: userResponse.get('text'),
         }))
           
         // set current context
@@ -79,35 +80,53 @@ function homeReducer(state = initialState, action) {
         nextState = addPromptMessages(nextState, next_stage_id);
 
 
-      return nextState
+      return nextState;
 
 
     case TIMER_TICK:
 
 
       // if none, find first element in feed with status=BOT_MESSAGE_WRITING, set to BOT_MESSAGE_VISIBLE
-      const writingMessageIndex = state.get('feed').findIndex(message => {
-        return ( message.speaker == -1 || message.speaker == 1 ) && message.status == BOT_MESSAGE_WRITING
+      const firstWritingMessageIndex = state.get('feed').findIndex(message => {
+        return ( message.speaker == -1 || message.speaker == 1 ) && message.status == BOT_MESSAGE_WRITING;
       })
 
-      if (writingMessageIndex > -1 ) {
-        return state.updateIn(['feed', writingMessageIndex], message => {
-          let newMessage = Object.assign({}, message)
-          newMessage.status = BOT_MESSAGE_VISIBLE
-          return newMessage
-        })
+      if (firstWritingMessageIndex > -1) {
+
+				// update status of message
+        let updatedFeed = state.updateIn(['feed', firstWritingMessageIndex], (message) => {
+          const newMessage = Object.assign({}, message);
+          newMessage.status = BOT_MESSAGE_VISIBLE;
+          return newMessage;
+				});
+
+				// get score change if any
+				const scoreChange = state.getIn(['feed', firstWritingMessageIndex]).scoreChange;
+
+
+				if (scoreChange) {
+					// update score
+					updatedFeed = updatedFeed.updateIn(['scores'], (scores) => {
+						return calculateNewScores(scoreChange, scores);
+					});
+				} else {
+
+				}
+
+				return updatedFeed;
+				
       }
 
       // find first element in feed with status=BOT_MESSAGE_INVISIBLE, set to BOT_MESSAGE_WRITING
-      const invisibleMessageIndex = state.get('feed').findIndex(message => {
-        return ( message.speaker == -1 || message.speaker == 1 ) && message.status == BOT_MESSAGE_INVISIBLE
-      })
-      if (invisibleMessageIndex > -1 ) {
-        return state.updateIn(['feed', invisibleMessageIndex], message => {
+      const firstInvisibleMessageIndex = state.get('feed').findIndex(message => {
+        return (message.speaker == -1 || message.speaker == 1 ) && message.status == BOT_MESSAGE_INVISIBLE;
+      });
+      if (firstInvisibleMessageIndex > -1 ) {
+        return state.updateIn(['feed', firstInvisibleMessageIndex], message => {
           let newMessage = Object.assign({}, message)
           newMessage.status = BOT_MESSAGE_WRITING
-          return newMessage
-        })
+          return newMessage;
+        });
       }
 
 
@@ -137,25 +156,26 @@ function addImmediateChoiceResponses(state, userResponse) {
     return state
   }
 
-  const nextState = state.update('feed', arr => {
+  const nextState = state.update('feed', (arr) => {
     
     var newArr = arr;
-    immediateResponses.toArray().forEach(response => {
+    immediateResponses.toArray().forEach((response) => {
       const feedMessage = {
         speaker:1, // bot response code, TODO factor out as CONST
         status: BOT_MESSAGE_INVISIBLE,
         // TODO: do something with prompt.type, contentType?
         type: response.get('type'),
-        content: response.get('content')
+				content: response.get('content'),
+				scoreChange: response.get('scoreChange'),
       }
 
       newArr = newArr.push(feedMessage);
     })
 
-    return newArr
+    return newArr;
   })
 
-  return nextState
+  return nextState;
 }
 
 // this adds prompt messages for a given stage
@@ -173,7 +193,8 @@ function addPromptMessages(state, stage_id) {
         status: BOT_MESSAGE_INVISIBLE,
         // TODO: do something with prompt.type, contentType?
         type: prompt.get('type'),
-        content: prompt.get('content')
+				content: prompt.get('content'),
+				scoreChange: prompt.get('scoreChange'),
       }
 
       newArr = newArr.push(feedMessage);
@@ -185,6 +206,31 @@ function addPromptMessages(state, stage_id) {
   return nextState
 }
 
+function calculateNewScores(scoreChange, currentScores) {
+	const newScores = Object.assign({}, currentScores.toJS());
+	const scoreChangeJS = scoreChange.toJS();
+	console.log(scoreChangeJS);
 
+	for(let scoreName in scoreChangeJS) {
+		let change = scoreChangeJS[scoreName];
+		
+		
+		switch(change.operator) {
+			case 'multiply':
+				newScores[scoreName] = Math.ceil(newScores[scoreName] * change.amount);
+			break;
+			case 'add':
+				newScores[scoreName] += change.amount;
+			break;
+			case 'set':
+				newScores[scoreName] = change.amount;
+			break;
+			default:
+				throw('Unknown change operator ' + change.operator);
+		}
+		
+	}
+	return fromJS(newScores);
+}
 
 export default homeReducer;

@@ -2,7 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 const script = {
-	"initial_stage_id": "0",
+	
+	"setup": {
+		"initial_stage_id": "0",
+		"initial_scores": {
+			"money": 100,
+			"tomatoes": 0,
+		}
+	},
 	"stages": {
 		"0": {
 			"prompts": [
@@ -32,7 +39,7 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You need to get your children ready and prepare breakfast for the whole family, before you can leave the house. Because of this, you’ve arrive at the border crossing late"
+					"content": "You need to get your children ready and prepare breakfast for the whole family, before you can leave the house. Because of this, you've arrive at the border crossing late"
 				},
 				{
 					"type": "image",
@@ -59,7 +66,7 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "Hi I’m Maman Bahati, another Congolese trader. It’s a shame you couldn’t arrive earlier. The queue is very long now. Hopefully there will be tomatoes once you get across."
+							"content": "Hi I'm Maman Bahati, another Congolese trader. It's a shame you couldn't arrive earlier. The queue is very long now. Hopefully there will be tomatoes once you get across."
 						},
 						{
 							"type": "image",
@@ -74,7 +81,13 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "This will get you across the border quickly, but that money could have gone towards school fees for a week. Fingers crossed you make enough today to cover that."
+							"content": "This will get you across the border quickly, but that money could have gone towards school fees for a week. Fingers crossed you make enough today to cover that.",
+							"scoreChange": {
+								"money": {
+									"operator": "add",
+									"amount": -10
+								},
+							}
 						}
 					],
 					"next_stage_id": "2"
@@ -93,13 +106,13 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>International Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you will get to the border early and won’t have to pay any unnecessary fees.</div>"
+					"content": "<div class='panel'>International Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you will get to the border early and won't have to pay any unnecessary fees.</div>"
 				}
 			],
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You make it across the border and reach the market place in Rwanda. The price of tomatoes is high but you can’t go back empty handed. Do you:"
+					"content": "You make it across the border and reach the market place in Rwanda. The price of tomatoes is high but you can't go back empty handed. Do you:"
 				}
 			],
 			"choices": {
@@ -108,7 +121,7 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "That’s risky, you might not find tomatoes anywhere else and they will continue to charge you extra every time you go back.  "
+							"content": "That's risky, you might not find tomatoes anywhere else and they will continue to charge you extra every time you go back.  "
 						},
 						{
 							"type": "image",
@@ -122,11 +135,25 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "That’s exactly what I would do!"
+							"content": "That's exactly what I would do!"
 						},
 						{
 							"type": "image",
 							"content": "/images/market.jpg"
+						}, 
+						{
+							"type": "text",
+							"content": "You negotiate a reasonable price: 80 francs for 100 tomatoes",
+							"scoreChange": {
+								"money": {
+									"operator": "add",
+									"amount": -80
+								},
+								"tomatoes": {
+									"operator": "add",
+									"amount": 100
+								}
+							}
 						}
 					],
 					"next_stage_id": "3"
@@ -160,7 +187,7 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "This happened to me last week. A Rwandan trader I met through Alert introduced me to a senior official who had participated in Alert’s dialogue training and helped me to get back to DRC."
+							"content": "This happened to me last week. A Rwandan trader I met through Alert introduced me to a senior official who had participated in Alert's dialogue training and helped me to get back to DRC."
 						},
 						// {
 						//     "type": "text",
@@ -168,7 +195,7 @@ const script = {
 						// },
 						// {
 						//     "type": "text",
-						//     "content": "I couldn’t thank her enough for her help because if I didn’t get home to my family before darkness fell, I could risk being attacked by thieves on the way."
+						//     "content": "I couldn't thank her enough for her help because if I didn't get home to my family before darkness fell, I could risk being attacked by thieves on the way."
 						// },
 						// {
 						//     "type": "text",
@@ -187,18 +214,25 @@ const script = {
 						},
 						{
 							"type": "image",
-							"content": "/images/jail.jpg"
+							"content": "/images/jail.jpg",
+							"scoreChange": {
+								"money": {
+									"operator": "add",
+									"amount": -10
+								},
+							}
+
 						},
 						// {
 						//     "type": "text",
-						//     "content": "Rwandese border guards are renowned for their strictness. So those who can’t produce a border pass can’t bribe their way out. They must buy a new border pass, adding more expense to an already expensive journey. Some traders I know have had to spend a night in a cell for failing to produce a valid pass, and they can’t buy a new one because they don’t have any money left."
+						//     "content": "Rwandese border guards are renowned for their strictness. So those who can't produce a border pass can't bribe their way out. They must buy a new border pass, adding more expense to an already expensive journey. Some traders I know have had to spend a night in a cell for failing to produce a valid pass, and they can't buy a new one because they don't have any money left."
 						// },
 						// {
 						//     "type": "text",
 						//     "content": "However, by building stronger relationships with my Rwandan counterparts through the cooperatives and dialogues groups held by International Alert, I know I have someone I can call on for help, if I got into a similar position. Someone who can put me in touch with a senior official at the Rwanda crossing that will allow me to cross without charging me more money. "
 						// }, {
 						//     "type": "text",
-						//     "content": "Without this support, I know if I don’t get home to my family before darkness fell, I could risk being attacked by thieves on the way."
+						//     "content": "Without this support, I know if I don't get home to my family before darkness fell, I could risk being attacked by thieves on the way."
 						// }, {
 						//     "type": "text",
 						//     "content": "Going forward it would be great to see an electronic registration system in place one day, of all the daily passes so that those who accidentally misplace theirs can still pass through as long as they have an ID. "
@@ -220,7 +254,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
+					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
 				},
 				{
 					"type": "text",
@@ -235,6 +269,14 @@ const script = {
 				{
 					"type": "text",
 					"content": "A truck starts to reverse into the crowd and you lose half of your tomatoes."
+					,
+
+					"scoreChange": {
+						"tomatoes": {
+							"operator": "multiply",
+							"amount": 0.5
+						},
+					}
 				},
 				{
 					"type": "image",
@@ -262,7 +304,7 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "It’s now dark and the market in DRC is closed. You will have to sell your tomatoes tomorrow."
+					"content": "It's now dark and the market in DRC is closed. You will have to sell your tomatoes tomorrow."
 				},
 				{
 					"type": "text",
@@ -306,11 +348,11 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "It’s now dark and the market in DRC is closed. You will have to sell your tomatoes tomorrow."
+					"content": "It's now dark and the market in DRC is closed. You will have to sell your tomatoes tomorrow."
 				},
 				{
 					"type": "text",
-					"content": "You return home but the children haven’t eaten. What now?"
+					"content": "You return home but the children haven't eaten. What now?"
 				}
 			],
 			"choices": {
@@ -348,7 +390,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>This is the case for lots of women in DRC. It’s not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert’s spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day.</div>"
+					"content": "<div class='panel'>This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day.</div>"
 				}						
 			],			
 			"prompts": [
@@ -380,7 +422,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can’t produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
+					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
 				},
 				{
 					"type": "text",

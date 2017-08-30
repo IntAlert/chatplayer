@@ -25,7 +25,7 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
 
   render() {
     if (this.props.script_loaded) {
-      var homePageContent = (<Conversation feed={this.props.feed} context={this.props.context} />)
+      var homePageContent = (<Conversation feed={this.props.feed} context={this.props.context} scores={this.props.scores} />)
     } else {
       var homePageContent = (
         <div>
@@ -42,26 +42,26 @@ export function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     onLoad: () => {
-      return dispatch(loadScript())
+      return dispatch(loadScript());
     },
     onStartTimer: () => {
-      return dispatch(startTimer())
+      return dispatch(startTimer());
     },
   };
 }
 
 const mapStateToProps = (state) => {
-  
   const current_stage_id = state.getIn(['home', 'current_stage_id']);
   const script_loaded = state.getIn(['home', 'script_loaded']);
   const feed = state.getIn(['home', 'feed']);
+  const scores = state.getIn(['home', 'scores']);
 
   // context is empty if script not loaded yet OR if context isn't set in SCRIPT
   let context = state.getIn(['home', 'script', 'stages', current_stage_id, 'context']);
 
   if (context) context = context.toJS();
 
-  return { script_loaded, feed, context };
+  return { script_loaded, feed, context, scores };
 };
 
 
