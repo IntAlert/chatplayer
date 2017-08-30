@@ -19,6 +19,13 @@ http://chatplayer.azurewebsites.net
 4. `git commit -m ...`
 5. `git push azure master`
 
+OR
+
+```
+npm run build; git add .; git commit -m 'build'; git push azure
+```
+for a one-liner!
+
 # Setting up the Azure Environment
 cf. https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs
 1. `az login`
