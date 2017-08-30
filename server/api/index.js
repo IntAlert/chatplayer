@@ -6,7 +6,7 @@ const script = {
 	"setup": {
 		"initial_stage_id": "0",
 		"initial_scores": {
-			"money": 100,
+			"money": 0,
 			"tomatoes": 0,
 		}
 	},
@@ -39,7 +39,13 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You need to get your children ready and prepare breakfast for the whole family, before you can leave the house. Because of this, you've arrive at the border crossing late"
+					"content": "You need to get your children ready and prepare breakfast for the whole family, before you can leave the house. Because of this, you've arrive at the border crossing late",
+					"scoreChange": {
+						"money": {
+							"operator": "set",
+							"amount": 100
+						},
+					}
 				},
 				{
 					"type": "image",
