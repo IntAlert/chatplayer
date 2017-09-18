@@ -1,29 +1,31 @@
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
-import {animateScroll} from 'react-scroll';
+import { animateScroll } from 'react-scroll';
 import './styles.css';
 
 import narratorAvatar from './avatar-narrator.png';
 import botAvatar from './avatar-bot.png';
 import userAvatar from './avatar-user.png';
 
+import loadingAnimationImage from './loading.svg';
 
+import FlippableImage from '../FlippableImage';
 
 class ChatFeed extends Component {
 
   componentDidUpdate() {
-      animateScroll.scrollToBottom()
+    animateScroll.scrollToBottom();
   }
 
-  getConversations(messages){
+  getConversations(messages) {
 
-    if(messages == undefined){
+    if(messages == undefined) {
       console.log("react-chat-bubble::", "'messages' props should be an array!");
       return;
     }
 
     const listItems = messages.map((message, index) => {
-      var bubbleClass, bubbleDirection
+      var bubbleClass, bubbleDirection;
 
 
 
@@ -31,10 +33,10 @@ class ChatFeed extends Component {
       if(message.speaker === -1){
         // narrator
         bubbleClass = 'narrator';
-        bubbleDirection = "";
-
-        var avatar = (<img className={`img-circle`} src={narratorAvatar} />)
-      } else if(message.speaker === 0){
+        bubbleDirection = '';
+        // no avatar 
+        var avatar = ''; // (<img className={`img-circle`} src={narratorAvatar} />)
+      } else if(message.speaker === 0) {
         // user
         bubbleClass = 'you';
         bubbleDirection = "bubble-direction-reverse";
@@ -56,10 +58,24 @@ class ChatFeed extends Component {
             {message.content}
           </div>
         )
-      } else if(message.type == 'image') {
+      } else if(message.type === 'image') {
+
+        let messageImage;
+
+        if (message.more) {
+          
+          // make card flippable if there is more info on the image
+          messageImage = (
+            <FlippableImage message={message} />
+          );
+        } else {
+          messageImage = <img src={message.content} />;
+        }
+
+
         messageContent = (
           <div className={`message-image`}>
-            <img src={message.content} />
+            {messageImage}
           </div>
         )
       } 
@@ -85,7 +101,9 @@ class ChatFeed extends Component {
           <div className={`bubble-container ${bubbleDirection}`} key={index}>
             {avatar}
             <div className={`bubble ${bubbleClass}`}>
-              <div className="loading"></div>
+              <div className="loading">
+                 <img alt="loading" src={loadingAnimationImage} /> 
+              </div>
             </div>
           </div>
         )
@@ -101,6 +119,16 @@ class ChatFeed extends Component {
     });
     return listItems;
   }
+
+  handleTouchStart(){
+    this.setState({
+        isHovered: !this.state.isHovered
+    });
+  }
+  // render(){
+  //     const btnClass = this.state.isHovered ? "pulse animated" : "";
+  //     return <button className={btnClass} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}></button>
+  // }
 
   render() {
     const {messages} = this.props;

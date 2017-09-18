@@ -13,7 +13,6 @@ import { respond } from './actions';
 
 import UserChoice from 'components/UserChoice';
 
-
 var style = {
     backgroundColor: "#F8F8F8",
     borderTop: "1px solid #E7E7E7",
@@ -23,7 +22,8 @@ var style = {
     bottom: "0",
     height: "100px",
     width: "100%",
-    display: "flex"
+    display: "flex",
+    boxShadow: "0px -5px 20px 0px rgba(153,153,153,1)"
 };
 
 var phantom = {

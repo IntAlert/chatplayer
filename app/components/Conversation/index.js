@@ -21,21 +21,24 @@ const ConversationWrapper = styled.div`
     position:relative;
 `;
 
-const ConversationContextWrapper = styled.div`
-    position:fixed;
-    width:25%;
-`;
+// const ConversationContextWrapper = styled.div`
+//     position:fixed;
+//     width:25%;
+// `;
 
 const ChatWrapper = styled.div`
+    position:relative;
+    z-index:1;
     float:left;
-    margin-left:25%;
-    width:50%;
+    width:70%;
 `;
 
 const ConversationScoreWrapper = styled.div`
     position:fixed;
-    margin-left:75%;
-    width:25%;
+    margin-left:70%;
+    width:30%;
+    height:100%;
+    background:#A9C8FF;
 `;
 
 function Conversation(props) {
@@ -45,7 +48,8 @@ function Conversation(props) {
             speaker: item.speaker,
             status: item.status, //TODO: where used?
             type: item.type,
-            content: item.content
+            content: item.content,
+            more: item.more
         }
     }).toArray();
 
@@ -54,10 +58,6 @@ function Conversation(props) {
 
     return (
         <ConversationWrapper>
-            
-            <ConversationContextWrapper>
-                <ConversationContext context={context} />
-            </ConversationContextWrapper>
 
             <ChatWrapper>
                 <ChatFeed messages={messages} />
@@ -65,6 +65,7 @@ function Conversation(props) {
             </ChatWrapper>
 
             <ConversationScoreWrapper>
+                <ConversationContext context={context} />
                 <ConversationScore scores={scores} />
             </ConversationScoreWrapper>
 

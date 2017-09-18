@@ -1,26 +1,24 @@
 .conversation-context {
   text-align: center;
   font-size: 12px;
+  padding:2em;
 }
 
 .conversation-context div.text {
-  font-family: Arial,sans-serif;
   text-align: center;
   font-size: 14px;
   line-height: 1.0;
 }
 
 .conversation-context div.panel {
-  font-family: Arial,sans-serif;
   font-style: italic;
   color: white;
-  background-color: #000000;
+  background-color:rgba(0,0,0,0.6);
   text-align: center;
   font-size: 12px;
   line-height: 1.5em;
   padding: 18px;
   margin:1px;
-  opacity: 0.6;
 }
 
 .conversation-context img {

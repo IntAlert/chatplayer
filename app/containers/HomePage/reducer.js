@@ -27,8 +27,6 @@ const initialState = fromJS({
 
 function homeReducer(state = initialState, action) {
 
-  // console.log(state.toJS());
-  // console.log(action);
   switch (action.type) {
     case SCRIPT_FETCH_SUCCEEDED:
     
@@ -66,7 +64,8 @@ function homeReducer(state = initialState, action) {
       // assume targetType === 'feed'
       const next_stage_id = userResponse.getIn(['target']);
 
-			var nextState = state
+      var nextState = state
+      
         // update current place in script
 				.set('current_stage_id', next_stage_id)
 
@@ -78,7 +77,7 @@ function homeReducer(state = initialState, action) {
 					speaker: 0,
 					type: "text",
 					content: userResponse.get('text'),
-        }))
+        }));
           
         // set current context
         // .set('current_context', currentContext)
@@ -181,7 +180,8 @@ function addImmediateChoiceResponses(state, userResponse) {
         status: BOT_MESSAGE_INVISIBLE,
         // TODO: do something with prompt.type, contentType?
         type: response.get('type'),
-				content: response.get('content'),
+        content: response.get('content'),
+        more: response.get('more'),
 				scoreChange: response.get('scoreChange'),
       }
 
@@ -204,19 +204,30 @@ function addPromptMessages(state, stage_id) {
     
     var newArr = arr;
     prompts.toArray().forEach(prompt => {
+
+      
       const feedMessage = {
         speaker:-1, // narrator response code, TODO factor out as CONST
         status: BOT_MESSAGE_INVISIBLE,
         // TODO: do something with prompt.type, contentType?
         type: prompt.get('type'),
-				content: prompt.get('content'),
+        content: prompt.get('content'),
+        more: prompt.get('more'),
 				scoreChange: prompt.get('scoreChange'),
       }
 
+      
+
       newArr = newArr.push(feedMessage);
+
+      if (prompt.get('more')) {
+        console.log('***'+feedMessage.more);
+        console.log(newArr.toJS());
+      }
+
     })
 
-    return newArr
+    return newArr;
   })
 
   return nextState
@@ -225,7 +236,6 @@ function addPromptMessages(state, stage_id) {
 function calculateNewScores(scoreChange, currentScores) {
 	const newScores = Object.assign({}, currentScores.toJS());
 	const scoreChangeJS = scoreChange.toJS();
-	console.log(scoreChangeJS);
 
 	for(let scoreName in scoreChangeJS) {
 		let change = scoreChangeJS[scoreName];

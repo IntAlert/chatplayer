@@ -1,13 +1,13 @@
 .chats {
-  margin:1em;
+  padding:32px 84px 84px 32px;
+  font-family: 'Roboto';
+  font-weight: 300;
 }
 
-.bubble-container{
-  margin-top: 8px;
-  margin-bottom: 8px;
+.bubble-container {
+  margin-bottom: 50px;
   display:flex;
-  font-family: sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   align-items: top center;
   flex-direction: row-reverse;
 }
@@ -16,15 +16,17 @@
   flex-direction: row;
 }
 
-.bubble{
+.bubble {
     background-color: #F2F2F2;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0 0 6px #B2B2B2;
     display: block;
-    padding: 10px 18px;
+    padding: 18px;
     position: relative;
     color: white;
     word-wrap: break-word;
+    display: flex;
+    align-content: center;
 }
 
 .bubble::before {
@@ -35,13 +37,12 @@
     position: absolute;
     top: 11px;
     transform:             rotate( 29deg ) skew( -35deg );
-        -moz-transform:    rotate( 29deg ) skew( -35deg );
-        -ms-transform:     rotate( 29deg ) skew( -35deg );
-        -o-transform:      rotate( 29deg ) skew( -35deg );
-        -webkit-transform: rotate( 29deg ) skew( -35deg );
     width:  20px;
 }
 
+.bubble img {
+  border-radius: 15px;
+}
 .me {
     background-color: #8f5db7;
     margin-left: 60px;
@@ -80,40 +81,26 @@
     box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
     right: -9px;
     background-color: #FDC300;
+    display: none;
 }
 
 .img-circle {
   border-radius: 42%;
-  height:42px;
-  width:42px;
+  height:72px;
+  width:72px;
 }
-
 
 /*Loading*/
 .loading {
-  font-size: 30px;
-  min-width:1em;
   text-align: center;
 }
 
-.loading:after {
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: bottom;
-  -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
-  animation: ellipsis steps(4,end) 900ms infinite;
-  content: "\2026"; /* ascii code for the ellipsis character */
-  width: 0px;
+.loading img {
+  height:30px;
 }
 
-@keyframes ellipsis {
-  to {
-    width: 1.25em;    
-  }
-}
 
-@-webkit-keyframes ellipsis {
-  to {
-    width: 1.25em;    
-  }
+/* Message Images */
+.message-image {
+  position: relative;
 }

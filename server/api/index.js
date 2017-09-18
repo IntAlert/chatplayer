@@ -50,7 +50,8 @@ const script = {
 				},
 				{
 					"type": "image",
-					"content": "/images/guard.jpg"
+					"content": "/images/guard.jpg",
+					"more": "Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes."
 				},
 				{
 					"type": "text",
