@@ -12,7 +12,8 @@ import messages from './messages';
 
 import ConversationContext from 'components/ConversationContext';
 import ChatFeed from 'components/ChatFeed';
-import ConversationScore from 'components/ConversationScore';
+// import ConversationScore from 'components/ConversationScore';
+import ConversationScoreHighlighted from 'components/ConversationScoreHighlighted';
 
 import UserChoices from 'containers/UserChoices';
 
@@ -68,7 +69,7 @@ function Conversation(props) {
 
             <ConversationScoreWrapper>
                 <ConversationContext context={context} />
-                <ConversationScore scores={scores} />
+                <ConversationScoreHighlighted scores={scores} />
             </ConversationScoreWrapper>
 
         </ConversationWrapper>

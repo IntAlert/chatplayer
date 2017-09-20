@@ -36,7 +36,7 @@ class FlippableImage extends React.Component { // eslint-disable-line react/pref
 
     return (
       <div>
-        <div className={flippedClass} onTouchStart={this.handleTouchStart} >
+        <div className={flippedClass} onClick={this.handleTouchStart} >
           <div className="flipper">
             <div className="front">
               <img src={message.content} />

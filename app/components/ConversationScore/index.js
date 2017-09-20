@@ -26,7 +26,7 @@ const ScoreTitle = styled.p`
 function ConversationScore(props) {
 
   return (
-    <div className="thing">
+    <div className="score-container">
       <ScoreTitle>You have:</ScoreTitle>
 
       <TomatoScore>

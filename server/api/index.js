@@ -45,7 +45,7 @@ const script = {
 				{
 					"type": "image",
 					"content": "/images/guard.jpg",
-					"more": "Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes."
+					// "more": "Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes."
 				},
 				{
 					"type": "text",
@@ -55,14 +55,10 @@ const script = {
 			"choices": {
 				"1": {
 					"context": [
-						{
-							"type": "text",
-							"content": "<hr><table><tr><td width='80px'><img src='/images/chantal.jpg'></td><td>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</td></tr></table><hr>"
-						},
-						{
-							"type": "text",
-							"content": "One of the things that Alert is doing is setting up spouse clubs, which encourage husbands to share domestic chores at home. That way women traders can get to the border early and avoid unnecessary delays."
-						}
+						// {
+						// 	"type": "text",
+						// 	"content": "One of the things that Alert is doing is setting up spouse clubs, which encourage husbands to share domestic chores at home. That way women traders can get to the border early and avoid unnecessary delays."
+						// }
 					],
 					"text": "Join the queue for a border pass",
 					"responses": [
@@ -72,7 +68,8 @@ const script = {
 						},
 						{
 							"type": "image",
-							"content": "/images/queue2.jpg"
+							"content": "/images/queue2.jpg",
+							"more": "Alert lobbies border officials to take measures that reduce the amount of time women traders have to spend at the border. Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you get to the border early and won't have to pay any extra fees."
 						}
 						
 					],
@@ -102,10 +99,10 @@ const script = {
 			"context": [
 				
 				
-				{
-					"type": "text",
-					"content": "<div class='panel'>Alert lobbies border officials to take measures that reduce the amount of time women traders have to spend at the border. International Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you will get to the border early and won't have to pay any unnecessary fees.</div>"
-				}
+				// {
+				// 	"type": "text",
+				// 	"content": "<div class='panel'>Alert lobbies border officials to take measures that reduce the amount of time women traders have to spend at the border. International Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you will get to the border early and won't have to pay any unnecessary fees.</div>"
+				// }
 			],
 			"prompts": [
 				{
@@ -123,7 +120,8 @@ const script = {
 						},
 						{
 							"type": "image",
-							"content": "/images/market.jpg"
+							"content": "/images/market.jpg",
+							"more": "Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here they forge strong relationships and negotiate over the price of produce so that it is fair and profitable for everyone."
 						}
 					],
 					"targetType": "feed",
@@ -138,7 +136,8 @@ const script = {
 						},
 						{
 							"type": "image",
-							"content": "/images/market.jpg"
+							"content": "/images/market.jpg",
+							"more": "Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here they forge strong relationships and negotiate over the price of produce so that it is fair and profitable for everyone."
 						}, 
 						{
 							"type": "text",
@@ -164,10 +163,10 @@ const script = {
 			"context": [
 				
 				
-				{
-					"type": "text",
-					"content": "<div class='panel'>Alert helps to set up market committees, which bring togethAlert helps to set up cross border cooperatives. Together, Congolese and Rwandan traders have stronger bargaining power and can negotiate a better price.</div>"
-				}
+				// {
+				// 	"type": "text",
+				// 	"content": "<div class='panel'>Alert helps to set up market committees, which bring togethAlert helps to set up cross border cooperatives. Together, Congolese and Rwandan traders have stronger bargaining power and can negotiate a better price.</div>"
+				// }
 			],
 			"prompts": [
 				{
@@ -210,6 +209,7 @@ const script = {
 						{
 							"type": "image",
 							"content": "/images/jail.jpg",
+							"more": "Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail. ",
 							"scoreChange": {
 								"money": {
 									"operator": "add",
@@ -242,14 +242,14 @@ const script = {
 			"context": [
 				
 				
-				{
-					"type": "text",
-					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
-				},
-				{
-					"type": "text",
-					"content": "<div class='panel'>By building networks of cross border relationships, cooperative members can call on each other for help.</div>"
-				}				
+				// {
+				// 	"type": "text",
+				// 	"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
+				// },
+				// {
+				// 	"type": "text",
+				// 	"content": "<div class='panel'>By building networks of cross border relationships, cooperative members can call on each other for help.</div>"
+				// }				
 			],
 			"prompts": [
 				{
@@ -344,6 +344,11 @@ const script = {
 							"type": "text",
 							"content": "My husband is part of the spouse club and now shares the domestic chores. Now when I get home after the market, I can rest and put my feet up."
 						},
+						{
+							"type": "image",
+							"content": "/images/spouse-club.png",
+							"more": "This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day."
+						}
 					],
 					"targetType": "feed",
 					"target": "90"
@@ -365,16 +370,35 @@ const script = {
 			"context": [
 				
 				
-				{
-					"type": "text",
-					"content": "<div class='panel'>This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day.</div>"
-				}						
+				// {
+				// 	"type": "text",
+				// 	"content": "<div class='panel'>This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day.</div>"
+				// }						
 			],			
 			"prompts": [
 				{
 					"type": "text",
 					"content": "Congratulations. You've completed the tomato challenge!"
-				},
+				}
+			],
+			"choices": {
+				"1": {
+					"text": "Continue",
+					"targetType": "feed",
+					"target": "91"
+				}
+			}
+		},
+		"91": {
+			"context": [
+				
+				
+				// {
+				// 	"type": "text",
+				// 	"content": "<div class='panel'>This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day.</div>"
+				// }						
+			],			
+			"prompts": [
 				{
 					"type": "image",
 					"content": "/images/icecream.jpg"
@@ -392,14 +416,14 @@ const script = {
 			"context": [
 				
 				
-				{
-					"type": "text",
-					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
-				},
-				{
-					"type": "text",
-					"content": "<div class='panel'>By building networks of cross border relationships, cooperative members can call on each other for help.</div>"
-				}		
+				// {
+				// 	"type": "text",
+				// 	"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
+				// },
+				// {
+				// 	"type": "text",
+				// 	"content": "<div class='panel'>By building networks of cross border relationships, cooperative members can call on each other for help.</div>"
+				// }		
 			],
 			"prompts": [
 				{

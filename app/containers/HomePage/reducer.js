@@ -197,8 +197,7 @@ function addImmediateChoiceResponses(state, userResponse) {
 // this adds prompt messages for a given stage
 function addPromptMessages(state, stage_id) {
 
-  var prompts = state.getIn(['script', 'stages', stage_id, 'prompts'])
-
+  var prompts = state.getIn(['script', 'stages', stage_id, 'prompts']);
 
   const nextState = state.update('feed', arr => {
     
