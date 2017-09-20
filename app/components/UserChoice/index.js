@@ -22,6 +22,7 @@ const ChoiceLink = styled.a`
   border-radius:5px;
   margin:1em;
   padding:1em;
+  font-size:22px;
   &:hover {
     cursor:pointer;
     background:#085FFF;

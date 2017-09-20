@@ -86,7 +86,7 @@ const script = {
 					"target": "2"
 				},
 				"2": {
-					"text": "Pay an official for a quick pass",
+					"text": "Bribe an official for a quick pass",
 					"responses": [
 						{
 							"type": "text",
@@ -116,7 +116,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "<div class='panel'>International Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you will get to the border early and won't have to pay any unnecessary fees.</div>"
+					"content": "<div class='panel'>Alert lobbies border officials to take measures that reduce the amount of time women traders have to spend at the border. International Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you will get to the border early and won't have to pay any unnecessary fees.</div>"
 				}
 			],
 			"prompts": [

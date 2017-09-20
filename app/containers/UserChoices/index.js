@@ -20,7 +20,7 @@ var style = {
     position: "fixed",
     left: "0",
     bottom: "0",
-    height: "100px",
+    height: "120px",
     width: "100%",
     display: "flex",
     boxShadow: "0px -5px 20px 0px rgba(153,153,153,1)"
@@ -29,11 +29,9 @@ var style = {
 var phantom = {
   display: 'block',
   padding: '20px',
-  height: '100px',
+  height: '120px',
   width: '100%',
 }
-
-
 
 export class UserChoices extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 

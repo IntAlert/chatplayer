@@ -1,4 +1,7 @@
-img {
+.thing {
+	margin-left: 30px;
+}
+img.icon {
 	max-width:32px;
 	margin-right: 1em;
 }

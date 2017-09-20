@@ -26,17 +26,17 @@ const ScoreTitle = styled.p`
 function ConversationScore(props) {
 
   return (
-    <div>
+    <div className="thing">
       <ScoreTitle>You have:</ScoreTitle>
 
       <TomatoScore>
-        <img src="/images/icon-tomato.png" alt="tomato" />
+        <img className="icon" src="/images/icon-tomato.png" alt="tomato" />
         {props.scores.get('tomatoes')} tomatoes
       </TomatoScore>
       
       
       <MoneyScore>
-      <img src="/images/icon-money.png" alt="money" />
+      <img className="icon" src="/images/icon-money.png" alt="money" />
         {props.scores.get('money')} Francs
       </MoneyScore>
     </div>
