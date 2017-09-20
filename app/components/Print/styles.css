@@ -1,0 +1,15 @@
+.token {
+	text-align: center;	
+	padding:8px;
+	display: none;
+}
+
+
+@media print {
+  .no-print {
+    display: none;
+	}
+	.token {
+		display: block;
+	}
+}

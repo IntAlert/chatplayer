@@ -125,10 +125,6 @@ class ChatFeed extends Component {
         isHovered: !this.state.isHovered
     });
   }
-  // render(){
-  //     const btnClass = this.state.isHovered ? "pulse animated" : "";
-  //     return <button className={btnClass} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}></button>
-  // }
 
   render() {
     const {messages} = this.props;

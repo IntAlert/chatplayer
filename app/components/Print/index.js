@@ -7,6 +7,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import './styles.css';
+
 const ImageContainer = styled.div`
   text-align:center;
 `;
@@ -25,10 +27,11 @@ const PrintLink = styled.a`
   }
 `;
 
+
 const print = () => {
   window.print();
   setTimeout(() => {
-    window.location.href = '/';
+    // window.location.href = '/';
   }, 100);
 };
 
@@ -37,20 +40,34 @@ function Print() {
 
   return (
     <div>
-      <ImageContainer>
-        <img src="/images/cookie-dough-detail.png" alt="Free Icecream" />
-        <br />
-        One free ice cream
-      </ImageContainer>
-      
+      <div className="no-print">
+        <ImageContainer>
+          <img src="/images/cookie-dough-detail.png" alt="Free Icecream" />
+          <br />
+          Free sprinkles on your ice cream
+        </ImageContainer>
+        
 
-      <ImageContainer>
-        <img src="/images/barcode.png" alt="barcode" />
-      </ImageContainer>
+        <ImageContainer>
+          <img src="/images/barcode.png" alt="barcode" />
+        </ImageContainer>
 
-      <PrintLink onClick={print}>
-        Print
-      </PrintLink>
+        <PrintLink onClick={print}>
+          Print
+        </PrintLink>
+      </div>
+
+      <div className="token">
+        <div className="logo">
+          <img src="/images/logo.svg" alt="logo" />
+        </div>
+        <p>
+          Congratulations!! You have beaten our Tomato Trader Challenge. Head over to the Ben & Jerry’s stall for a small peaceful reward with your ice cream and hopefully now you’ll find it easier to negotiate the next challenge you face, like the strong women in the Democratic Republic of Congo
+        </p>
+        <ImageContainer>
+          <img src="/images/barcode.png" alt="barcode" />
+        </ImageContainer>
+      </div>
 
     </div>
   );
