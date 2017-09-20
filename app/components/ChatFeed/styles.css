@@ -44,7 +44,7 @@
   border-radius: 15px;
 }
 .me {
-    background-color: #8f5db7;
+    background-color: #ee3980;
     margin-left: 60px;
     margin-right:18px;
 }
@@ -53,7 +53,7 @@
     
     box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
     right: -9px;
-    background-color: #8f5db7;
+    background-color: #ee3980;
 }
 
 .you {

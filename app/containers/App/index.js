@@ -35,10 +35,10 @@ export default class App extends React.PureComponent { // eslint-disable-line re
     return (
       <AppWrapper>
         <Helmet
-          titleTemplate="Border Bot"
-          defaultTitle="Border Bot"
+          titleTemplate="Tomato Challenge"
+          defaultTitle="Tomato Challenge"
           meta={[
-            { name: 'description', content: 'BorderBot' },
+            { name: 'description', content: 'Tomato Challenge' },
           ]}
         />
         {/* <Header /> */}

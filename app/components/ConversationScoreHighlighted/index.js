@@ -10,17 +10,20 @@ import styled from 'styled-components';
 import './styles.css';
 
 const TomatoScore = styled.div`
-  padding:10px;
+  padding:5px;
 `;
 
 const MoneyScore = styled.div`
-  padding:10px;
+  padding:5px;
 `;
 
 const ScoreTitle = styled.p`
   margin-top:20px;
-  margin-bottom:10px;
+  margin-bottom:0;
   padding:0 10px;
+  font-size:28px;
+  font-weight:400;
+  text-decoration:underline;
 `;
 
 class ConversationScoreHighlighted extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

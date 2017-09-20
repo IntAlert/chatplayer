@@ -30,7 +30,7 @@ function ConversationScore(props) {
       <ScoreTitle>You have:</ScoreTitle>
 
       <TomatoScore>
-        <img className="icon" src="/images/icon-tomato.png" alt="tomato" />
+        <img className="icon" src="/images/icon-tomato.svg" alt="tomato" />
         {props.scores.get('tomatoes')} tomatoes
       </TomatoScore>
       

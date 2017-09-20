@@ -29,3 +29,8 @@ p {
 .conversation-context img {
   max-width:80%
 }
+
+.bahati {
+  border-radius:50%;
+  box-shadow: #000 5px 5px 50px; 
+}

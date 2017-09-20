@@ -39,7 +39,7 @@ const ConversationScoreWrapper = styled.div`
     margin-left:70%;
     width:30%;
     height: calc( 100% - 120px);
-    background:#A9C8FF;
+    background:#70b157;
     display: flex;
     flex-direction: column;
 `;
