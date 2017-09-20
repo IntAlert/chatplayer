@@ -31,12 +31,11 @@ const PrintLink = styled.a`
 const print = () => {
   window.print();
   setTimeout(() => {
-    // window.location.href = '/';
+    window.location.href = '/';
   }, 100);
 };
 
 function Print() {
-
 
   return (
     <div>

@@ -25,7 +25,10 @@ class ConversationContext extends Component {
 
     return (
       <div className="conversation-context">
-        <h6>Crossing the DRC/Rwanda border</h6>
+        <img src="/images/you-are.png" alt="you are" />
+        <p>
+          You are Maman Chantal. You trade tomatoes and you live in the DRC with your husband and four children.
+        </p>
         {elements}
       </div>
     );

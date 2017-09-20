@@ -6,32 +6,30 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import './styles.css';
 
 const TomatoScore = styled.div`
-  color:#fff;
-  background:red;
   padding:1em;
-  margin:1em;
 `;
 
 const MoneyScore = styled.div`
-  color:#fff;
-  background:green;
   padding:1em;
-  margin:1em;
 `;
 
 
 function ConversationScore(props) {
+
   return (
-    <div>
+    <div className="hello">
       <TomatoScore>
-        You have {props.scores.get('tomatoes')} tomato(es) 
+        <img src="/images/icon-tomato.png" alt="tomato" />
+        {props.scores.get('tomatoes')} tomatoes
       </TomatoScore>
       
       
       <MoneyScore>
-        Money: You have {props.scores.get('money')} Franc(s)
+      <img src="/images/icon-money.png" alt="money" />
+        {props.scores.get('money')} Francs
       </MoneyScore>
     </div>
   );

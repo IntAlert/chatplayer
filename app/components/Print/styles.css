@@ -4,6 +4,10 @@
 	display: none;
 }
 
+img {
+	max-width: 90%;
+}
+
 
 @media print {
   .no-print {

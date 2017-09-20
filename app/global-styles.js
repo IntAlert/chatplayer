@@ -8,6 +8,13 @@ injectGlobal`
     width: 100%;
   }
 
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+  }
+
   body {
     font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }

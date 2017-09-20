@@ -4,6 +4,10 @@
   padding:2em;
 }
 
+p {
+  font-size:18px;
+}
+
 .conversation-context div.text {
   text-align: center;
   font-size: 14px;
