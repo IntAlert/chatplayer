@@ -411,7 +411,7 @@ const script = {
 			],
 			"choices": {
 				"1": {
-					"text": "Print your border pass to collect your free ice cream",
+					"text": "Print your border pass to collect your free ice cream topping",
 					"targetType": "route",
 					"target": "/print"
 				}

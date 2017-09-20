@@ -43,7 +43,7 @@ function Print() {
         <ImageContainer>
           <img src="/images/cookie-dough-detail.png" alt="Free Icecream" />
           <br />
-          Free sprinkles on your ice cream
+          <h1>One free ice cream topping</h1>
         </ImageContainer>
         
 
