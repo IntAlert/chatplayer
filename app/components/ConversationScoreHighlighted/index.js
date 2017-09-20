@@ -70,7 +70,7 @@ class ConversationScoreHighlighted extends React.PureComponent { // eslint-disab
       <MoneyScore className={highlightMoneyClass}>
       <img className="icon" src="/images/icon-money.png" alt="money" />
         <span className="score">
-        {this.props.scores.get('money')} Francs
+        {this.props.scores.get('money')} francs
         </span>
       </MoneyScore>
     </div>

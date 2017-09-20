@@ -10,8 +10,10 @@ img.icon {
 .score {
 	padding:4px 12px;
 	border-radius: 3px;
+	font-size:24px;
 }
 
 .highlighted .score {
 	background:#fff;
+	
 }

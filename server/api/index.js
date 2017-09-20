@@ -359,6 +359,11 @@ const script = {
 						{
 							"type": "text",
 							"content": "My husband is part of the spouse club and now shares the domestic chores. Now when I get home after the market, I can rest and put my feet up."
+						},
+						{
+							"type": "image",
+							"content": "/images/spouse-club.png",
+							"more": "This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day."
 						}
 					],
 					"targetType": "feed",

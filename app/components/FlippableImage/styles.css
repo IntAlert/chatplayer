@@ -52,8 +52,10 @@
 	background:#fff;
 	color:#000;
 	border-radius: 10px;
+	
 }
 
 .back p {
 	margin: 10px;
+	font-weight: bold;
 }
