@@ -7,7 +7,7 @@
 .bubble-container {
   margin-bottom: 30px;
   display:flex;
-  font-size: 22px;
+  font-size: 18px;
   align-items: top center;
   flex-direction: row-reverse;
 }
