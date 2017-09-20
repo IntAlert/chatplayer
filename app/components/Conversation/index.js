@@ -39,6 +39,8 @@ const ConversationScoreWrapper = styled.div`
     width:30%;
     height:100%;
     background:#A9C8FF;
+    display: flex;
+    flex-direction: column;
 `;
 
 function Conversation(props) {

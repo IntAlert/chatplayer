@@ -9,18 +9,26 @@ import styled from 'styled-components';
 import './styles.css';
 
 const TomatoScore = styled.div`
-  padding:1em;
+  padding:10px;
 `;
 
 const MoneyScore = styled.div`
-  padding:1em;
+  padding:10px;
+`;
+
+const ScoreTitle = styled.p`
+  margin-top:150px;
+  margin-bottom:10px;
+  padding:0 10px;
 `;
 
 
 function ConversationScore(props) {
 
   return (
-    <div className="hello">
+    <div>
+      <ScoreTitle>You have:</ScoreTitle>
+
       <TomatoScore>
         <img src="/images/icon-tomato.png" alt="tomato" />
         {props.scores.get('tomatoes')} tomatoes
