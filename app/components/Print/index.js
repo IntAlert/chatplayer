@@ -15,7 +15,7 @@ const ImageContainer = styled.div`
 const PrintLink = styled.a`
   display:block;
   text-align:center;
-  background:#087FFE;
+  background:#5cbfdc;
   color:#fff;
   text-decoration:none;
   border-radius:5px;

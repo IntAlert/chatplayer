@@ -58,7 +58,8 @@
 
 .you {
     
-    background-color: #087FFE;
+    background-color: #5cbfdc;
+    color:#000;
     margin-left: 18px;
     margin-right:60px;
 }
@@ -66,7 +67,7 @@
 .you::before {
     box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
     left: -9px;
-    background-color: #087FFE;
+    background-color: #5cbfdc;
 }
 
 
