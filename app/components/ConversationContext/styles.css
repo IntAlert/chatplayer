@@ -5,8 +5,8 @@
   flex:5;
 }
 
-p {
-  font-size:18px;
+p.intro {
+  font-size:22px;
 }
 
 .conversation-context div.text {
