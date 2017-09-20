@@ -37,7 +37,7 @@ const ConversationScoreWrapper = styled.div`
     position:fixed;
     margin-left:70%;
     width:30%;
-    height:100%;
+    height: calc( 100% - 120px);
     background:#A9C8FF;
     display: flex;
     flex-direction: column;

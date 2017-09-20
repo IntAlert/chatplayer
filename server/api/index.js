@@ -28,14 +28,8 @@ const script = {
 		},
 		"1": {
 			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
-				}
+				
+				
 			],
 			"prompts": [
 				{
@@ -106,14 +100,8 @@ const script = {
 		},
 		"2": {
 			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
-				},
+				
+				
 				{
 					"type": "text",
 					"content": "<div class='panel'>Alert lobbies border officials to take measures that reduce the amount of time women traders have to spend at the border. International Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you will get to the border early and won't have to pay any unnecessary fees.</div>"
@@ -174,14 +162,8 @@ const script = {
 		},
 		"3": {
 			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
-				},
+				
+				
 				{
 					"type": "text",
 					"content": "<div class='panel'>Alert helps to set up market committees, which bring togethAlert helps to set up cross border cooperatives. Together, Congolese and Rwandan traders have stronger bargaining power and can negotiate a better price.</div>"
@@ -258,14 +240,8 @@ const script = {
 		},
 		"4": {
 			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
-				},
+				
+				
 				{
 					"type": "text",
 					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"
@@ -307,14 +283,8 @@ const script = {
 		},
 		"5": {
 			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
-				}
+				
+				
 			],
 			"prompts": [
 				{
@@ -353,14 +323,8 @@ const script = {
 		},
 		"6": {
 			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
-				}
+				
+				
 			],
 			"prompts": [
 				{
@@ -399,14 +363,8 @@ const script = {
 		},		
 		"90": {
 			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
-				},
+				
+				
 				{
 					"type": "text",
 					"content": "<div class='panel'>This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day.</div>"
@@ -432,14 +390,8 @@ const script = {
 		},
 		"99": {
 			"context": [
-				{
-					"type": "image",
-					"content": "/images/chantal.jpg"
-				},
-				{
-					"type": "text",
-					"content": "<div class='text'>Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes.</div><hr>"
-				},
+				
+				
 				{
 					"type": "text",
 					"content": "<div class='panel'>Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail.</div>"

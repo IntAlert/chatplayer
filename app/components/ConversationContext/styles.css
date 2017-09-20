@@ -2,6 +2,7 @@
   text-align: center;
   font-size: 12px;
   padding:2em;
+  flex:5;
 }
 
 p {
