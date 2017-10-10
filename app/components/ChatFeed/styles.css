@@ -4,24 +4,6 @@
   font-weight: 400;
 }
 
-@media (min-width: 840px) { 
-  .chats {
-    padding:32px 84px 84px 32px;
-  }
-
-  .bubble-container {
-    font-size: 18px;
-  }
-
-  .me {
-    margin-left: 60px;
-  }
-
-  .you {
-    margin-right:60px;
-  }
-}
-
 .bubble-container {
   margin-bottom: 30px;
   display:flex;
@@ -125,4 +107,24 @@
 }
 .message-image img {
   max-width: 100%;
+}
+
+
+
+@media (min-width: 840px) { 
+  .chats {
+    padding:32px 84px 84px 32px;
+  }
+
+  .bubble-container {
+    font-size: 18px;
+  }
+
+  .me {
+    margin-left: 60px;
+  }
+
+  .you {
+    margin-right:60px;
+  }
 }
