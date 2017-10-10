@@ -16,6 +16,14 @@ const script = {
 				{
 					"type": "text",
 					"content": "Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes"
+				},
+				{
+					"type": "text",
+					"content": "You are Maman Chantal"
+				},
+				{
+					"type": "text",
+					"content": "You trade tomatoes and you live in the DRC with your husband and four children"
 				}
 			],
 			"choices": {
@@ -254,6 +262,20 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
+					"content": "You negotiate a reasonable price: 80 francs for 100 tomatoes",
+					"scoreChange": {
+						"money": {
+							"operator": "add",
+							"amount": -80
+						},
+						"tomatoes": {
+							"operator": "add",
+							"amount": 100
+						}
+					}
+				},
+				{
+					"type": "text",
 					"content": "The border is very chaotic. As you make your way back you see someone demanding money from a fellow trader."
 				},
 				{
@@ -388,9 +410,11 @@ const script = {
 			],
 			"choices": {
 				"1": {
-					"text": "Continue",
-					"targetType": "feed",
-					"target": "91"
+					"text": "Start again",
+					// "targetType": "feed",
+					// "target": "91"
+					"targetType": "route",
+					"target": "/"
 				}
 			}
 		},

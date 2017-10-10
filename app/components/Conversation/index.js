@@ -5,10 +5,10 @@
 */
 
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+// import { FormattedMessage } from 'react-intl';
+// import messages from './messages';
 
 import ConversationContext from 'components/ConversationContext';
 import ChatFeed from 'components/ChatFeed';
@@ -16,33 +16,9 @@ import ChatFeed from 'components/ChatFeed';
 import ConversationScoreHighlighted from 'components/ConversationScoreHighlighted';
 
 import UserChoices from 'containers/UserChoices';
+import './styles.css';
 
 
-const ConversationWrapper = styled.div`
-    position:relative;
-`;
-
-// const ConversationContextWrapper = styled.div`
-//     position:fixed;
-//     width:25%;
-// `;
-
-const ChatWrapper = styled.div`
-    position:relative;
-    z-index:1;
-    float:left;
-    width:70%;
-`;
-
-const ConversationScoreWrapper = styled.div`
-    position:fixed;
-    margin-left:70%;
-    width:30%;
-    height: calc( 100% - 120px);
-    background:#5cbfdc;
-    display: flex;
-    flex-direction: column;
-`;
 
 function Conversation(props) {
 
@@ -60,19 +36,19 @@ function Conversation(props) {
     const scores = props.scores;
 
     return (
-        <ConversationWrapper>
+        <div className='conversation-wrapper'>
 
-            <ChatWrapper>
-                <ChatFeed messages={messages} />
-                <UserChoices /> 
-            </ChatWrapper>
-
-            <ConversationScoreWrapper>
+            <div className='conversation-score-wrapper'>
                 <ConversationContext context={context} />
                 <ConversationScoreHighlighted scores={scores} />
-            </ConversationScoreWrapper>
+            </div>
 
-        </ConversationWrapper>
+            <div className='chat-wrapper'>
+                <ChatFeed messages={messages} />
+                <UserChoices /> 
+            </div>
+
+        </div>
     );
 }
 

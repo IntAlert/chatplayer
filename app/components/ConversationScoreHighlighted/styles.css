@@ -1,12 +1,14 @@
 .score-container {
-	margin-left: 30px;
+	
 	flex:2;
-	padding-bottom:30px;
-	font-size:28px;
+	font-size:18px;
+	display:flex;
+	background:rgba(0,0,0, 0.1);
+	justify-content: center;
 }
+
 img.icon {
-	max-width:32px;
-	margin-right: 1em;
+	max-width:26px;
 }
 .score {
 	padding:0 12px;
@@ -15,5 +17,30 @@ img.icon {
 
 .highlighted .score {
 	background:#fff;
+}
+
+.unit {
+	display:none;
+}
+
+
+
+@media (min-width: 840px) { 
 	
+	.score-container {
+		font-size:24px;
+		flex-direction: column;
+		margin-left: 30px;
+		padding-bottom:30px;
+		background:none;
+	}
+
+	img.icon {
+		max-width:32px;
+	}
+
+	.unit {
+		display:inline;
+	}
+
 }

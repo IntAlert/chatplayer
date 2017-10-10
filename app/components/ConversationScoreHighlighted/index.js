@@ -18,12 +18,11 @@ const MoneyScore = styled.div`
 `;
 
 const ScoreTitle = styled.p`
-  margin-top:20px;
-  margin-bottom:0;
-  padding:0 10px;
-  font-size:28px;
+  margin:0;
+  padding:10px;
   font-weight:400;
   text-decoration:underline;
+  line-height:1;
 `;
 
 class ConversationScoreHighlighted extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -32,51 +31,51 @@ class ConversationScoreHighlighted extends React.PureComponent { // eslint-disab
     super(props);
     this.state = {
       highlightTomato: false,
-      highlightMoney: false,
-    };
-  }
+        highlightMoney: false,
+      };
+    }
 
-  componentWillReceiveProps(newProps) {
-      if (this.props.scores.get('tomatoes') != newProps.scores.get('tomatoes')) {
-          this.setState({highlightTomato: true});
+    componentWillReceiveProps(newProps) {
+        if (this.props.scores.get('tomatoes') != newProps.scores.get('tomatoes')) {
+            this.setState({highlightTomato: true});
+            setTimeout(() => {
+              this.setState({highlightTomato: false});
+            }, 1000)
+        }
+
+        if (this.props.scores.get('money') != newProps.scores.get('money')) {
+          this.setState({highlightMoney: true});
           setTimeout(() => {
-            this.setState({highlightTomato: false});
+            this.setState({highlightMoney: false});
           }, 1000)
       }
-
-      if (this.props.scores.get('money') != newProps.scores.get('money')) {
-        this.setState({highlightMoney: true});
-        setTimeout(() => {
-          this.setState({highlightMoney: false});
-        }, 1000)
     }
-  }
 
-  render() {
+    render() {
 
-    const highlightTomatoClass = this.state.highlightTomato ? 'highlighted' : '';
-    const highlightMoneyClass = this.state.highlightMoney ? 'highlighted' : '';
+      const highlightTomatoClass = this.state.highlightTomato ? 'highlighted' : '';
+      const highlightMoneyClass = this.state.highlightMoney ? 'highlighted' : '';
 
 
-    return (
+      return (
       <div className="score-container">
-      <ScoreTitle>You have:</ScoreTitle>
+        <ScoreTitle>You have:</ScoreTitle>
 
-      <TomatoScore className={highlightTomatoClass}>
-        <img className="icon" src="/images/icon-tomato.png" alt="tomato" />
-        <span className="score">
-          {this.props.scores.get('tomatoes')} tomatoes
-        </span>
-      </TomatoScore>
-      
-      
-      <MoneyScore className={highlightMoneyClass}>
-      <img className="icon" src="/images/icon-money.png" alt="money" />
-        <span className="score">
-        {this.props.scores.get('money')} francs
-        </span>
-      </MoneyScore>
-    </div>
+        <TomatoScore className={highlightTomatoClass}>
+          <img className="icon" src="/images/icon-tomato.png" alt="tomato" />
+          <span className="score">
+            {this.props.scores.get('tomatoes')} <span className="unit">tomatoes</span>
+          </span>
+        </TomatoScore>
+        
+        
+        <MoneyScore className={highlightMoneyClass}>
+        <img className="icon" src="/images/icon-money.png" alt="money" />
+          <span className="score">
+          {this.props.scores.get('money')} <span className="unit">francs</span>
+          </span>
+        </MoneyScore>
+      </div>
     );
   }
 }

@@ -2,35 +2,42 @@
   text-align: center;
   font-size: 12px;
   padding:2em;
-  flex:5;
+  flex:2;
+  display:flex;
 }
 
 p.intro {
-  font-size:22px;
+  margin:0;
+  font-size:16px;
+  flex:9;
 }
 
-.conversation-context div.text {
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.0;
-}
-
-.conversation-context div.panel {
-  font-style: italic;
-  color: white;
-  background-color:rgba(0,0,0,0.6);
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.5em;
-  padding: 18px;
-  margin:1px;
+.conversation-context .image-container {
+  flex:1;
+  margin-right:1em;
 }
 
 .conversation-context img {
-  max-width:80%
+  max-height:100%;
+  max-width:100%;
 }
 
 .bahati {
   border-radius:50%;
   box-shadow: #000 5px 5px 50px; 
+}
+
+
+
+@media (min-width: 840px) { 
+
+  .conversation-context {
+    flex-direction: column;
+  }
+
+  p.intro {
+    font-size:22px;
+    margin:1em 0;
+  }
+
 }

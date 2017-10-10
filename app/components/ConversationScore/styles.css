@@ -7,3 +7,10 @@ img.icon {
 	max-width:32px;
 	margin-right: 1em;
 }
+
+
+@media (min-width:840px) {
+	.score-container {
+		flex:1;
+	}
+}

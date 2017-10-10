@@ -1,0 +1,33 @@
+
+.choice-container {
+	display:flex;
+	flex:1;
+	align-items: center;
+  justify-content: center;
+}
+
+.choice-link {
+	display:flex;
+	flex:1;
+	background:#087FFE;
+	color:#fff;
+	border-radius:5px;
+	margin:10px;
+	padding:10px;
+	font-size:14px;
+	align-content: center;
+	justify-content: center;
+}
+
+.choice-link:hover {
+	cursor:pointer;
+	background:#085FFF;
+}
+
+@media (min-width:840px) {
+	.choice-link {
+		font-size:22px;
+		padding:1em;
+		margin:1em;
+	}
+}

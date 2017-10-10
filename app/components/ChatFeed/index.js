@@ -1,15 +1,19 @@
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import { animateScroll } from 'react-scroll';
+
+
 import './styles.css';
 
-import narratorAvatar from './avatar-narrator.png';
 import botAvatar from './avatar-bot.png';
 import userAvatar from './avatar-user.png';
 
 import loadingAnimationImage from './loading.svg';
 
+import ExpandableImage from '../ExpandableImage';
 import FlippableImage from '../FlippableImage';
+
+
 
 class ChatFeed extends Component {
 
@@ -66,7 +70,8 @@ class ChatFeed extends Component {
           
           // make card flippable if there is more info on the image
           messageImage = (
-            <FlippableImage message={message} />
+            // <FlippableImage message={message} />
+            <ExpandableImage message={message} />
           );
         } else {
           messageImage = <img src={message.content} />;
@@ -129,8 +134,11 @@ class ChatFeed extends Component {
   render() {
     const {messages} = this.props;
     const chatList = this.getConversations(messages);
+    const open = true;
     return (
+
       <div className="chats">
+
         {chatList}
         
         <div 

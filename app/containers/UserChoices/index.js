@@ -6,32 +6,13 @@
 
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+// import { FormattedMessage } from 'react-intl';
+// import messages from './messages';
 import { respond } from './actions';
-
+import './styles.css';
 
 import UserChoice from 'components/UserChoice';
 
-var style = {
-    backgroundColor: "#F8F8F8",
-    borderTop: "1px solid #E7E7E7",
-    textAlign: "center",
-    position: "fixed",
-    left: "0",
-    bottom: "0",
-    height: "120px",
-    width: "100%",
-    display: "flex",
-    boxShadow: "0px -5px 20px 0px rgba(153,153,153,1)"
-};
-
-var phantom = {
-  display: 'block',
-  padding: '20px',
-  height: '120px',
-  width: '100%',
-}
 
 export class UserChoices extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -57,8 +38,8 @@ export class UserChoices extends React.PureComponent { // eslint-disable-line re
     return (
 
       <div>
-        <div style={phantom} />
-        <div style={style}>
+        <div className="phantom" />
+        <div className="choice-list">
           {choiceList}
         </div>
       </div>
