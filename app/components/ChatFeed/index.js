@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import { animateScroll } from 'react-scroll';
 
@@ -11,9 +11,7 @@ import userAvatar from './avatar-user.png';
 import loadingAnimationImage from './loading.svg';
 
 import ExpandableImage from '../ExpandableImage';
-import FlippableImage from '../FlippableImage';
-
-
+// import FlippableImage from '../FlippableImage';
 
 class ChatFeed extends Component {
 
@@ -22,8 +20,7 @@ class ChatFeed extends Component {
   }
 
   getConversations(messages) {
-
-    if(messages == undefined) {
+    if (messages == undefined) {
       console.log("react-chat-bubble::", "'messages' props should be an array!");
       return;
     }
@@ -34,7 +31,7 @@ class ChatFeed extends Component {
 
 
       // determine bubble behaviour depending on who is speaking
-      if(message.speaker === -1){
+      if (message.speaker === -1) {
         // narrator
         bubbleClass = 'narrator';
         bubbleDirection = '';
