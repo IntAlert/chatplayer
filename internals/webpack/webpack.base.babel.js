@@ -5,6 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+
 module.exports = (options) => ({
   entry: options.entry,
   output: Object.assign({ // Compile into js/build.js
@@ -64,6 +65,7 @@ module.exports = (options) => ({
     }],
   },
   plugins: options.plugins.concat([
+    
     new webpack.ProvidePlugin({
       // make fetch available
       fetch: 'exports-loader?self.fetch!whatwg-fetch',
