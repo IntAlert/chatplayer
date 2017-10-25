@@ -1180,46 +1180,47 @@ if(false) {
 
 /***/ },
 
-/***/ "./node_modules/brcast/index.js":
+/***/ "./node_modules/brcast/dist/brcast.es.js":
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony export (immutable) */ exports["default"] = createBroadcast;
 function createBroadcast (initialState) {
-  let listeners = {}
-  let id = 0
-  let _state = initialState
+  var listeners = {};
+  var id = 0;
+  var _state = initialState;
 
-  const getState = () => _state
+  var getState = function () { return _state; };
 
-  const setState = state => {
-    _state = state
-    const keys = Object.keys(listeners)
-    for (let i = 0; i < keys.length; i += 1) {
+  var setState = function (state) {
+    _state = state;
+    var keys = Object.keys(listeners);
+    for (var i = 0; i < keys.length; i += 1) {
       // if a listener gets unsubscribed during setState we just skip it
       if (typeof listeners[keys[i]] !== 'undefined') {
-        listeners[keys[i]](state)
+        listeners[keys[i]](state);
       }
     }
-  }
+  };
 
-  const subscribe = listener => {
+  var subscribe = function (listener) {
     if (typeof listener !== 'function') { throw new Error('listener must be a function.') }
-    const currentId = id
-    let isSubscribed = true
-    listeners[currentId] = listener
-    id += 1
+    var currentId = id;
+    var isSubscribed = true;
+    listeners[currentId] = listener;
+    id += 1;
     return function unsubscribe () {
       // in case unsubscribe gets called multiple times we simply return
-      if (!isSubscribed) return
-      isSubscribed = false
-      delete listeners[currentId]
+      if (!isSubscribed) { return }
+      isSubscribed = false;
+      delete listeners[currentId];
     }
-  }
+  };
 
-  return { getState, setState, subscribe }
+  return { getState: getState, setState: setState, subscribe: subscribe }
 }
+
+/* harmony default export */ exports["default"] = createBroadcast;
 
 
 /***/ },
@@ -10680,7 +10681,7 @@ var _channel = __webpack_require__("./node_modules/theming/dist/cjs/channel.js")
 
 var _channel2 = _interopRequireDefault(_channel);
 
-var _brcast = __webpack_require__("./node_modules/brcast/index.js");
+var _brcast = __webpack_require__("./node_modules/brcast/dist/brcast.es.js");
 
 var _brcast2 = _interopRequireDefault(_brcast);
 

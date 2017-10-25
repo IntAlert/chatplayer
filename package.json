@@ -69,9 +69,11 @@
     "env": {
       "production": {
         "only": [
-          "app"
+          "app",
+          "node_modules/brcast"
         ],
         "plugins": [
+          "transform-es2015-arrow-functions",
           "transform-react-remove-prop-types",
           "transform-react-constant-elements",
           "transform-react-inline-elements"
