@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 const DemoContainer = styled.div`
   margin:30px 100px;
-`
+`;
 
 
 export class Demo extends React.Component { // eslint-disable-line react/prefer-stateless-function
