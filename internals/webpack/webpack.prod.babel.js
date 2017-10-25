@@ -68,6 +68,10 @@ module.exports = require('./webpack.base.babel')({
     }),
   ],
 
+  // babelQuery: {
+  //   // presets: ['transform-es2015-arrow-functions'].map(require.resolve),
+  // },
+
   performance: {
     assetFilter: (assetFilename) => !(/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename)),
   },
