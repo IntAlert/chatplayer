@@ -59,7 +59,9 @@ var _ref = _jsx('div', {
   className: 'loading'
 }, void 0, _jsx('img', {
   alt: 'loading',
-  src: __WEBPACK_IMPORTED_MODULE_5__loading_svg___default.a
+  src: __WEBPACK_IMPORTED_MODULE_5__loading_svg___default.a,
+  width: '156',
+  height: '54'
 }));
 
 var ChatFeed = function (_Component) {
