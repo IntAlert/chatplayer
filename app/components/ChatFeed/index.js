@@ -104,7 +104,7 @@ class ChatFeed extends Component {
             {avatar}
             <div className={`bubble ${bubbleClass}`}>
               <div className="loading">
-                 <img alt="loading" src={loadingAnimationImage} width="156" height="54" /> 
+                 <img alt="loading" src={loadingAnimationImage} width="95" height="42" /> 
               </div>
             </div>
           </div>

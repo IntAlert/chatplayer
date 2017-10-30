@@ -75,7 +75,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "." + {"0":"9bf90a36b7b9c17c9d7a","1":"9ea031980baee042ed39","2":"0c0370a3ce69f2e7d87d","3":"9b122e362cc4df9391f3","4":"e409bfb06eb22fd18d68","5":"95a34fa918c79f80e5e5","6":"3f552873be2a7815cc20","7":"91b356b1c9d4ec6aa492"}[chunkId] + ".chunk.js";
+/******/ 		script.src = __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "." + {"0":"b3a5195167732042d11b","1":"9ea031980baee042ed39","2":"f1b6048919b3d1fc8fe4","3":"5c031638b91ed5b23616","4":"b902a5182681bd7e1983","5":"b15de8b17f4d8a63806b","6":"f85cb12949844481fbdb","7":"51d2404b37a477eeef23"}[chunkId] + ".chunk.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -270,9 +270,9 @@ if (false) {
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
   new Promise(function (resolve) {
-    resolve(__webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, "./node_modules/intl/index.js")));
+    resolve(__webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, "./node_modules/intl/index.js")));
   }).then(function () {
-    return Promise.all([__webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "./node_modules/intl/locale-data/jsonp/en.js"))]);
+    return Promise.all([__webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "./node_modules/intl/locale-data/jsonp/en.js"))]);
   }).then(function () {
     return render(__WEBPACK_IMPORTED_MODULE_15__i18n__["a" /* translationMessages */]);
   }).catch(function (err) {
@@ -973,7 +973,7 @@ function createRoutes(store) {
     path: '/',
     name: 'home',
     getComponent: function getComponent(nextState, cb) {
-      var importModules = Promise.all([__webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, "./app/containers/HomePage/reducer.js")), __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, "./app/containers/HomePage/sagas.js")), __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, "./app/containers/HomePage/index.js"))]);
+      var importModules = Promise.all([__webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, "./app/containers/HomePage/reducer.js")), __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, "./app/containers/HomePage/sagas.js")), __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, "./app/containers/HomePage/index.js"))]);
 
       var renderRoute = loadModule(cb);
 
@@ -994,19 +994,19 @@ function createRoutes(store) {
     path: 'print',
     name: 'print',
     getComponent: function getComponent(location, cb) {
-      __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, "./app/components/Print/index.js")).then(loadModule(cb)).catch(errorLoading);
+      __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, "./app/components/Print/index.js")).then(loadModule(cb)).catch(errorLoading);
     }
   }, {
     path: 'demo',
     name: 'demo',
     getComponent: function getComponent(location, cb) {
-      __webpack_require__.e/* import() */(7).then(__webpack_require__.bind(null, "./app/containers/Demo/index.js")).then(loadModule(cb)).catch(errorLoading);
+      __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, "./app/containers/Demo/index.js")).then(loadModule(cb)).catch(errorLoading);
     }
   }, {
     path: '*',
     name: 'notfound',
     getComponent: function getComponent(nextState, cb) {
-      __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, "./app/containers/NotFoundPage/index.js")).then(loadModule(cb)).catch(errorLoading);
+      __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, "./app/containers/NotFoundPage/index.js")).then(loadModule(cb)).catch(errorLoading);
     }
   }];
 }

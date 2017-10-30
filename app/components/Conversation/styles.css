@@ -9,13 +9,13 @@
 	background:#5cbfdc;
 	display: flex;
 	flex-direction: column;
-	height:120px;
+	height:80px;
 	width:100%;
 }
 
 .chat-wrapper {
 	position:relative;
-	margin-top:120px;
+	margin-top:80px;
 }
 
 

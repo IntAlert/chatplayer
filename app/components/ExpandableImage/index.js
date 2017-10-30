@@ -57,7 +57,8 @@ class ExpandableImage extends React.Component { // eslint-disable-line react/pre
         </div>
 
         <Modal open={open} little onClose={this.onCloseModal}>
-          <p>{message.more}</p>
+          <img className="expanded-info" src={message.content} />
+          <p className="expanded-info">{message.more}</p>
         </Modal>
 
       </div>

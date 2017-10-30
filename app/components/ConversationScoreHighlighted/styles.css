@@ -1,7 +1,7 @@
 .score-container {
 	
 	flex:2;
-	font-size:18px;
+	font-size:12px;
 	display:flex;
 	background:rgba(0,0,0, 0.1);
 	justify-content: center;
