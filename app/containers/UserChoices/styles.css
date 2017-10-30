@@ -12,6 +12,10 @@
 	box-shadow: 0px -5px 20px 0px rgba(153,153,153,1);
 }
 
+.choice-list.no-choices {
+	display:none;
+}
+
 .phantom {
 	display: block;
 	height: 80px;

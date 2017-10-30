@@ -34,12 +34,17 @@ export class UserChoices extends React.PureComponent { // eslint-disable-line re
         )
       }
     }
+
+    let choiceListClasses = 'choice-list';
+    if (!this.props.show_user_choices) {
+      choiceListClasses += ' no-choices';
+    }
     
     return (
 
       <div>
         <div className="phantom" />
-        <div className="choice-list">
+        <div className={choiceListClasses}>
           {choiceList}
         </div>
       </div>

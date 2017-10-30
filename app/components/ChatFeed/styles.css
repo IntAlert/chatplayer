@@ -27,6 +27,7 @@
     word-wrap: break-word;
     display: flex;
     align-content: center;
+    max-width: 70%;
 }
 
 .bubble::before {
