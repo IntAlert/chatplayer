@@ -104,6 +104,7 @@
 /* Message Images */
 .message-image {
   position: relative;
+  width:100%;
 }
 .message-image img {
   max-width: 100%;
