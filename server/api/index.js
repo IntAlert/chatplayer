@@ -260,23 +260,27 @@ const script = {
 				// }				
 			],
 			"prompts": [
-				{
-					"type": "text",
-					"content": "You negotiate a reasonable price: 80 francs for 100 tomatoes",
-					"scoreChange": {
-						"money": {
-							"operator": "add",
-							"amount": -80
-						},
-						"tomatoes": {
-							"operator": "add",
-							"amount": 100
-						}
-					}
-				},
+				// {
+				// 	"type": "text",
+				// 	"content": "You negotiate a reasonable price: 80 francs for 100 tomatoes",
+				// 	"scoreChange": {
+				// 		"money": {
+				// 			"operator": "add",
+				// 			"amount": -80
+				// 		},
+				// 		"tomatoes": {
+				// 			"operator": "add",
+				// 			"amount": 100
+				// 		}
+				// 	}
+				// },
 				{
 					"type": "text",
 					"content": "The border is very chaotic. As you make your way back you see someone demanding money from a fellow trader."
+				},
+				{
+					"type": "text",
+					"content": "You intervene to inform your fellow trader and the official of the trade regulations that you have learnt about through Alert's training so that they understand the difference between legal and illegal taxes"
 				},
 				{
 					"type": "text",

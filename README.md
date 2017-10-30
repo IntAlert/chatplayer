@@ -17,7 +17,7 @@ http://chatplayer.azurewebsites.net
 2. `npm run build`
 3. `git add .`
 4. `git commit -m ...`
-5. `git push azure master`
+5. `git push azure`
 
 OR
 
