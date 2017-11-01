@@ -11,15 +11,21 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import Conversation from 'components/Conversation';
-import {SCRIPT_FETCH_REQUESTED} from './constants'
-import {loadScript, startTimer} from './actions'
+import {loadScript, startTimer} from './actions';
 
 class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   componentDidMount() {
-    this.props.onLoad();
+
+    // determine language
+    let lang = 'en';
+    if (window.location.href.indexOf('?french') > -1) {
+      lang = 'fr';
+    };
+
+    this.props.onLoad(lang);
     this.props.onStartTimer();
   }
 
@@ -41,8 +47,8 @@ class HomePage extends React.Component { // eslint-disable-line react/prefer-sta
 export function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    onLoad: () => {
-      return dispatch(loadScript());
+    onLoad: (lang) => {
+      return dispatch(loadScript(lang));
     },
     onStartTimer: () => {
       return dispatch(startTimer());

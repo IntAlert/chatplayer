@@ -9,11 +9,13 @@ const isDev = process.env.NODE_ENV !== 'production';
 const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false;
 const resolve = require('path').resolve;
 const app = express();
-const path = require('path')
+const path = require('path');
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
-const myApi = require('./api/index.js');
-app.use('/api', myApi);
+const myApiEn = require('./api/index-en.js');
+const myApiFr = require('./api/index-fr.js');
+app.use('/api/en', myApiEn);
+app.use('/api/fr', myApiFr);
 
 // serve static files
 app.use(express.static(path.join(__dirname, 'public')))

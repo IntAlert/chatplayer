@@ -15,7 +15,7 @@
  *    }
  */
 
-import { SCRIPT_FETCH_REQUESTED, TIMER_START, TIMER_TICK, PRINT } from './constants';
+import { SCRIPT_FETCH_REQUESTED_EN, SCRIPT_FETCH_REQUESTED_FR, TIMER_START, TIMER_TICK, PRINT } from './constants';
 
 /**
  * Changes the input field of the form
@@ -24,11 +24,19 @@ import { SCRIPT_FETCH_REQUESTED, TIMER_START, TIMER_TICK, PRINT } from './consta
  *
  * @return {object}    An action object with a type of RESPOND
  */
-export function loadScript() {
-  // console.log('loadScript')
-  return {
-    type: SCRIPT_FETCH_REQUESTED,
-  };
+export function loadScript(lang) {
+
+  if (lang == 'fr') {
+    return {
+      type: SCRIPT_FETCH_REQUESTED_FR,
+    }
+  } else {
+    // default to english
+    return {
+      type: SCRIPT_FETCH_REQUESTED_EN,
+    };
+  }
+  
 }
 
 export function startTimer() {

@@ -484,9 +484,6 @@ const script = {
 
 /* GET home page. */
 router.get('/script', (req, res) => {
-
-	// const delay = 1500;
-	// setTimeout(() => res.json(script), delay);
 	res.json(script)
 });
 
