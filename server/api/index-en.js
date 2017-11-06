@@ -14,16 +14,18 @@ const script = {
 		"0": {
 			"prompts": [
 				{
+					"speaker": 0,
 					"type": "text",
-					"content": "Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes"
+					"content": "I am Maman Chantal. I live in the Democratic Republic of Congo (DRC) with my husband and four children."
+				},
+				{
+					"speaker": 0,
+					"type": "text",
+					"content": "Step into my shoes and experience the journey I take each week to cross the border into Rwanda to buy tomatoes."
 				},
 				{
 					"type": "text",
-					"content": "You are Maman Chantal"
-				},
-				{
-					"type": "text",
-					"content": "You trade tomatoes and you live in the DRC with your husband and four children"
+					"content": "Before you leave the house, you need to get your children ready for school and prepare breakfast for the whole family, so you arrive at the border crossing late."
 				}
 			],
 			"choices": {
@@ -72,12 +74,12 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "Hi I'm Maman Bahati, another Congolese trader. It's a shame you couldn't arrive earlier. The queue is very long now. Hopefully there will be tomatoes once you get across."
+							"content": "Hi, I'm Maman Bahati, another Congolese trader. It's a shame you couldn't arrive earlier. The queue is very long now. Hopefully there will be tomatoes once you get across."
 						},
 						{
 							"type": "image",
 							"content": "/images/queue2.jpg",
-							"more": "Alert lobbies border officials to take measures that reduce the amount of time women traders have to spend at the border. Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you get to the border early and won't have to pay any extra fees."
+							"more": "International Alert lobbies border officials to reduce the time women traders have to spend at the border. We also set up spouse clubs to encourage the husbands of traders to share domestic responsibilities at home, like getting the children ready while the wife prepares breakfast. This way, traders can get to the border earlier and won't have to pay extra fees."
 						}
 						
 					],
@@ -89,7 +91,7 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "This will get you across the border quickly, but that money could have gone towards school fees for a week. Fingers crossed you make enough today to cover that.",
+							"content": "Hi, I'm Maman Bahati, another Congolese trader. Bribing an official will get you across the border quickly, but that money could have gone towards school fees for a week. Fingers crossed you make enough today to cover that.",
 							"scoreChange": {
 								"money": {
 									"operator": "add",
@@ -115,21 +117,21 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You make it across the border and reach the market place in Rwanda. The price of tomatoes is high but you can't go back empty handed. Do you:"
+					"content": "You make it across the border and reach the market place in Rwanda. The price of tomatoes is high, but you can't go back empty handed. What do you do?"
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Keep trying other stalls",
+					"text": "Keep trying other market stalls",
 					"responses": [
 						{
 							"type": "text",
-							"content": "That's risky, you might not find tomatoes anywhere else and they will continue to charge you extra every time you go back.  "
+							"content": "That's risky, as you might not find tomatoes elsewhere and the sellers will continue to charge you extra every time you go back."
 						},
 						{
 							"type": "image",
 							"content": "/images/market.jpg",
-							"more": "Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here they forge strong relationships and negotiate over the price of produce so that it is fair and profitable for everyone."
+							"more": "International Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here, they forge strong relationships and negotiate over the price of produce, so it’s fair and profitable for everyone."
 						}
 					],
 					"targetType": "feed",
@@ -140,16 +142,7 @@ const script = {
 					"responses": [
 						{
 							"type": "text",
-							"content": "That's exactly what I would do!"
-						},
-						{
-							"type": "image",
-							"content": "/images/market.jpg",
-							"more": "Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here they forge strong relationships and negotiate over the price of produce so that it is fair and profitable for everyone."
-						}, 
-						{
-							"type": "text",
-							"content": "You negotiate a reasonable price: 80 francs for 100 tomatoes",
+							"content": "That's exactly what I would do! You negotiate a reasonable price: 80 francs for 100 tomatoes.",
 							"scoreChange": {
 								"money": {
 									"operator": "add",
@@ -160,6 +153,11 @@ const script = {
 									"amount": 100
 								}
 							}
+						},
+						{
+							"type": "image",
+							"content": "/images/market.jpg",
+							"more": "Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here they forge strong relationships and negotiate over the price of produce so that it is fair and profitable for everyone."
 						}
 					],
 					"targetType": "feed",
@@ -184,7 +182,7 @@ const script = {
 			],
 			"choices": {
 				"1": {
-					"text": "Reach out to a Rwandan trader for help",
+					"text": "Contact a Rwandan trader for help",
 					"responses": [
 						{
 							"type": "text",
@@ -207,7 +205,7 @@ const script = {
 					"target": "4"
 				},
 				"2": {
-					"text": "Offer the Rwandan border official a bribe",
+					"text": "Offer the border official a bribe",
 					"responses": [
 
 						{
@@ -275,16 +273,20 @@ const script = {
 				// 	}
 				// },
 				{
+					"type": "image",
+					"content": "/images/chaos.gif"
+				},
+				{
 					"type": "text",
 					"content": "The border is very chaotic. As you make your way back you see someone demanding money from a fellow trader."
 				},
 				{
 					"type": "text",
-					"content": "You intervene to inform your fellow trader and the official of the trade regulations that you have learnt about through Alert's training so that they understand the difference between legal and illegal taxes"
+					"content": "You intervene to inform the trader and official of the trade regulations you learned about from International Alert's training, so they understand the difference between legal and illegal taxes."
 				},
 				{
 					"type": "text",
-					"content": "A truck starts to reverse into the crowd and you lose half of your tomatoes."
+					"content": "While waiting to cross the border, a truck starts to reverse into the crowd and you lose half of your tomatoes."
 					,
 
 					"scoreChange": {
@@ -293,10 +295,6 @@ const script = {
 							"amount": 0.5
 						},
 					}
-				},
-				{
-					"type": "image",
-					"content": "/images/chaos.gif"
 				}
 			],
 			"choices": {
@@ -359,12 +357,12 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "You return home but the children haven't eaten. What now?"
+					"content": "You return home, but the children haven't eaten. What do you do?"
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Get started on dinner",
+					"text": "Start making dinner",
 					"responses": [
 						{
 							"type": "text",
@@ -373,7 +371,7 @@ const script = {
 						{
 							"type": "image",
 							"content": "/images/spouse-club.png",
-							"more": "This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day."
+							"more": "This is the case for lots of women in DRC. It’s not culturally acceptable to confront your husband or for them to take on any domestic duties, but our spouse clubs help families understand the benefits of sharing household duties. Especially on market days, when timing is crucial to how much money you can make that day."
 						}
 					],
 					"targetType": "feed",
@@ -409,7 +407,7 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "Congratulations. You've completed the tomato challenge!"
+					"content": "Congratulations, you've completed the tomato trader challenge!"
 				}
 			],
 			"choices": {

@@ -18,7 +18,7 @@ app.use('/api/en', myApiEn);
 app.use('/api/fr', myApiFr);
 
 // serve static files
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

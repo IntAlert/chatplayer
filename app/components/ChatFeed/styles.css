@@ -43,12 +43,26 @@
 
 .bubble img {
   border-radius: 15px;
+  
 }
+
+.bubble-has-image .bubble {
+  padding:0;
+  background:none;
+  
+}
+
+
+
+.bubble-has-image .bubble::before {
+  content: none;
+}
+
 .me {
     background-color: #ee3980;
     margin-left: 10px;
     margin-right:18px;
-    max-width: 70%;
+    max-width: 65%;
 }
 
 .me::before {
@@ -64,7 +78,7 @@
     color:#000;
     margin-left: 18px;
     margin-right:10px;
-    max-width: 70%;
+    max-width: 65%;
 }
 
 .you::before {
@@ -89,9 +103,10 @@
 }
 
 .img-circle {
-  border-radius: 42%;
-  height:72px;
-  width:72px;
+  border-radius: 50%;
+  height:50px;
+  width:50px;
+  margin-left:3px;
 }
 
 /*Loading*/

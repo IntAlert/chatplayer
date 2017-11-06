@@ -9,6 +9,7 @@
 
 img.icon {
 	max-width:26px;
+	margin-right:3px;
 }
 .score {
 	padding:0 12px;
@@ -16,7 +17,7 @@ img.icon {
 }
 
 .highlighted .score {
-	background:#fff;
+	background: #fff;
 }
 
 .unit {

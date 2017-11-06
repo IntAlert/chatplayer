@@ -30,7 +30,7 @@ class ConversationContext extends Component {
         </div>
         
         <p className="intro">
-          You are Maman Chantal.
+          You are Maman Chantal
         </p>
         {/* {elements} */}
       </div>

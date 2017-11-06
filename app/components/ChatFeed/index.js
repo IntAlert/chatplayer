@@ -26,7 +26,9 @@ class ChatFeed extends Component {
     }
 
     const listItems = messages.map((message, index) => {
-      var bubbleClass, bubbleDirection;
+      let bubbleClass;
+      let bubbleDirection;
+      let extraBubbleClass;
 
 
 
@@ -52,7 +54,7 @@ class ChatFeed extends Component {
 
 
       // determine content of bubble depending on content type
-      let messageContent
+      let messageContent;
       if(message.type == 'text') {
         messageContent = (
           <div className={`message-text`}>
@@ -62,9 +64,9 @@ class ChatFeed extends Component {
       } else if(message.type === 'image') {
 
         let messageImage;
+        extraBubbleClass = ' bubble-has-image';
 
         if (message.more) {
-          
           // make card flippable if there is more info on the image
           messageImage = (
             // <FlippableImage message={message} />
@@ -86,10 +88,10 @@ class ChatFeed extends Component {
       // determine appearance of message depending on status
       if(message.speaker === 0 || message.status == 'app/Home/BOT_MESSAGE_VISIBLE') {
 
-        // show whole message for all user messags
+        // show whole message for all user messages
         // or shown bot messages
         var messageDiv = (
-          <div className={`bubble-container ${bubbleDirection}`} key={index}>
+          <div className={`bubble-container ${bubbleDirection} ${extraBubbleClass}`} key={index}>
             {avatar}
             <div className={`bubble ${bubbleClass}`}>
               {messageContent}

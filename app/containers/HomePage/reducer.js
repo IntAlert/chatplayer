@@ -204,9 +204,17 @@ function addPromptMessages(state, stage_id) {
     var newArr = arr;
     prompts.toArray().forEach(prompt => {
 
+
+      let speaker = -1;
+
+      if (prompt.get('speaker') !== undefined) {
+        speaker = prompt.get('speaker');
+      }
+
+      console.log(prompt.get('speaker'));
       
       const feedMessage = {
-        speaker:-1, // narrator response code, TODO factor out as CONST
+        speaker: speaker, // narrator response code, TODO factor out as CONST
         status: BOT_MESSAGE_INVISIBLE,
         // TODO: do something with prompt.type, contentType?
         type: prompt.get('type'),
