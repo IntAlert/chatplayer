@@ -35,31 +35,38 @@ webpackJsonp([1],{
  *
  * @return {object}    An action object with a type of RESPOND
  */
-function loadScript() {
-  // console.log('loadScript')
-  return {
-    type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* SCRIPT_FETCH_REQUESTED */]
-  };
+function loadScript(lang) {
+
+  if (lang == 'fr') {
+    return {
+      type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* SCRIPT_FETCH_REQUESTED_FR */]
+    };
+  } else {
+    // default to english
+    return {
+      type: __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* SCRIPT_FETCH_REQUESTED_EN */]
+    };
+  }
 }
 
 function startTimer() {
   // console.log('start')
   return {
-    type: __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* TIMER_START */]
+    type: __WEBPACK_IMPORTED_MODULE_0__constants__["c" /* TIMER_START */]
   };
 }
 
 function tick() {
   // console.log('tick')
   return {
-    type: __WEBPACK_IMPORTED_MODULE_0__constants__["c" /* TIMER_TICK */]
+    type: __WEBPACK_IMPORTED_MODULE_0__constants__["d" /* TIMER_TICK */]
   };
 }
 
 function print() {
   // console.log('tick')
   return {
-    type: __WEBPACK_IMPORTED_MODULE_0__constants__["d" /* PRINT */]
+    type: __WEBPACK_IMPORTED_MODULE_0__constants__["e" /* PRINT */]
   };
 }
 
@@ -69,23 +76,25 @@ function print() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SCRIPT_FETCH_REQUESTED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return SCRIPT_FETCH_SUCCEEDED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "f", function() { return SCRIPT_FETCH_FAILED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "g", function() { return RESPOND; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return TIMER_START; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return TIMER_TICK; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return PRINT; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "j", function() { return BOT_MESSAGE_INVISIBLE; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "h", function() { return BOT_MESSAGE_WRITING; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "i", function() { return BOT_MESSAGE_VISIBLE; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return SCRIPT_FETCH_REQUESTED_EN; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SCRIPT_FETCH_REQUESTED_FR; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "f", function() { return SCRIPT_FETCH_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "g", function() { return SCRIPT_FETCH_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "h", function() { return RESPOND; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return TIMER_START; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return TIMER_TICK; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return PRINT; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "k", function() { return BOT_MESSAGE_INVISIBLE; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "i", function() { return BOT_MESSAGE_WRITING; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "j", function() { return BOT_MESSAGE_VISIBLE; });
 /*
  *
  * Home page constants
  *
  */
 
-var SCRIPT_FETCH_REQUESTED = 'app/Home/SCRIPT_FETCH_REQUESTED';
+var SCRIPT_FETCH_REQUESTED_EN = 'app/Home/SCRIPT_FETCH_REQUESTED_EN';
+var SCRIPT_FETCH_REQUESTED_FR = 'app/Home/SCRIPT_FETCH_REQUESTED_FR';
 var SCRIPT_FETCH_SUCCEEDED = 'app/Home/SCRIPT_FETCH_SUCCEEDED';
 var SCRIPT_FETCH_FAILED = 'app/Home/SCRIPT_FETCH_FAILED';
 
@@ -112,11 +121,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_utils_request__ = __webpack_require__("./app/utils/request.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants__ = __webpack_require__("./app/containers/HomePage/constants.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions__ = __webpack_require__("./app/containers/HomePage/actions.js");
-/* harmony export (immutable) */ exports["fetchScript"] = fetchScript;
+/* harmony export (immutable) */ exports["fetchScriptEN"] = fetchScriptEN;
+/* harmony export (immutable) */ exports["fetchScriptFR"] = fetchScriptFR;
 /* harmony export (immutable) */ exports["defaultSaga"] = defaultSaga;
-var _marked = /*#__PURE__*/regeneratorRuntime.mark(fetchScript),
-    _marked2 = /*#__PURE__*/regeneratorRuntime.mark(delayTick),
-    _marked3 = /*#__PURE__*/regeneratorRuntime.mark(defaultSaga);
+var _marked = /*#__PURE__*/regeneratorRuntime.mark(fetchScriptEN),
+    _marked2 = /*#__PURE__*/regeneratorRuntime.mark(fetchScriptFR),
+    _marked3 = /*#__PURE__*/regeneratorRuntime.mark(delayTick),
+    _marked4 = /*#__PURE__*/regeneratorRuntime.mark(defaultSaga);
 
 
 
@@ -124,21 +135,21 @@ var _marked = /*#__PURE__*/regeneratorRuntime.mark(fetchScript),
 
 
 
-function fetchScript(action) {
+function fetchScriptEN(action) {
   var requestURL, script;
-  return regeneratorRuntime.wrap(function fetchScript$(_context) {
+  return regeneratorRuntime.wrap(function fetchScriptEN$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
-          requestURL = '/api/script';
+          requestURL = '/api/en/script';
           _context.next = 4;
           return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["call"])(__WEBPACK_IMPORTED_MODULE_2_utils_request__["a" /* default */], requestURL);
 
         case 4:
           script = _context.sent;
           _context.next = 7;
-          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["put"])({ type: __WEBPACK_IMPORTED_MODULE_3__constants__["e" /* SCRIPT_FETCH_SUCCEEDED */], script: script });
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["put"])({ type: __WEBPACK_IMPORTED_MODULE_3__constants__["f" /* SCRIPT_FETCH_SUCCEEDED */], script: script });
 
         case 7:
           _context.next = 13;
@@ -148,7 +159,7 @@ function fetchScript(action) {
           _context.prev = 9;
           _context.t0 = _context['catch'](0);
           _context.next = 13;
-          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["put"])({ type: __WEBPACK_IMPORTED_MODULE_3__constants__["f" /* SCRIPT_FETCH_FAILED */], message: _context.t0.message });
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["put"])({ type: __WEBPACK_IMPORTED_MODULE_3__constants__["g" /* SCRIPT_FETCH_FAILED */], message: _context.t0.message });
 
         case 13:
         case 'end':
@@ -158,50 +169,84 @@ function fetchScript(action) {
   }, _marked, this, [[0, 9]]);
 }
 
-function delayTick() {
-  return regeneratorRuntime.wrap(function delayTick$(_context2) {
+function fetchScriptFR(action) {
+  var requestURL, script;
+  return regeneratorRuntime.wrap(function fetchScriptFR$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          if (false) {
-            _context2.next = 7;
-            break;
-          }
+          _context2.prev = 0;
+          requestURL = '/api/fr/script';
+          _context2.next = 4;
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["call"])(__WEBPACK_IMPORTED_MODULE_2_utils_request__["a" /* default */], requestURL);
 
-          _context2.next = 3;
-          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux_saga__["a" /* delay */])(1000);
-
-        case 3:
-          _context2.next = 5;
-          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["put"])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__actions__["c" /* tick */])());
-
-        case 5:
-          _context2.next = 0;
-          break;
+        case 4:
+          script = _context2.sent;
+          _context2.next = 7;
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["put"])({ type: __WEBPACK_IMPORTED_MODULE_3__constants__["f" /* SCRIPT_FETCH_SUCCEEDED */], script: script });
 
         case 7:
+          _context2.next = 13;
+          break;
+
+        case 9:
+          _context2.prev = 9;
+          _context2.t0 = _context2['catch'](0);
+          _context2.next = 13;
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["put"])({ type: __WEBPACK_IMPORTED_MODULE_3__constants__["g" /* SCRIPT_FETCH_FAILED */], message: _context2.t0.message });
+
+        case 13:
         case 'end':
           return _context2.stop();
       }
     }
-  }, _marked2, this);
+  }, _marked2, this, [[0, 9]]);
 }
 
-// Individual exports for testing
-function defaultSaga() {
-  return regeneratorRuntime.wrap(function defaultSaga$(_context3) {
+function delayTick() {
+  return regeneratorRuntime.wrap(function delayTick$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          _context3.next = 2;
-          return [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["takeEvery"])(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* SCRIPT_FETCH_REQUESTED */], fetchScript), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["takeEvery"])(__WEBPACK_IMPORTED_MODULE_3__constants__["b" /* TIMER_START */], delayTick)];
+          if (false) {
+            _context3.next = 7;
+            break;
+          }
 
-        case 2:
+          _context3.next = 3;
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux_saga__["a" /* delay */])(1500);
+
+        case 3:
+          _context3.next = 5;
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["put"])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__actions__["c" /* tick */])());
+
+        case 5:
+          _context3.next = 0;
+          break;
+
+        case 7:
         case 'end':
           return _context3.stop();
       }
     }
   }, _marked3, this);
+}
+
+// Individual exports for testing
+function defaultSaga() {
+  return regeneratorRuntime.wrap(function defaultSaga$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.next = 2;
+          return [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["takeEvery"])(__WEBPACK_IMPORTED_MODULE_3__constants__["b" /* SCRIPT_FETCH_REQUESTED_EN */], fetchScriptEN), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["takeEvery"])(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* SCRIPT_FETCH_REQUESTED_FR */], fetchScriptFR), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["takeEvery"])(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* TIMER_START */], delayTick)];
+
+        case 2:
+        case 'end':
+          return _context4.stop();
+      }
+    }
+  }, _marked4, this);
 }
 
 // All sagas to be loaded

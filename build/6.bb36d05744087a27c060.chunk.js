@@ -4,23 +4,25 @@ webpackJsonp([6],{
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SCRIPT_FETCH_REQUESTED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return SCRIPT_FETCH_SUCCEEDED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "f", function() { return SCRIPT_FETCH_FAILED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "g", function() { return RESPOND; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return TIMER_START; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return TIMER_TICK; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return PRINT; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "j", function() { return BOT_MESSAGE_INVISIBLE; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "h", function() { return BOT_MESSAGE_WRITING; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "i", function() { return BOT_MESSAGE_VISIBLE; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return SCRIPT_FETCH_REQUESTED_EN; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SCRIPT_FETCH_REQUESTED_FR; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "f", function() { return SCRIPT_FETCH_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "g", function() { return SCRIPT_FETCH_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "h", function() { return RESPOND; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return TIMER_START; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return TIMER_TICK; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return PRINT; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "k", function() { return BOT_MESSAGE_INVISIBLE; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "i", function() { return BOT_MESSAGE_WRITING; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "j", function() { return BOT_MESSAGE_VISIBLE; });
 /*
  *
  * Home page constants
  *
  */
 
-var SCRIPT_FETCH_REQUESTED = 'app/Home/SCRIPT_FETCH_REQUESTED';
+var SCRIPT_FETCH_REQUESTED_EN = 'app/Home/SCRIPT_FETCH_REQUESTED_EN';
+var SCRIPT_FETCH_REQUESTED_FR = 'app/Home/SCRIPT_FETCH_REQUESTED_FR';
 var SCRIPT_FETCH_SUCCEEDED = 'app/Home/SCRIPT_FETCH_SUCCEEDED';
 var SCRIPT_FETCH_FAILED = 'app/Home/SCRIPT_FETCH_FAILED';
 
@@ -68,7 +70,7 @@ function homeReducer() {
 
 
   switch (action.type) {
-    case __WEBPACK_IMPORTED_MODULE_1__constants__["e" /* SCRIPT_FETCH_SUCCEEDED */]:
+    case __WEBPACK_IMPORTED_MODULE_1__constants__["f" /* SCRIPT_FETCH_SUCCEEDED */]:
 
       var _nextState = state.merge({
         script_loaded: true,
@@ -81,12 +83,12 @@ function homeReducer() {
 
       return _nextState;
 
-    case __WEBPACK_IMPORTED_MODULE_1__constants__["f" /* SCRIPT_FETCH_FAILED */]:
+    case __WEBPACK_IMPORTED_MODULE_1__constants__["g" /* SCRIPT_FETCH_FAILED */]:
 
       console.log('script fetch failed');
       return state;
 
-    case __WEBPACK_IMPORTED_MODULE_1__constants__["g" /* RESPOND */]:
+    case __WEBPACK_IMPORTED_MODULE_1__constants__["h" /* RESPOND */]:
 
       // get current and next place in script
       var userResponse = state.getIn(['script', 'stages', action.stage_id, 'choices', action.choice_id]);
@@ -131,11 +133,11 @@ function homeReducer() {
 
       return _nextState;
 
-    case __WEBPACK_IMPORTED_MODULE_1__constants__["c" /* TIMER_TICK */]:
+    case __WEBPACK_IMPORTED_MODULE_1__constants__["d" /* TIMER_TICK */]:
 
       // if none, find first element in feed with status=BOT_MESSAGE_WRITING, set to BOT_MESSAGE_VISIBLE
       var firstWritingMessageIndex = state.get('feed').findIndex(function (message) {
-        return (message.speaker == -1 || message.speaker == 1) && message.status == __WEBPACK_IMPORTED_MODULE_1__constants__["h" /* BOT_MESSAGE_WRITING */];
+        return (message.speaker == -1 || message.speaker == 1) && message.status == __WEBPACK_IMPORTED_MODULE_1__constants__["i" /* BOT_MESSAGE_WRITING */];
       });
 
       if (firstWritingMessageIndex > -1) {
@@ -143,7 +145,7 @@ function homeReducer() {
         // update status of message
         var updatedFeed = state.updateIn(['feed', firstWritingMessageIndex], function (message) {
           var newMessage = Object.assign({}, message);
-          newMessage.status = __WEBPACK_IMPORTED_MODULE_1__constants__["i" /* BOT_MESSAGE_VISIBLE */];
+          newMessage.status = __WEBPACK_IMPORTED_MODULE_1__constants__["j" /* BOT_MESSAGE_VISIBLE */];
           return newMessage;
         });
 
@@ -162,12 +164,12 @@ function homeReducer() {
 
       // find first element in feed with status=BOT_MESSAGE_INVISIBLE, set to BOT_MESSAGE_WRITING
       var firstInvisibleMessageIndex = state.get('feed').findIndex(function (message) {
-        return (message.speaker == -1 || message.speaker == 1) && message.status == __WEBPACK_IMPORTED_MODULE_1__constants__["j" /* BOT_MESSAGE_INVISIBLE */];
+        return (message.speaker == -1 || message.speaker == 1) && message.status == __WEBPACK_IMPORTED_MODULE_1__constants__["k" /* BOT_MESSAGE_INVISIBLE */];
       });
       if (firstInvisibleMessageIndex > -1) {
         return state.updateIn(['feed', firstInvisibleMessageIndex], function (message) {
           var newMessage = Object.assign({}, message);
-          newMessage.status = __WEBPACK_IMPORTED_MODULE_1__constants__["h" /* BOT_MESSAGE_WRITING */];
+          newMessage.status = __WEBPACK_IMPORTED_MODULE_1__constants__["i" /* BOT_MESSAGE_WRITING */];
           return newMessage;
         });
       }
@@ -179,7 +181,7 @@ function homeReducer() {
 
       return state;
 
-    case __WEBPACK_IMPORTED_MODULE_1__constants__["d" /* PRINT */]:
+    case __WEBPACK_IMPORTED_MODULE_1__constants__["e" /* PRINT */]:
       window.print();
       break;
 
@@ -205,7 +207,7 @@ function addImmediateChoiceResponses(state, userResponse) {
     immediateResponses.toArray().forEach(function (response) {
       var feedMessage = {
         speaker: 1, // bot response code, TODO factor out as CONST
-        status: __WEBPACK_IMPORTED_MODULE_1__constants__["j" /* BOT_MESSAGE_INVISIBLE */],
+        status: __WEBPACK_IMPORTED_MODULE_1__constants__["k" /* BOT_MESSAGE_INVISIBLE */],
         // TODO: do something with prompt.type, contentType?
         type: response.get('type'),
         content: response.get('content'),
@@ -232,9 +234,17 @@ function addPromptMessages(state, stage_id) {
     var newArr = arr;
     prompts.toArray().forEach(function (prompt) {
 
+      var speaker = -1;
+
+      if (prompt.get('speaker') !== undefined) {
+        speaker = prompt.get('speaker');
+      }
+
+      console.log(prompt.get('speaker'));
+
       var feedMessage = {
-        speaker: -1, // narrator response code, TODO factor out as CONST
-        status: __WEBPACK_IMPORTED_MODULE_1__constants__["j" /* BOT_MESSAGE_INVISIBLE */],
+        speaker: speaker, // narrator response code, TODO factor out as CONST
+        status: __WEBPACK_IMPORTED_MODULE_1__constants__["k" /* BOT_MESSAGE_INVISIBLE */],
         // TODO: do something with prompt.type, contentType?
         type: prompt.get('type'),
         content: prompt.get('content'),

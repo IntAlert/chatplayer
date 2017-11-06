@@ -87,7 +87,9 @@ var ChatFeed = function (_Component) {
       }
 
       var listItems = messages.map(function (message, index) {
-        var bubbleClass, bubbleDirection;
+        var bubbleClass = void 0;
+        var bubbleDirection = void 0;
+        var extraBubbleClass = void 0;
 
         // determine bubble behaviour depending on who is speaking
         if (message.speaker === -1) {
@@ -124,9 +126,9 @@ var ChatFeed = function (_Component) {
         } else if (message.type === 'image') {
 
           var messageImage = void 0;
+          extraBubbleClass = ' bubble-has-image';
 
           if (message.more) {
-
             // make card flippable if there is more info on the image
             messageImage =
             // <FlippableImage message={message} />
@@ -147,10 +149,10 @@ var ChatFeed = function (_Component) {
         // determine appearance of message depending on status
         if (message.speaker === 0 || message.status == 'app/Home/BOT_MESSAGE_VISIBLE') {
 
-          // show whole message for all user messags
+          // show whole message for all user messages
           // or shown bot messages
           var messageDiv = _jsx('div', {
-            className: 'bubble-container ' + bubbleDirection
+            className: 'bubble-container ' + bubbleDirection + ' ' + extraBubbleClass
           }, index, avatar, _jsx('div', {
             className: 'bubble ' + bubbleClass
           }, void 0, messageContent));
@@ -369,7 +371,7 @@ var _ref = _jsx('div', {
 
 var _ref2 = _jsx('p', {
   className: 'intro'
-}, void 0, 'You are Maman Chantal.');
+}, void 0, 'You are Maman Chantal');
 
 var ConversationContext = function (_Component) {
   _inherits(ConversationContext, _Component);
@@ -821,31 +823,38 @@ if(false) {
  *
  * @return {object}    An action object with a type of RESPOND
  */
-function loadScript() {
-  // console.log('loadScript')
-  return {
-    type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* SCRIPT_FETCH_REQUESTED */]
-  };
+function loadScript(lang) {
+
+  if (lang == 'fr') {
+    return {
+      type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* SCRIPT_FETCH_REQUESTED_FR */]
+    };
+  } else {
+    // default to english
+    return {
+      type: __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* SCRIPT_FETCH_REQUESTED_EN */]
+    };
+  }
 }
 
 function startTimer() {
   // console.log('start')
   return {
-    type: __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* TIMER_START */]
+    type: __WEBPACK_IMPORTED_MODULE_0__constants__["c" /* TIMER_START */]
   };
 }
 
 function tick() {
   // console.log('tick')
   return {
-    type: __WEBPACK_IMPORTED_MODULE_0__constants__["c" /* TIMER_TICK */]
+    type: __WEBPACK_IMPORTED_MODULE_0__constants__["d" /* TIMER_TICK */]
   };
 }
 
 function print() {
   // console.log('tick')
   return {
-    type: __WEBPACK_IMPORTED_MODULE_0__constants__["d" /* PRINT */]
+    type: __WEBPACK_IMPORTED_MODULE_0__constants__["e" /* PRINT */]
   };
 }
 
@@ -855,23 +864,25 @@ function print() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SCRIPT_FETCH_REQUESTED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return SCRIPT_FETCH_SUCCEEDED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "f", function() { return SCRIPT_FETCH_FAILED; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "g", function() { return RESPOND; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return TIMER_START; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return TIMER_TICK; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return PRINT; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "j", function() { return BOT_MESSAGE_INVISIBLE; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "h", function() { return BOT_MESSAGE_WRITING; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "i", function() { return BOT_MESSAGE_VISIBLE; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return SCRIPT_FETCH_REQUESTED_EN; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SCRIPT_FETCH_REQUESTED_FR; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "f", function() { return SCRIPT_FETCH_SUCCEEDED; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "g", function() { return SCRIPT_FETCH_FAILED; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "h", function() { return RESPOND; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return TIMER_START; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return TIMER_TICK; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return PRINT; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "k", function() { return BOT_MESSAGE_INVISIBLE; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "i", function() { return BOT_MESSAGE_WRITING; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "j", function() { return BOT_MESSAGE_VISIBLE; });
 /*
  *
  * Home page constants
  *
  */
 
-var SCRIPT_FETCH_REQUESTED = 'app/Home/SCRIPT_FETCH_REQUESTED';
+var SCRIPT_FETCH_REQUESTED_EN = 'app/Home/SCRIPT_FETCH_REQUESTED_EN';
+var SCRIPT_FETCH_REQUESTED_FR = 'app/Home/SCRIPT_FETCH_REQUESTED_FR';
 var SCRIPT_FETCH_SUCCEEDED = 'app/Home/SCRIPT_FETCH_SUCCEEDED';
 var SCRIPT_FETCH_FAILED = 'app/Home/SCRIPT_FETCH_FAILED';
 
@@ -896,10 +907,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("./node_modules/react-redux/lib/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_intl__ = __webpack_require__("./node_modules/react-intl/lib/index.es.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_components_Conversation__ = __webpack_require__("./app/components/Conversation/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__constants__ = __webpack_require__("./app/containers/HomePage/constants.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions__ = __webpack_require__("./app/containers/HomePage/actions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_components_Conversation__ = __webpack_require__("./app/components/Conversation/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__("./app/containers/HomePage/actions.js");
 /* harmony export (immutable) */ exports["mapDispatchToProps"] = mapDispatchToProps;
 var _jsx = function () { var REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 0xeac7; return function createRawReactElement(type, props, key, children) { var defaultProps = type && type.defaultProps; var childrenLength = arguments.length - 3; if (!props && childrenLength !== 0) { props = {}; } if (props && defaultProps) { for (var propName in defaultProps) { if (props[propName] === void 0) { props[propName] = defaultProps[propName]; } } } else if (!props) { props = defaultProps || {}; } if (childrenLength === 1) { props.children = children; } else if (childrenLength > 1) { var childArray = Array(childrenLength); for (var i = 0; i < childrenLength; i++) { childArray[i] = arguments[i + 3]; } props.children = childArray; } return { $$typeof: REACT_ELEMENT_TYPE, type: type, key: key === undefined ? null : '' + key, ref: null, props: props, _owner: null }; }; }();
 
@@ -924,8 +933,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
+// import { FormattedMessage } from 'react-intl';
 
 
 
@@ -945,14 +953,21 @@ var HomePage = function (_React$Component) {
     // eslint-disable-line react/prefer-stateless-function
 
     value: function componentDidMount() {
-      this.props.onLoad();
+
+      // determine language
+      var lang = 'en';
+      if (window.location.href.indexOf('?french') > -1) {
+        lang = 'fr';
+      };
+
+      this.props.onLoad(lang);
       this.props.onStartTimer();
     }
   }, {
     key: 'render',
     value: function render() {
       if (this.props.script_loaded) {
-        var homePageContent = _jsx(__WEBPACK_IMPORTED_MODULE_3_components_Conversation__["a" /* default */], {
+        var homePageContent = _jsx(__WEBPACK_IMPORTED_MODULE_2_components_Conversation__["a" /* default */], {
           feed: this.props.feed,
           context: this.props.context,
           scores: this.props.scores
@@ -970,11 +985,11 @@ var HomePage = function (_React$Component) {
 function mapDispatchToProps(dispatch) {
   return {
     dispatch: dispatch,
-    onLoad: function onLoad() {
-      return dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__actions__["a" /* loadScript */])());
+    onLoad: function onLoad(lang) {
+      return dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__actions__["a" /* loadScript */])(lang));
     },
     onStartTimer: function onStartTimer() {
-      return dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__actions__["b" /* startTimer */])());
+      return dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__actions__["b" /* startTimer */])());
     }
   };
 }
@@ -2207,7 +2222,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".chats {\n  padding:16px 0;\n  font-family: 'Roboto';\n  font-weight: 400;\n}\n\n.bubble-container {\n  margin-bottom: 15px;\n  display:flex;\n  font-size: 12px;\n  align-items: top center;\n  flex-direction: row-reverse;\n}\n\n.bubble-direction-reverse {\n  flex-direction: row;\n}\n\n.bubble {\n    background-color: #F2F2F2;\n    border-radius: 15px;\n    box-shadow: 0 0 6px #B2B2B2;\n    display: block;\n    padding: 18px;\n    position: relative;\n    color: white;\n    word-wrap: break-word;\n    display: flex;\n    align-content: center;\n    \n}\n\n.bubble::before {\n    background-color: #F2F2F2;\n    content: \"\\A0\";\n    display: block;\n    height: 16px;\n    position: absolute;\n    top: 11px;\n    transform:             rotate( 29deg ) skew( -35deg );\n    width:  20px;\n}\n\n.bubble img {\n  border-radius: 15px;\n}\n.me {\n    background-color: #ee3980;\n    margin-left: 10px;\n    margin-right:18px;\n    max-width: 70%;\n}\n\n.me::before {\n    \n    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );\n    right: -9px;\n    background-color: #ee3980;\n}\n\n.you {\n    \n    background-color: #5cbfdc;\n    color:#000;\n    margin-left: 18px;\n    margin-right:10px;\n    max-width: 70%;\n}\n\n.you::before {\n    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );\n    left: -9px;\n    background-color: #5cbfdc;\n}\n\n\n.narrator {\n    background-color: #FDC300;\n    margin-left: 18px;\n    margin-right:18px;\n    color:#000;\n}\n\n.narrator::before {\n    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );\n    right: -9px;\n    background-color: #FDC300;\n    display: none;\n}\n\n.img-circle {\n  border-radius: 42%;\n  height:72px;\n  width:72px;\n}\n\n/*Loading*/\n.loading {\n  text-align: center;\n}\n\n.loading img {\n  height:30px;\n}\n\n\n/* Message Images */\n.message-image {\n  position: relative;\n  width:100%;\n}\n.message-image img {\n  max-width: 100%;\n}\n\n\n\n@media (min-width: 840px) { \n  .chats {\n    padding:32px 84px 84px 32px;\n  }\n\n  .bubble-container {\n    font-size: 18px;\n  }\n\n  .me {\n    margin-left: 60px;\n  }\n\n  .you {\n    margin-right:60px;\n  }\n}\n", ""]);
+exports.push([module.i, ".chats {\n  padding:16px 0;\n  font-family: 'Roboto';\n  font-weight: 400;\n}\n\n.bubble-container {\n  margin-bottom: 15px;\n  display:flex;\n  font-size: 12px;\n  align-items: top center;\n  flex-direction: row-reverse;\n}\n\n.bubble-direction-reverse {\n  flex-direction: row;\n}\n\n.bubble {\n    background-color: #F2F2F2;\n    border-radius: 15px;\n    box-shadow: 0 0 6px #B2B2B2;\n    display: block;\n    padding: 18px;\n    position: relative;\n    color: white;\n    word-wrap: break-word;\n    display: flex;\n    align-content: center;\n    \n}\n\n.bubble::before {\n    background-color: #F2F2F2;\n    content: \"\\A0\";\n    display: block;\n    height: 16px;\n    position: absolute;\n    top: 11px;\n    transform:             rotate( 29deg ) skew( -35deg );\n    width:  20px;\n}\n\n.bubble img {\n  border-radius: 15px;\n  \n}\n\n.bubble-has-image .bubble {\n  padding:0;\n  background:none;\n  \n}\n\n\n\n.bubble-has-image .bubble::before {\n  content: none;\n}\n\n.me {\n    background-color: #ee3980;\n    margin-left: 10px;\n    margin-right:18px;\n    max-width: 65%;\n}\n\n.me::before {\n    \n    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );\n    right: -9px;\n    background-color: #ee3980;\n}\n\n.you {\n    \n    background-color: #5cbfdc;\n    color:#000;\n    margin-left: 18px;\n    margin-right:10px;\n    max-width: 65%;\n}\n\n.you::before {\n    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );\n    left: -9px;\n    background-color: #5cbfdc;\n}\n\n\n.narrator {\n    background-color: #FDC300;\n    margin-left: 18px;\n    margin-right:18px;\n    color:#000;\n}\n\n.narrator::before {\n    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );\n    right: -9px;\n    background-color: #FDC300;\n    display: none;\n}\n\n.img-circle {\n  border-radius: 50%;\n  height:50px;\n  width:50px;\n  margin-left:3px;\n}\n\n/*Loading*/\n.loading {\n  text-align: center;\n}\n\n.loading img {\n  height:30px;\n}\n\n\n/* Message Images */\n.message-image {\n  position: relative;\n  width:100%;\n}\n.message-image img {\n  max-width: 100%;\n}\n\n\n\n@media (min-width: 840px) { \n  .chats {\n    padding:32px 84px 84px 32px;\n  }\n\n  .bubble-container {\n    font-size: 18px;\n  }\n\n  .me {\n    margin-left: 60px;\n  }\n\n  .you {\n    margin-right:60px;\n  }\n}\n", ""]);
 
 // exports
 
@@ -2222,7 +2237,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.conversation-wrapper {\n\tposition:relative;\n}\n\n.conversation-score-wrapper {\n\tposition:fixed;\n\tz-index:10;\n\tbackground:#5cbfdc;\n\tdisplay: flex;\n\tflex-direction: column;\n\theight:80px;\n\twidth:100%;\n}\n\n.chat-wrapper {\n\tposition:relative;\n\tmargin-top:80px;\n}\n\n\n@media (min-width: 840px) { \n\n\t.conversation-score-wrapper {\n\t\t/* flex-direction: column; */\n\t\tmargin-left:70%;\n\t\twidth:30%;\n\t\theight: calc(100% - 120px);\n\t}\n\n\t.chat-wrapper {\n\t\tz-index:10;\n\t\tfloat:left;\n\t\twidth:70%;\n\t\tmargin-top:20px;\n\t}\n\n}", ""]);
+exports.push([module.i, "\n.conversation-wrapper {\n\tposition:relative;\n}\n\n.conversation-score-wrapper {\n\tposition:fixed;\n\tz-index:10;\n\tbackground:#5cbfdc;\n\tdisplay: flex;\n\tflex-direction: column;\n\theight:65px;\n\twidth:100%;\n}\n\n.chat-wrapper {\n\tposition:relative;\n\tmargin-top:80px;\n}\n\n\n@media (min-width: 840px) { \n\n\t.conversation-score-wrapper {\n\t\t/* flex-direction: column; */\n\t\tmargin-left:70%;\n\t\twidth:30%;\n\t\theight: calc(100% - 120px);\n\t}\n\n\t.chat-wrapper {\n\t\tz-index:10;\n\t\tfloat:left;\n\t\twidth:70%;\n\t\tmargin-top:20px;\n\t}\n\n}", ""]);
 
 // exports
 
@@ -2237,7 +2252,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".conversation-context {\n  text-align: center;\n  font-size: 12px;\n  padding:10px 12px 0;\n  flex:1;\n  display:flex;\n}\n\np.intro {\n  margin:0;\n  font-size:12px;\n  flex:9;\n}\n\n.conversation-context .image-container {\n  flex:1;\n  margin-right:1em;\n}\n\n.conversation-context img {\n  max-height:100%;\n  max-width:100%;\n}\n\n.bahati {\n  border-radius:50%;\n  box-shadow: #000 5px 5px 50px; \n}\n\n\n\n@media (min-width: 840px) { \n\n  .conversation-context {\n    flex-direction: column;\n  }\n\n  p.intro {\n    font-size:22px;\n    margin:1em 0;\n  }\n\n}", ""]);
+exports.push([module.i, ".conversation-context {\n  text-align: center;\n  font-size: 12px;\n  padding:4px 12px 0;\n  flex:1;\n  display:flex;\n}\n\np.intro {\n  text-align: left;\n  margin:0;\n  font-size:12px;\n  flex:4;\n  padding-top:2px;\n}\n\n.conversation-context .image-container {\n  flex:1;\n  margin-right:1em;\n  margin-bottom:4px;\n}\n\n.conversation-context img {\n  max-height:100%;\n  max-width:100%;\n}\n\n.bahati {\n  border-radius:50%;\n  box-shadow: #000 5px 5px 50px; \n}\n\n\n\n@media (min-width: 840px) { \n\n  .conversation-context {\n    flex-direction: column;\n  }\n\n  p.intro {\n    font-size:22px;\n    margin:1em 0;\n  }\n\n}", ""]);
 
 // exports
 
@@ -2252,7 +2267,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".score-container {\n\t\n\tflex:2;\n\tfont-size:12px;\n\tdisplay:flex;\n\tbackground:rgba(0,0,0, 0.1);\n\tjustify-content: center;\n}\n\nimg.icon {\n\tmax-width:26px;\n}\n.score {\n\tpadding:0 12px;\n\tborder-radius: 3px;\n}\n\n.highlighted .score {\n\tbackground:#fff;\n}\n\n.unit {\n\tdisplay:none;\n}\n\n\n\n@media (min-width: 840px) { \n\t\n\t.score-container {\n\t\tfont-size:24px;\n\t\tflex-direction: column;\n\t\tmargin-left: 30px;\n\t\tpadding-bottom:30px;\n\t\tbackground:none;\n\t}\n\n\timg.icon {\n\t\tmax-width:32px;\n\t}\n\n\t.unit {\n\t\tdisplay:inline;\n\t}\n\n}", ""]);
+exports.push([module.i, ".score-container {\n\t\n\tflex:2;\n\tfont-size:12px;\n\tdisplay:flex;\n\tbackground:rgba(0,0,0, 0.1);\n\tjustify-content: center;\n}\n\nimg.icon {\n\tmax-width:26px;\n\tmargin-right:3px;\n}\n.score {\n\tpadding:0 12px;\n\tborder-radius: 3px;\n}\n\n.highlighted .score {\n\tbackground: #fff;\n}\n\n.unit {\n\tdisplay:none;\n}\n\n\n\n@media (min-width: 840px) { \n\t\n\t.score-container {\n\t\tfont-size:24px;\n\t\tflex-direction: column;\n\t\tmargin-left: 30px;\n\t\tpadding-bottom:30px;\n\t\tbackground:none;\n\t}\n\n\timg.icon {\n\t\tmax-width:32px;\n\t}\n\n\t.unit {\n\t\tdisplay:inline;\n\t}\n\n}", ""]);
 
 // exports
 
@@ -2267,7 +2282,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.image-container {\n\tposition: relative;\n}\n\n.image-container .more {\n  position: absolute;\n  bottom:0;\n  right:0;\n  background:#fff;\n  color:#000;\n  text-decoration: none;\n\tpadding:3px 8px;\n  border-radius: 3px;\n  font-size:10px;\n}\n\nimg.expanded-info {\n  width:100%;\n}\np.expanded-info {\n  font-size:12px;\n}", ""]);
+exports.push([module.i, "\n.image-container {\n\tposition: relative;\n}\n\n.image-container .more {\n  position: absolute;\n  bottom:0;\n  right:0;\n  background:#fff;\n  color:#000;\n  text-decoration: none;\n\tpadding:3px 8px;\n  border-radius: 3px;\n  font-size:10px;\n}\n\nimg.expanded-info {\n  width:100%;\n  margin-top:1.4em;\n}\np.expanded-info {\n  font-size:12px;\n}", ""]);
 
 // exports
 
