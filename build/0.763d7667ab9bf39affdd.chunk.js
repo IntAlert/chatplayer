@@ -297,9 +297,7 @@ function Conversation(props) {
         className: 'conversation-wrapper'
     }, void 0, _jsx('div', {
         className: 'conversation-score-wrapper'
-    }, void 0, _jsx(__WEBPACK_IMPORTED_MODULE_1_components_ConversationContext__["a" /* default */], {
-        context: context
-    }), _jsx(__WEBPACK_IMPORTED_MODULE_3_components_ConversationScoreHighlighted__["a" /* default */], {
+    }, void 0, _jsx(__WEBPACK_IMPORTED_MODULE_3_components_ConversationScoreHighlighted__["a" /* default */], {
         scores: scores
     })), _jsx('div', {
         className: 'chat-wrapper'
@@ -411,7 +409,7 @@ var ConversationContext = function (_Component) {
   return ConversationContext;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ exports["a"] = ConversationContext;
+/* unused harmony default export */ var _unused_webpack_default_export = ConversationContext;
 
 /***/ },
 
@@ -2237,7 +2235,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.conversation-wrapper {\n\tposition:relative;\n}\n\n.conversation-score-wrapper {\n\tposition:fixed;\n\tz-index:10;\n\tbackground:#5cbfdc;\n\tdisplay: flex;\n\tflex-direction: column;\n\theight:65px;\n\twidth:100%;\n}\n\n.chat-wrapper {\n\tposition:relative;\n\tmargin-top:80px;\n}\n\n\n@media (min-width: 840px) { \n\n\t.conversation-score-wrapper {\n\t\t/* flex-direction: column; */\n\t\tmargin-left:70%;\n\t\twidth:30%;\n\t\theight: calc(100% - 120px);\n\t}\n\n\t.chat-wrapper {\n\t\tz-index:10;\n\t\tfloat:left;\n\t\twidth:70%;\n\t\tmargin-top:20px;\n\t}\n\n}", ""]);
+exports.push([module.i, "\n.conversation-wrapper {\n\tposition:relative;\n}\n\n.conversation-score-wrapper {\n\tposition:fixed;\n\tz-index:10;\n\tbackground:#5cbfdc;\n\tdisplay: flex;\n\tflex-direction: column;\n\theight:40px;\n\twidth:100%;\n\tbox-shadow: 0px 10px 10px rgba(0,0,0,0.2);\n}\n\n.chat-wrapper {\n\tposition:relative;\n\tmax-width:500px;\n\tmargin: 45px auto 0;\n}\n\n\n@media (min-width: 840px) { \n\n\t.conversation-score-wrapper {\n\t\t/* flex-direction: column; */\n\t\tmargin-left:70%;\n\t\twidth:30%;\n\t\theight: calc(100% - 120px);\n\t}\n\n\t.chat-wrapper {\n\t\tz-index:10;\n\t\tfloat:left;\n\t\twidth:70%;\n\t\tmargin-top:20px;\n\t}\n\n}", ""]);
 
 // exports
 
@@ -2267,7 +2265,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".score-container {\n\t\n\tflex:2;\n\tfont-size:12px;\n\tdisplay:flex;\n\tbackground:rgba(0,0,0, 0.1);\n\tjustify-content: center;\n}\n\nimg.icon {\n\tmax-width:26px;\n\tmargin-right:3px;\n}\n.score {\n\tpadding:0 12px;\n\tborder-radius: 3px;\n}\n\n.highlighted .score {\n\tbackground: #fff;\n}\n\n.unit {\n\tdisplay:none;\n}\n\n\n\n@media (min-width: 840px) { \n\t\n\t.score-container {\n\t\tfont-size:24px;\n\t\tflex-direction: column;\n\t\tmargin-left: 30px;\n\t\tpadding-bottom:30px;\n\t\tbackground:none;\n\t}\n\n\timg.icon {\n\t\tmax-width:32px;\n\t}\n\n\t.unit {\n\t\tdisplay:inline;\n\t}\n\n}", ""]);
+exports.push([module.i, ".score-container {\n\t\n\tflex:2;\n\tfont-size:12px;\n\tdisplay:flex;\n\tbackground:rgba(0,0,0, 0.1);\n\tjustify-content: center;\n}\n\nimg.icon {\n\tmax-width:26px;\n\tmargin-right:3px;\n}\n.score {\n\tpadding:0 12px;\n\tborder-radius: 3px;\n}\n\n.highlighted .score {\n\tbackground: #fff;\n}\n\n.unit {\n\tdisplay:none;\n}\n\n@media (min-width: 840px) { \n\t\n\t.score-container {\n\t\tfont-size:24px;\n\t\tflex-direction: column;\n\t\tmargin-left: 30px;\n\t\tpadding-bottom:30px;\n\t\tbackground:none;\n\t}\n\n\timg.icon {\n\t\tmax-width:32px;\n\t}\n\n\t.unit {\n\t\tdisplay:inline;\n\t}\n\n}", ""]);
 
 // exports
 
