@@ -9,13 +9,15 @@
 	background:#5cbfdc;
 	display: flex;
 	flex-direction: column;
-	height:65px;
+	height:40px;
 	width:100%;
+	box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
 }
 
 .chat-wrapper {
 	position:relative;
-	margin-top:80px;
+	max-width:500px;
+	margin: 45px auto 0;
 }
 
 

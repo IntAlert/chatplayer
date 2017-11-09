@@ -39,7 +39,7 @@ function Conversation(props) {
         <div className='conversation-wrapper'>
 
             <div className='conversation-score-wrapper'>
-                <ConversationContext context={context} />
+                {/* <ConversationContext context={context} /> */}
                 <ConversationScoreHighlighted scores={scores} />
             </div>
 

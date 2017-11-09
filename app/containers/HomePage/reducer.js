@@ -171,12 +171,22 @@ function addImmediateChoiceResponses(state, userResponse) {
     return state
   }
 
+
+
   const nextState = state.update('feed', (arr) => {
     
     var newArr = arr;
     immediateResponses.toArray().forEach((response) => {
+
+
+      let speaker = 1;
+
+      if (response.get('speaker') !== undefined) {
+        speaker = response.get('speaker');
+      }
+
       const feedMessage = {
-        speaker:1, // bot response code, TODO factor out as CONST
+        speaker, // bot response code, TODO factor out as CONST
         status: BOT_MESSAGE_INVISIBLE,
         // TODO: do something with prompt.type, contentType?
         type: response.get('type'),
@@ -210,8 +220,6 @@ function addPromptMessages(state, stage_id) {
       if (prompt.get('speaker') !== undefined) {
         speaker = prompt.get('speaker');
       }
-
-      console.log(prompt.get('speaker'));
       
       const feedMessage = {
         speaker: speaker, // narrator response code, TODO factor out as CONST

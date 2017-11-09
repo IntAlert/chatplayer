@@ -16,16 +16,12 @@ const script = {
 				{
 					"speaker": 0,
 					"type": "text",
-					"content": "I am Maman Chantal. I live in the Democratic Republic of Congo (DRC) with my husband and four children."
+					"content": "I am Maman Chantal. I live in the DRC with my husband and four children."
 				},
 				{
 					"speaker": 0,
 					"type": "text",
 					"content": "Step into my shoes and experience the journey I take each week to cross the border into Rwanda to buy tomatoes."
-				},
-				{
-					"type": "text",
-					"content": "Before you leave the house, you need to get your children ready for school and prepare breakfast for the whole family, so you arrive at the border crossing late."
 				}
 			],
 			"choices": {
@@ -44,7 +40,7 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You need to get your children ready and prepare breakfast for the whole family, before you can leave the house. Because of this, you've arrive at the border crossing late",
+					"content": "Before you leave the house, you need to get your children ready for school and prepare breakfast for the whole family, so you arrive at the border crossing late.",
 					"scoreChange": {
 						"money": {
 							"operator": "set",
@@ -127,6 +123,21 @@ const script = {
 						{
 							"type": "text",
 							"content": "That's risky, as you might not find tomatoes elsewhere and the sellers will continue to charge you extra every time you go back."
+						},
+						{
+							"speaker": -1,
+							"type": "text",
+							"content": "You accept the price of 80 francs for 100 tomatoes.",
+							"scoreChange": {
+								"money": {
+									"operator": "add",
+									"amount": -80
+								},
+								"tomatoes": {
+									"operator": "add",
+									"amount": 100
+								}
+							}
 						},
 						{
 							"type": "image",

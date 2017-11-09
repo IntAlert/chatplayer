@@ -29,7 +29,7 @@ export function* fetchScriptFR(action) {
 
 function* delayTick() {
   while(true) {
-    yield delay(1500);
+    yield delay(100);
     yield put(tick());
   }
   
