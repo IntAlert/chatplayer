@@ -413,12 +413,12 @@ const script = {
 				// {
 				// 	"type": "text",
 				// 	"content": "<div class='panel'>This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day.</div>"
-				// }						
+				// }
 			],			
 			"prompts": [
 				{
 					"type": "text",
-					"content": "Congratulations, you've completed the tomato trader challenge!"
+					"content": 'Congratulations, you\'ve completed the tomato trader challenge! Find out more about our work on this issue at <a href="http://www.international-alert.org/crossing-borders" target="_blank">www.international-alert.org/crossing-borders</a>'
 				}
 			],
 			"choices": {

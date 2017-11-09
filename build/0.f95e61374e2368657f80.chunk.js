@@ -120,9 +120,15 @@ var ChatFeed = function (_Component) {
         // determine content of bubble depending on content type
         var messageContent = void 0;
         if (message.type == 'text') {
+
+          var html = {
+            __html: message.content
+          };
+
           messageContent = _jsx('div', {
-            className: 'message-text'
-          }, void 0, message.content);
+            className: 'message-text',
+            dangerouslySetInnerHTML: html
+          }, void 0);
         } else if (message.type === 'image') {
 
           var messageImage = void 0;

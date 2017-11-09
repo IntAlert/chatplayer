@@ -56,9 +56,13 @@ class ChatFeed extends Component {
       // determine content of bubble depending on content type
       let messageContent;
       if(message.type == 'text') {
+
+        const html = {
+          __html: message.content
+        }
+        
         messageContent = (
-          <div className={`message-text`}>
-            {message.content}
+          <div className={`message-text`} dangerouslySetInnerHTML={html}>
           </div>
         )
       } else if(message.type === 'image') {
@@ -93,7 +97,7 @@ class ChatFeed extends Component {
         var messageDiv = (
           <div className={`bubble-container ${bubbleDirection} ${extraBubbleClass}`} key={index}>
             {avatar}
-            <div className={`bubble ${bubbleClass}`}>
+            <div className={`bubble ${bubbleClass}`} >
               {messageContent}
             </div>
           </div>
