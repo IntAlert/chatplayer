@@ -214,7 +214,7 @@ function delayTick() {
           }
 
           _context3.next = 3;
-          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux_saga__["a" /* delay */])(100);
+          return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux_saga__["a" /* delay */])(1000);
 
         case 3:
           _context3.next = 5;

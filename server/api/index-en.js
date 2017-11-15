@@ -16,7 +16,7 @@ const script = {
 				{
 					"speaker": 0,
 					"type": "text",
-					"content": "I am Maman Chantal. I live in the DRC with my husband and four children."
+					"content": "I am Maman Chantal. I live in DRC with my husband and four children."
 				},
 				{
 					"speaker": 0,
