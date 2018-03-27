@@ -487,25 +487,19 @@ var MoneyScore = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default 
 
 var ScoreTitle = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].p(_templateObject2);
 
-var _ref = _jsx(ScoreTitle, {}, void 0, 'You have:');
-
-var _ref2 = _jsx('img', {
+var _ref = _jsx('img', {
   className: 'icon',
   src: '/images/icon-tomato.png',
   alt: 'tomato'
 });
 
-var _ref3 = _jsx('span', {
-  className: 'unit'
-}, void 0, 'tomatoes');
-
-var _ref4 = _jsx('img', {
+var _ref2 = _jsx('img', {
   className: 'icon',
   src: '/images/icon-money.png',
   alt: 'money'
 });
 
-var _ref5 = _jsx('span', {
+var _ref3 = _jsx('span', {
   className: 'unit'
 }, void 0, 'francs');
 
@@ -552,17 +546,33 @@ var ConversationScoreHighlighted = function (_React$PureComponent) {
       var highlightTomatoClass = this.state.highlightTomato ? 'highlighted' : '';
       var highlightMoneyClass = this.state.highlightMoney ? 'highlighted' : '';
 
+      // determine language
+      var lang = 'en';
+      if (window.location.href.indexOf('?french') > -1) {
+        lang = 'fr';
+      }
+
+      var youHaveText = 'You have';
+      var tomatoesText = 'tomatoes';
+
+      if (lang === 'fr') {
+        youHaveText = 'Vous avez';
+        tomatoesText = 'tomates';
+      }
+
       return _jsx('div', {
         className: 'score-container'
-      }, void 0, _ref, _jsx(TomatoScore, {
+      }, void 0, _jsx(ScoreTitle, {}, void 0, youHaveText, ':'), _jsx(TomatoScore, {
         className: highlightTomatoClass
+      }, void 0, _ref, _jsx('span', {
+        className: 'score'
+      }, void 0, this.props.scores.get('tomatoes'), ' ', _jsx('span', {
+        className: 'unit'
+      }, void 0, tomatoesText))), _jsx(MoneyScore, {
+        className: highlightMoneyClass
       }, void 0, _ref2, _jsx('span', {
         className: 'score'
-      }, void 0, this.props.scores.get('tomatoes'), ' ', _ref3)), _jsx(MoneyScore, {
-        className: highlightMoneyClass
-      }, void 0, _ref4, _jsx('span', {
-        className: 'score'
-      }, void 0, this.props.scores.get('money'), ' ', _ref5)));
+      }, void 0, this.props.scores.get('money'), ' ', _ref3)));
     }
   }]);
 
@@ -636,10 +646,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
 
-var _ref = _jsx('span', {
-  className: 'more'
-}, void 0, 'Touch to learn more');
-
 var ExpandableImage = function (_React$Component) {
   _inherits(ExpandableImage, _React$Component);
 
@@ -680,12 +686,23 @@ var ExpandableImage = function (_React$Component) {
       var open = this.state.open;
       // const flippedClass = this.state.isTouchFlipped ? "flip-container touch-flipped" : 'flip-container ';
 
+      // determine language
+
+      var lang = 'en';
+      if (window.location.href.indexOf('?french') > -1) {
+        lang = 'fr';
+      };
+
+      var touchText = lang === 'fr' ? 'Pour en savoir plus' : 'Click to learn more';
+
       return _jsx('div', {}, void 0, _jsx('div', {
         className: 'image-container',
         onClick: this.onOpenModal
       }, void 0, _jsx('img', {
         src: message.content
-      }), _ref), _jsx(__WEBPACK_IMPORTED_MODULE_1_react_responsive_modal___default.a, {
+      }), _jsx('span', {
+        className: 'more'
+      }, void 0, touchText)), _jsx(__WEBPACK_IMPORTED_MODULE_1_react_responsive_modal___default.a, {
         open: open,
         little: true,
         onClose: this.onCloseModal

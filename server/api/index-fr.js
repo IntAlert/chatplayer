@@ -14,21 +14,19 @@ const script = {
 		"0": {
 			"prompts": [
 				{
+					"speaker": 0,
 					"type": "text",
-					"content": "FRENCH Maman Chantal lives in the DRC with her husband and four children. Step into her shoes and experience the journey she takes each week to cross the border into Rwanda to buy tomatoes"
+					"content": "Je suis Maman Chantal. Je vis en RDC avec mon mari et mes quatre enfants."
 				},
 				{
+					"speaker": 0,
 					"type": "text",
-					"content": "You are Maman Chantal"
-				},
-				{
-					"type": "text",
-					"content": "You trade tomatoes and you live in the DRC with your husband and four children"
+					"content": "Prenez donc ma place pour voir le trajet que je parcours chaque semaine pour m'approvisionner en tomates au Rwanda."
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Let's go",
+					"text": "C'est parti!",
 					"targetType": "feed",
 					"target": "1"
 				}
@@ -42,7 +40,7 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You need to get your children ready and prepare breakfast for the whole family, before you can leave the house. Because of this, you've arrive at the border crossing late",
+					"content": "Avant de pouvoir quitter la maison, vous devez veiller à ce que vos enfants soient prêts pour l'école et préparer le petit déjeuner pour toute la famille, ce qui fait que vous arrivez tard au poste frontalier.",
 					"scoreChange": {
 						"money": {
 							"operator": "set",
@@ -57,7 +55,7 @@ const script = {
 				},
 				{
 					"type": "text",
-					"content": "What do you do?"
+					"content": "Que faites-vous?"
 				}
 			],
 			"choices": {
@@ -68,16 +66,16 @@ const script = {
 						// 	"content": "One of the things that Alert is doing is setting up spouse clubs, which encourage husbands to share domestic chores at home. That way women traders can get to the border early and avoid unnecessary delays."
 						// }
 					],
-					"text": "Join the queue for a border pass",
+					"text": "Vous prenez place dans la file d’attente pour obtenir un laissez-passer.",
 					"responses": [
 						{
 							"type": "text",
-							"content": "Hi I'm Maman Bahati, another Congolese trader. It's a shame you couldn't arrive earlier. The queue is very long now. Hopefully there will be tomatoes once you get across."
+							"content": "Bonjour, je suis Maman Bahati, petite commerçante congolaise comme vous. Dommage que vous n’ayez pas pu arriver plus tôt. La file d’attente est maintenant très longue. J’espère que vous trouverez encore des tomates une fois que vous aurez traversé la frontière."
 						},
 						{
 							"type": "image",
 							"content": "/images/queue2.jpg",
-							"more": "Alert lobbies border officials to take measures that reduce the amount of time women traders have to spend at the border. Alert has set up spouse clubs, which encourage men, whose wives are traders, to share domestic responsibilities at home. For example, getting the children ready while the wife prepares breakfast. This way, you get to the border early and won't have to pay any extra fees."
+							"more": "International Alert mène des plaidoyers auprès des douaniers et officiels de migration pour qu’ils réduisent le temps que doivent passer les femmes petites commerçantes à la frontière. Nous avons également créé des clubs d’époux pour encourager les maris des femmes petites commerçantes à partager les tâches ménagères, par exemple en leur demandant de préparer les enfants pour l’école pendant que leur épouse fait le petit déjeuner. Cela permet aux petites commerçantes d’arriver plus tôt à la frontière et leur évite de payer des frais supplémentaires."
 						}
 						
 					],
@@ -85,11 +83,11 @@ const script = {
 					"target": "2"
 				},
 				"2": {
-					"text": "Bribe an official for a quick pass",
+					"text": "Vous soudoyez un agent pour obtenir un laissez-passer plus rapidement.",
 					"responses": [
 						{
 							"type": "text",
-							"content": "This will get you across the border quickly, but that money could have gone towards school fees for a week. Fingers crossed you make enough today to cover that.",
+							"content": "Bonjour, je suis Maman Bahati, petite commerçante congolaise comme vous. Si vous soudoyez un agent, vous pourrez traverser la frontière rapidement, mais cette somme aurait pu vous servir à payer les frais d’école pour toute une semaine. J’espère vraiment que vous gagnerez suffisamment d’argent aujourd’hui pour pouvoir couvrir ces frais.",
 							"scoreChange": {
 								"money": {
 									"operator": "add",
@@ -115,41 +113,21 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "You make it across the border and reach the market place in Rwanda. The price of tomatoes is high but you can't go back empty handed. Do you:"
+					"content": "Vous arrivez de l’autre côté de la frontière et parvenez jusqu’au marché rwandais. Le prix des tomates y est élevé, mais vous ne pouvez pas repartir les mains vides. Que faites-vous ?"
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Keep trying other stalls",
+					"text": "Vous essayez d’autres étals.",
 					"responses": [
 						{
 							"type": "text",
-							"content": "That's risky, you might not find tomatoes anywhere else and they will continue to charge you extra every time you go back.  "
+							"content": "C’est risqué, car vous pourriez ne pas trouver de tomates ailleurs, et les vendeurs vous demanderont un prix de plus en plus élevé chaque fois que vous retournerez les voir"
 						},
 						{
-							"type": "image",
-							"content": "/images/market.jpg",
-							"more": "Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here they forge strong relationships and negotiate over the price of produce so that it is fair and profitable for everyone."
-						}
-					],
-					"targetType": "feed",
-					"target": "3"
-				},
-				"2": {
-					"text": "Call a friend to help negotiate",
-					"responses": [
-						{
+							"speaker": -1,
 							"type": "text",
-							"content": "That's exactly what I would do!"
-						},
-						{
-							"type": "image",
-							"content": "/images/market.jpg",
-							"more": "Alert helps to set up market committees, which bring together traders from DRC and Rwanda. Here they forge strong relationships and negotiate over the price of produce so that it is fair and profitable for everyone."
-						}, 
-						{
-							"type": "text",
-							"content": "You negotiate a reasonable price: 80 francs for 100 tomatoes",
+							"content": "Vous acceptez de payer 80 francs les 100 tomates..",
 							"scoreChange": {
 								"money": {
 									"operator": "add",
@@ -160,6 +138,37 @@ const script = {
 									"amount": 100
 								}
 							}
+						},
+						{
+							"type": "image",
+							"content": "/images/market.jpg",
+							"more": "International Alert aide à mettre en œuvre des comités de marché réunissant des commerçantes de RDC et du Rwanda. Ces comités leur permettent d’instaurer des relations solides entre elles et de négocier le prix des marchandises pour que tout le monde y trouve son compte de manière équitable."
+						}
+					],
+					"targetType": "feed",
+					"target": "3"
+				},
+				"2": {
+					"text": "Vous appelez un ami pour qu’il vous aide à négocier.",
+					"responses": [
+						{
+							"type": "text",
+							"content": "C’est exactement ce que je ferais ! Vous négociez un prix raisonnable : 80 francs les 100 tomates.",
+							"scoreChange": {
+								"money": {
+									"operator": "add",
+									"amount": -80
+								},
+								"tomatoes": {
+									"operator": "add",
+									"amount": 100
+								}
+							}
+						},
+						{
+							"type": "image",
+							"content": "/images/market.jpg",
+							"more": "International Alert aide à mettre en œuvre des comités de marché réunissant des commerçantes de RDC et du Rwanda. Ces comités leur permettent d’instaurer des relations solides entre elles et de négocier le prix des marchandises pour que tout le monde y trouve son compte de manière équitable."
 						}
 					],
 					"targetType": "feed",
@@ -179,16 +188,16 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "The DRC border is about to close. After purchasing your tomatoes you realise you have lost your border pass. What do you do?"
+					"content": "La frontière avec la RDC va bientôt fermer. Après avoir acheté vos tomates, vous vous rendez compte que vous avez égaré votre laissez-passer. Que faites-vous ?"
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Reach out to a Rwandan trader for help",
+					"text": "Vous contactez une commerçante rwandaise pour qu’elle vous vienne en aide.",
 					"responses": [
 						{
 							"type": "text",
-							"content": "This happened to me last week. A Rwandan trader I met through Alert introduced me to a senior official who had participated in Alert's dialogue training and helped me to get back to DRC."
+							"content": "C’est ce qui m’est arrivé la semaine dernière. Une petite commerçante rwandaise que j’avais rencontrée par l’intermédiaire d’Alert m’a présentée à un haut fonctionnaire qui avait suivi la formation d’Alert sur le dialogue et qui m’a aidée à rentrer en RDC."
 						},
 						// {
 						//     "type": "text",
@@ -207,17 +216,17 @@ const script = {
 					"target": "4"
 				},
 				"2": {
-					"text": "Offer the Rwandan border official a bribe",
+					"text": "Vous proposez un pot-de-vin au douanier. ",
 					"responses": [
 
 						{
 							"type": "text",
-							"content": "Oh no, that could land you in jail!"
+							"content": "Oh non, vous risquez de vous retrouver en prison !"
 						},
 						{
 							"type": "image",
 							"content": "/images/jail.jpg",
-							"more": "Rwandan border guards will not accept bribes. So those who can't produce a border pass must buy a new one, which is expensive, or risk spending the night in jail. ",
+							"more": "Les douaniers rwandais n’acceptent pas les pots-de-vin. Les personnes qui ne peuvent pas présenter leur laissez-passer doivent en acheter un nouveau, ce qui revient cher, faute de quoi elles risquent de passer la nuit en prison. ",
 							"scoreChange": {
 								"money": {
 									"operator": "add",
@@ -275,16 +284,20 @@ const script = {
 				// 	}
 				// },
 				{
-					"type": "text",
-					"content": "The border is very chaotic. As you make your way back you see someone demanding money from a fellow trader."
+					"type": "image",
+					"content": "/images/chaos.gif"
 				},
 				{
 					"type": "text",
-					"content": "You intervene to inform your fellow trader and the official of the trade regulations that you have learnt about through Alert's training so that they understand the difference between legal and illegal taxes"
+					"content": "La frontière est un endroit très chaotique. Sur le chemin du retour, vous voyez un agent en train de réclamer de l’argent à une autre petite commerçante.."
 				},
 				{
 					"type": "text",
-					"content": "A truck starts to reverse into the crowd and you lose half of your tomatoes."
+					"content": "Vous intervenez pour informer la petite commerçante et l’agent des règles commerciales que vous avez apprises lors de la formation dispensée par International Alert, et ainsi les aider à comprendre la différence entre les taxes légales et illégales."
+				},
+				{
+					"type": "text",
+					"content": "Alors que vous attendez de retraverser la frontière, un camion fait marche arrière et percute la foule. Vous perdez la moitié de vos tomates."
 					,
 
 					"scoreChange": {
@@ -293,15 +306,11 @@ const script = {
 							"amount": 0.5
 						},
 					}
-				},
-				{
-					"type": "image",
-					"content": "/images/chaos.gif"
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Continue your journey",
+					"text": "Poursuivez votre chemin.",
 					"targetType": "feed",
 					"target": "6"
 				}
@@ -315,11 +324,11 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "It's now dark and the market in DRC is closed. You will have to sell your tomatoes tomorrow."
+					"content": "La nuit est tombée, et le marché du côté congolais est maintenant fermé. Vous devrez attendre jusqu’à demain pour vendre vos tomates."
 				},
 				{
 					"type": "text",
-					"content": "Do you:"
+					"content": "Que faites-vous ?"
 				}
 			],
 			"choices": {
@@ -355,41 +364,41 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "It's now dark and the market in DRC is closed. You will have to sell your tomatoes tomorrow."
+					"content": "La nuit est tombée, et le marché du côté congolais est maintenant fermé. Vous devrez attendre jusqu’à demain pour vendre vos tomates."
 				},
 				{
 					"type": "text",
-					"content": "You return home but the children haven't eaten. What now?"
+					"content": "Vous rentrez chez vous, mais les enfants n’ont pas mangé. Que faites-vous ?"
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Get started on dinner",
+					"text": "Vous commencez à préparer le repas.",
 					"responses": [
 						{
 							"type": "text",
-							"content": "My husband is part of the spouse club and now shares the domestic chores. Now when I get home after the market, I can rest and put my feet up."
+							"content": "Mon mari fait partie du club des époux et partage désormais les tâches ménagères. Alors maintenant, quand je rentre du marché, je peux me reposer et me laisser servir."
 						},
 						{
 							"type": "image",
 							"content": "/images/spouse-club.png",
-							"more": "This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day."
+							"more": "Cela concerne beaucoup de femmes de RDC. Il est culturellement inacceptable de confronter son mari ou de lui demander d’assumer des corvées, mais nos clubs d’époux aident les familles à comprendre les avantages qu’il y a à partager les tâches ménagères. Surtout les jours de marché, quand il est crucial d’arriver suffisamment tôt pour pouvoir gagner de l’argent."
 						}
 					],
 					"targetType": "feed",
 					"target": "90"
 				},
 				"2": {
-					"text": "Confront your husband",
+					"text": "Vous confrontez votre mari.",
 					"responses": [
 						{
 							"type": "text",
-							"content": "My husband is part of the spouse club and now shares the domestic chores. Now when I get home after the market, I can rest and put my feet up."
+							"content": "Mon mari fait partie du club des époux et partage désormais les tâches ménagères. Alors maintenant, quand je rentre du marché, je peux me reposer et me laisser servir."
 						},
 						{
 							"type": "image",
 							"content": "/images/spouse-club.png",
-							"more": "This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day."
+							"more": "Cela concerne beaucoup de femmes de RDC. Il est culturellement inacceptable de confronter son mari ou de lui demander d’assumer des corvées, mais nos clubs d’époux aident les familles à comprendre les avantages qu’il y a à partager les tâches ménagères. Surtout les jours de marché, quand il est crucial d’arriver suffisamment tôt pour pouvoir gagner de l’argent."
 						}
 					],
 					"targetType": "feed",
@@ -404,17 +413,17 @@ const script = {
 				// {
 				// 	"type": "text",
 				// 	"content": "<div class='panel'>This is the case for lots of women in DRC. It's not culturally acceptable to confront your husband or for them to take on any domestic duties but International Alert's spouse club helps families understand the benefits of sharing the duties. Especially on market days when timing is crucial to how much money you can make that day.</div>"
-				// }						
+				// }
 			],			
 			"prompts": [
 				{
 					"type": "text",
-					"content": "Congratulations. You've completed the tomato challenge!"
+					"content": 'Félicitations, vous avez complété le défi des vendeuses de tomates ! Pour obtenir de plus amples renseignements sur les travaux que nous consacrons à cette thématique, consultez <a href="http://www.international-alert.org/crossing-borders" target="_blank">www.international-alert.org/crossing-borders</a>'
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Start again",
+					"text": "Recommencer",
 					// "targetType": "feed",
 					// "target": "91"
 					"targetType": "route",
@@ -461,16 +470,16 @@ const script = {
 			"prompts": [
 				{
 					"type": "text",
-					"content": "Jail is not a great place to be."
+					"content": "La prison n’est pas le meilleur endroit qui soit… "
 				}
 			],
 			"choices": {
 				"1": {
-					"text": "Try that again",
+					"text": "Réessayez",
 					"responses": [
 						{
 							"type": "text",
-							"content": "Wise choice... "
+							"content": "Sage décision…  "
 						},
 					],
 					"targetType": "feed",
@@ -484,9 +493,6 @@ const script = {
 
 /* GET home page. */
 router.get('/script', (req, res) => {
-
-	// const delay = 1500;
-	// setTimeout(() => res.json(script), delay);
 	res.json(script)
 });
 

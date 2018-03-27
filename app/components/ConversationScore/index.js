@@ -25,13 +25,28 @@ const ScoreTitle = styled.p`
 
 function ConversationScore(props) {
 
+
+  // determine language
+  let lang = 'en';
+  if (window.location.href.indexOf('?french') > -1) {
+    lang = 'fr';
+  }
+
+  let youHaveText = 'You have:';
+  let tomatoesText = 'tomatoes';
+
+  if (lang === 'fr') {
+    youHaveText = 'Vous avez:';
+    tomatoesText = 'tomates';
+  }
+
   return (
     <div className="score-container">
-      <ScoreTitle>You have:</ScoreTitle>
+      <ScoreTitle>{youHaveText}:</ScoreTitle>
 
       <TomatoScore>
         <img className="icon" src="/images/icon-tomato.svg" alt="tomato" />
-        {props.scores.get('tomatoes')} tomatoes
+        {props.scores.get('tomatoes')} {tomatoesText}
       </TomatoScore>
       
       

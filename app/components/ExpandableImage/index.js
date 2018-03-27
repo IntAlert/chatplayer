@@ -48,12 +48,20 @@ class ExpandableImage extends React.Component { // eslint-disable-line react/pre
     const { open } = this.state;
     // const flippedClass = this.state.isTouchFlipped ? "flip-container touch-flipped" : 'flip-container ';
 
+    // determine language
+    let lang = 'en';
+    if (window.location.href.indexOf('?french') > -1) {
+      lang = 'fr';
+    };
+
+    const touchText = (lang === 'fr') ? 'Pour en savoir plus' : 'Click to learn more';
+
     return (
       <div>
 
         <div className="image-container" onClick={this.onOpenModal}>
           <img src={message.content} />
-          <span className="more">Touch to learn more</span>
+          <span className="more">{touchText}</span>
         </div>
 
         <Modal open={open} little onClose={this.onCloseModal}>

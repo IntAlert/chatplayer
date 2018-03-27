@@ -57,14 +57,29 @@ class ConversationScoreHighlighted extends React.PureComponent { // eslint-disab
       const highlightMoneyClass = this.state.highlightMoney ? 'highlighted' : '';
 
 
+      // determine language
+      let lang = 'en';
+      if (window.location.href.indexOf('?french') > -1) {
+        lang = 'fr';
+      }
+
+      let youHaveText = 'You have';
+      let tomatoesText = 'tomatoes';
+
+      if (lang === 'fr') {
+        youHaveText = 'Vous avez';
+        tomatoesText = 'tomates';
+      }
+
+
       return (
       <div className="score-container">
-        <ScoreTitle>You have:</ScoreTitle>
+        <ScoreTitle>{youHaveText}:</ScoreTitle>
 
         <TomatoScore className={highlightTomatoClass}>
           <img className="icon" src="/images/icon-tomato.png" alt="tomato" />
           <span className="score">
-            {this.props.scores.get('tomatoes')} <span className="unit">tomatoes</span>
+            {this.props.scores.get('tomatoes')} <span className="unit">{tomatoesText}</span>
           </span>
         </TomatoScore>
         

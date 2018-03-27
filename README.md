@@ -12,7 +12,7 @@ http://chatplayer.azurewebsites.net
 2. `npm run build`
 3. `npm start`
 
-# Deployment
+# Deployment .
 1. `az login`
 2. `npm run build`
 3. `git add .`
